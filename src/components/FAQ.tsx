@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CURRENT_YEAR } from '../constants/common';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,14 +43,14 @@ const FAQ: React.FC = () => {
         },
         {
             question: '결과 발표는 언제인가요?',
-            answer: '심사 종료 후 개별적으로 통보되며, 2026년 5월 중 최종 결과가 발표될 예정입니다.',
+            answer: `심사 종료 후 개별적으로 통보되며, ${CURRENT_YEAR}년 5월 중 최종 결과가 발표될 예정입니다.`,
         },
     ];
 
     return (
         <section id="faq" className="bg-brand-black py-32 snap-start">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+                <div className="text-left mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">자주 묻는 질문</h2>
                     <p className="text-gray-400">어워드 관련 궁금한 점을 확인하세요.</p>
                 </div>

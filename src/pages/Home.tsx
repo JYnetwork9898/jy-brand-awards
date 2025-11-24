@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AWARDS } from '../constants/awards';
+import { CURRENT_YEAR, PREV_YEAR } from '../constants/common';
 import TopBar from '../components/TopBar';
 
 // Award month mapping
@@ -37,9 +38,9 @@ const Home: React.FC = () => {
                     <div className="md:col-span-7 relative">
                         <div className="absolute -top-20 -left-20 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl"></div>
                         <h2 className="text-6xl md:text-8xl font-bold leading-[0.9] mb-12 tracking-tight">
-                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">2025</span>
-                            <span className="block">KOREA</span>
-                            <span className="block text-brand-gold">BRAND</span>
+                            <span className="block text-brand-gold">{CURRENT_YEAR}</span>
+                            <span className="block">KBMJ</span>
+                            <span className="block">BRAND</span>
                             <span className="block">AWARDS</span>
                         </h2>
                         <p className="text-xl text-gray-400 max-w-lg leading-relaxed mb-12 border-l-2 border-brand-gold pl-6">
@@ -65,7 +66,7 @@ const Home: React.FC = () => {
                                 to="/awards/hit"
                                 className="group inline-flex items-center gap-4 px-8 py-4 bg-transparent border border-brand-gold/30 hover:bg-brand-gold/10 transition-all duration-300"
                             >
-                                <span className="text-lg font-medium tracking-widest uppercase">Apply Now</span>
+                                <span className="text-lg font-medium tracking-widest uppercase">현재 접수 중인 어워즈 바로가기</span>
                                 <span className="text-brand-gold group-hover:translate-x-2 transition-transform">→</span>
                             </Link>
                         </div>
@@ -73,7 +74,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="absolute bottom-12 left-8 md:left-24 text-xs text-gray-600 tracking-widest uppercase">
-                    © 2025 JYnetworks. All rights reserved
+                    © {CURRENT_YEAR} JYnetworks. All rights reserved
                 </div>
             </section>
 
@@ -99,7 +100,7 @@ const Home: React.FC = () => {
                                         {currentMonth}
                                     </span>
                                     <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 relative">
-                                        {currentAward.title.replace('2026 ', '')}
+                                        {currentAward.title.replace(`${CURRENT_YEAR} `, '')}
                                     </h3>
                                     <p className="text-lg text-gray-400 leading-relaxed border-t border-gray-800 pt-8">
                                         {currentAward.description}

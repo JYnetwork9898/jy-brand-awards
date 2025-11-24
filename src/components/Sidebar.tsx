@@ -1,19 +1,17 @@
 import React from 'react';
-import { useAward } from '../context/AwardContext';
+import { CURRENT_YEAR } from '../constants/common';
 
 const Sidebar: React.FC = () => {
-    const { currentAward } = useAward();
-
     const menuItems = [
-        { label: '시상식 개요', id: 'overview' },
-        { label: '시상식 취지', id: 'mission' },
-        { label: '수상 혜택', id: 'benefits' },
-        { label: '수상 효과', id: 'effects' },
-        { label: '역대 수상 브랜드', id: 'past-winners' },
-        { label: '역대 시상식', id: 'video' },
-        { label: '언론 보도', id: 'press' },
-        { label: '참가 프로세스', id: 'process' },
-        { label: '자주 묻는 질문', id: 'faq' },
+        { id: 'overview', label: '시상식 개요' },
+        { id: 'mission', label: '시상식 취지' },
+        { id: 'benefits', label: '수상 혜택' },
+        { id: 'effects', label: '수상 효과' },
+        { id: 'past-winners', label: '역대 수상 브랜드' },
+        { id: 'video', label: '역대 시상식' },
+        { id: 'press', label: '언론 보도' },
+        { id: 'process', label: '참가 프로세스' },
+        { id: 'faq', label: '자주 묻는 질문' },
     ];
 
     const scrollToSection = (id: string) => {
@@ -24,27 +22,29 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <aside className="hidden lg:block w-64 fixed left-0 top-[48px] bottom-0 bg-brand-bg border-r border-brand-gold/20 overflow-y-auto z-40">
-            <div className="p-8">
-                <div className="mb-12">
-                    <h1 className="text-xl font-bold text-brand-gold tracking-widest leading-relaxed">
-                        {currentAward.title}
-                    </h1>
-                </div>
-                <nav className="space-y-6">
+        <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40 pt-[80px]">
+            <div className="flex-1 overflow-y-auto py-8 px-6">
+                <nav className="space-y-1">
                     {menuItems.map((item) => (
                         <button
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
-                            className="block w-full text-left text-gray-400 hover:text-brand-gold hover:translate-x-2 transition-all duration-300 text-sm font-medium uppercase tracking-wider"
+                            className="w-full text-left px-4 py-3 text-gray-400 hover:text-brand-gold hover:bg-white/5 rounded-lg transition-all text-sm font-medium group flex items-center justify-between"
                         >
                             {item.label}
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-gold">→</span>
                         </button>
                     ))}
                 </nav>
             </div>
-            <div className="absolute bottom-8 left-8 text-xs text-gray-600">
-                &copy; 2026 KBMJ.
+
+            <div className="p-6 border-t border-white/10">
+                <div className="text-xs text-gray-500 font-medium">
+                    &copy; {CURRENT_YEAR} KBMJ.
+                </div>
+                <div className="text-[10px] text-gray-600 mt-1">
+                    All rights reserved.
+                </div>
             </div>
         </aside>
     );

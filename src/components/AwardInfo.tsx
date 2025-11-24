@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
+import { CURRENT_YEAR, PREV_YEAR } from '../constants/common';
 
 const AwardInfo: React.FC = () => {
     const { currentAward } = useAward();
@@ -7,16 +8,16 @@ const AwardInfo: React.FC = () => {
     // Dynamic dates based on award slug
     const getSchedule = (slug: string) => {
         switch (slug) {
-            case 'hit': return '2025. 10. 01 ~ 2025. 11. 30';
-            case 'customer': return '2026. 01. 01 ~ 2026. 02. 28';
-            case 'consumer': return '2026. 04. 01 ~ 2026. 05. 31';
-            case 'year': return '2026. 07. 01 ~ 2026. 08. 31';
-            default: return '2025. 10. 01 ~ 2025. 11. 30';
+            case 'hit': return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`;
+            case 'customer': return `${CURRENT_YEAR}. 01. 01 ~ ${CURRENT_YEAR}. 02. 28`;
+            case 'consumer': return `${CURRENT_YEAR}. 04. 01 ~ ${CURRENT_YEAR}. 05. 31`;
+            case 'year': return `${CURRENT_YEAR}. 07. 01 ~ ${CURRENT_YEAR}. 08. 31`;
+            default: return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`;
         }
     };
 
     const infoItems = [
-        { label: '행사명', value: currentAward.title },
+        { label: '행사명', value: `${CURRENT_YEAR} ${currentAward.title}` },
         { label: '주최 / 후원', value: 'JYnetwork / 중앙일보' },
         {
             label: '일정', value: (

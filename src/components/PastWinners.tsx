@@ -9,10 +9,11 @@ const PastWinners: React.FC = () => {
         "CJ CheilJedang", "Naver", "Kakao", "Shinhan Financial"
     ];
 
+
     return (
         <section id="past-winners" className="bg-black py-32 border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
-                <div className="mb-16 text-center">
+                <div className="mb-16 text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +42,7 @@ const PastWinners: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="mt-12 text-center">
+                <div className="mt-12 text-left">
                     <p className="text-gray-500 text-sm">
                         * 위 브랜드는 예시이며, 실제 수상 기업과는 다를 수 있습니다.
                     </p>

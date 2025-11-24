@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
+import { CURRENT_YEAR } from '../constants/common';
 
 const Video: React.FC = () => {
     const { currentAward } = useAward();
@@ -7,7 +8,7 @@ const Video: React.FC = () => {
     return (
         <section id="video" className="py-32 bg-brand-bg border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
-                <div className="text-center mb-16">
+                <div className="text-left mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         역대 {currentAward.title}
                     </h2>
@@ -17,7 +18,7 @@ const Video: React.FC = () => {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {[2025, 2024, 2023].map((year) => (
+                    {[CURRENT_YEAR - 1, CURRENT_YEAR - 2, CURRENT_YEAR - 3].map((year) => (
                         <div key={year} className="group cursor-pointer">
                             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-brand-gold/20 group-hover:border-brand-gold transition-all mb-4">
                                 <div className="absolute inset-0 bg-brand-bg-secondary/50 flex items-center justify-center group-hover:bg-black/30 transition-colors">

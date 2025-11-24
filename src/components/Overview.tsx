@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
+import { CURRENT_YEAR } from '../constants/common';
 
 const Overview: React.FC = () => {
     const { currentAward } = useAward();
@@ -20,12 +21,12 @@ const Overview: React.FC = () => {
                     <div className="md:col-span-8">
                         <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
                             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
-                            <span className="text-sm font-medium tracking-widest uppercase text-gray-300">2026 Brand Awards</span>
+                            <span className="text-sm font-medium tracking-widest uppercase text-gray-300">{CURRENT_YEAR} Brand Awards</span>
                         </div>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8 tracking-tight">
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                                {currentAward.title.replace('2026 ', '')}
+                                {currentAward.title.replace(`${CURRENT_YEAR} `, '')}
                             </span>
                         </h1>
 

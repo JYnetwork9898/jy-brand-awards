@@ -12,7 +12,7 @@ const Process: React.FC = () => {
     return (
         <section id="process" className="bg-brand-bg py-32 relative overflow-hidden border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
-                <div className="text-center mb-16">
+                <div className="text-left mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">참가 프로세스</h2>
                     <p className="text-gray-400">투명하고 공정한 심사 절차</p>
                 </div>
@@ -22,16 +22,16 @@ const Process: React.FC = () => {
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 z-0"></div>
 
                     <div className="grid md:grid-cols-5 gap-8 relative z-10">
-                        <div className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-center group">
-                            <div className="w-12 h-12 mx-auto bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <div className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-left group">
+                            <div className="w-12 h-12 bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 01
                             </div>
                             <h3 className="text-lg font-bold text-white mb-3">신청서 제출</h3>
                             <p className="text-xs text-gray-400">신청서를 작성 후 FAX 또는 이메일로 제출합니다.</p>
                         </div>
                         {steps.slice(1).map((step, index) => (
-                            <div key={index} className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-center group">
-                                <div className="w-12 h-12 mx-auto bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div key={index} className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-left group">
+                                <div className="w-12 h-12 bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                     {step.number}
                                 </div>
                                 <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
@@ -41,8 +41,8 @@ const Process: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-16 text-center">
-                    <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
+                <div className="mt-16 text-left">
+                    <div className="flex flex-col md:flex-row justify-start gap-6 mb-12">
                         <a href="#" className="inline-flex items-center justify-center bg-brand-gold hover:bg-brand-gold-light text-black px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-gold/20">
                             <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             참가 신청서 다운로드

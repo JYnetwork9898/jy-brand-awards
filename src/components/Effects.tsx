@@ -49,10 +49,10 @@ const Effects: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-left mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">수상 효과</h2>
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-400 max-w-3xl">
                         {currentAward.title} 수상은 단순한 명예를 넘어<br className="hidden md:block" />
                         기업의 실질적인 성장과 가치를 증명합니다.
                     </p>
