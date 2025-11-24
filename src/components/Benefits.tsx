@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useAward } from '../context/AwardContext';
-import { CURRENT_YEAR } from '../constants/common';
 
 const Benefits: React.FC = () => {
     const { currentAward } = useAward();
+    const targetRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start start", "end end"]
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
 
     const benefits = [
         {
@@ -45,50 +52,58 @@ const Benefits: React.FC = () => {
     ];
 
     return (
-        <section id="benefits" className="bg-brand-bg relative">
-            <div className="py-32 px-8 max-w-7xl mx-auto text-left">
-                <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
-                    Benefits
-                </h2>
-                <h3 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                    수상 기업 혜택
-                </h3>
+        <section id="benefits" ref={targetRef} className="relative h-[600vh] bg-brand-bg snap-start">
+            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+                <div className="absolute top-0 left-0 z-20 p-8 md:p-16 pointer-events-none">
+                    <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
+                        Benefits
+                    </h2>
+                    <h3 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+                        수상 기업 혜택
+                    </h3>
+                </div>
+
+                <motion.div style={{ x }} className="flex gap-0">
+                    {benefits.map((item, index) => (
+                        <div
+                            key={index}
+                            className="relative h-screen w-screen flex-shrink-0 flex items-center justify-center overflow-hidden"
+                        >
+                            {/* Background Image with Overlay */}
+                            <div className="absolute inset-0 z-0">
+                                <img
+                                    src={item.bgImage}
+                                    alt={typeof item.title === 'string' ? item.title : 'Benefit'}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
+                            </div>
+
+                            <div className="relative z-10 max-w-7xl mx-auto px-8 w-full text-left">
+                                <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
+                                    {item.icon}
+                                </div>
+                                <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
+                                    {item.title}
+                                </h4>
+                                <div className="w-24 h-1 bg-brand-gold mb-12"></div>
+                                <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
+                                    {item.desc}
+                                </p>
+                                <div className="mt-12 text-sm text-gray-500 uppercase tracking-widest">
+                                    Benefit {String(index + 1).padStart(2, '0')}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
             </div>
 
-            <div className="relative">
-                {benefits.map((item, index) => (
-                    <div
-                        key={index}
-                        className="sticky top-0 h-screen w-full flex items-center justify-start overflow-hidden bg-brand-bg"
-                        style={{ zIndex: index + 1 }}
-                    >
-                        {/* Background Image with Overlay */}
-                        <div className="absolute inset-0 z-0">
-                            <img
-                                src={item.bgImage}
-                                alt={typeof item.title === 'string' ? item.title : 'Benefit'}
-                                className="w-full h-full object-cover transition-transform duration-[20s] hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                            <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
-                        </div>
-
-                        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full text-left">
-                            <div className="text-brand-gold text-4xl md:text-6xl mb-8 animate-bounce inline-block">
-                                {item.icon}
-                            </div>
-                            <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
-                                {item.title}
-                            </h4>
-                            <div className="w-24 h-1 bg-brand-gold mb-12"></div>
-                            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
-                                {item.desc}
-                            </p>
-                            <div className="mt-12 text-sm text-gray-500 uppercase tracking-widest">
-                                Benefit {String(index + 1).padStart(2, '0')}
-                            </div>
-                        </div>
-                    </div>
+            {/* Internal snap points */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                {benefits.map((_, index) => (
+                    <div key={index} className="h-screen w-full snap-start"></div>
                 ))}
             </div>
         </section>
