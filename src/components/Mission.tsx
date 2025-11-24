@@ -17,37 +17,17 @@ const Mission: React.FC = () => {
                     </h3>
                     <div className="w-24 h-1 bg-brand-gold mb-12"></div>
 
-                    <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="max-w-3xl">
                         <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
                             <p>
-                                {currentAward.title}은(는) 중앙일보가 후원하는 대한민국을 빛낸 히트브랜드의 탄생을 소개합니다.
+                                {currentAward.title}은 중앙일보가 후원하는 대한민국 대표 브랜드 어워드입니다.
                             </p>
                             <p>
-                                우수한 품질과 뛰어난 서비스를 통해 높은 브랜드 가치를 인정받은 기업을 대상으로 “{currentAward.title}”를 선정합니다. 이번 시상은 소비자들에게 그 가치를 인정받은 기업인이 선정되는 영예를 얻게 됩니다.
+                                {currentAward.description}
                             </p>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-brand-gold/10 transform rotate-3 rounded-lg"></div>
-                            <div className="relative bg-brand-bg border border-brand-gold/20 p-8 rounded-lg shadow-2xl">
-                                <ul className="space-y-4">
-                                    <li className="flex items-start">
-                                        <span className="text-brand-gold mr-4 text-xl">✦</span>
-                                        <span className="text-white font-medium">히트브랜드 대상</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-brand-gold mr-4 text-xl">✦</span>
-                                        <span className="text-white font-medium">고객감동 우수브랜드 대상</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-brand-gold mr-4 text-xl">✦</span>
-                                        <span className="text-white font-medium">소비자만족 브랜드 대상</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="text-brand-gold mr-4 text-xl">✦</span>
-                                        <span className="text-white font-medium">올해의 우수브랜드 대상</span>
-                                    </li>
-                                </ul>
-                            </div>
+                            <p>
+                                우수한 품질과 뛰어난 서비스를 통해 높은 브랜드 가치를 인정받은 기업을 대상으로 "{currentAward.title}"를 선정합니다. 이번 시상은 소비자들에게 그 가치를 인정받은 기업인이 선정되는 영예를 얻게 됩니다.
+                            </p>
                         </div>
                     </div>
                 </div>
