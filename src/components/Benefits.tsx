@@ -45,7 +45,7 @@ const Benefits: React.FC = () => {
     ];
 
     return (
-        <section className="bg-brand-bg relative">
+        <section id="benefits" className="bg-brand-bg relative">
             <div className="py-32 px-8 max-w-7xl mx-auto text-left">
                 <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
                     Benefits
@@ -55,36 +55,42 @@ const Benefits: React.FC = () => {
                 </h3>
             </div>
 
-            {benefits.map((item, index) => (
-                <div key={index} className="relative h-screen w-full flex items-center justify-start overflow-hidden snap-start sticky top-0">
-                    {/* Background Image with Overlay */}
-                    <div className="absolute inset-0 z-0">
-                        <img
-                            src={item.bgImage}
-                            alt={item.title}
-                            className="w-full h-full object-cover transition-transform duration-[20s] hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-                        <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
-                    </div>
+            <div className="relative">
+                {benefits.map((item, index) => (
+                    <div
+                        key={index}
+                        className="sticky top-0 h-screen w-full flex items-center justify-start overflow-hidden bg-brand-bg"
+                        style={{ zIndex: index + 1 }}
+                    >
+                        {/* Background Image with Overlay */}
+                        <div className="absolute inset-0 z-0">
+                            <img
+                                src={item.bgImage}
+                                alt={typeof item.title === 'string' ? item.title : 'Benefit'}
+                                className="w-full h-full object-cover transition-transform duration-[20s] hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
+                        </div>
 
-                    <div className="relative z-10 max-w-7xl mx-auto px-8 w-full text-left">
-                        <div className="text-brand-gold text-4xl md:text-6xl mb-8 animate-bounce inline-block">
-                            {item.icon}
-                        </div>
-                        <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
-                            {item.title}
-                        </h4>
-                        <div className="w-24 h-1 bg-brand-gold mb-12"></div>
-                        <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
-                            {item.desc}
-                        </p>
-                        <div className="mt-12 text-sm text-gray-500 uppercase tracking-widest">
-                            Benefit {String(index + 1).padStart(2, '0')}
+                        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full text-left">
+                            <div className="text-brand-gold text-4xl md:text-6xl mb-8 animate-bounce inline-block">
+                                {item.icon}
+                            </div>
+                            <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
+                                {item.title}
+                            </h4>
+                            <div className="w-24 h-1 bg-brand-gold mb-12"></div>
+                            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
+                                {item.desc}
+                            </p>
+                            <div className="mt-12 text-sm text-gray-500 uppercase tracking-widest">
+                                Benefit {String(index + 1).padStart(2, '0')}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </section>
     );
 };

@@ -17,7 +17,7 @@ const AwardInfo: React.FC = () => {
     };
 
     const infoItems = [
-        { label: '행사명', value: `${CURRENT_YEAR} ${currentAward.title}` },
+        { label: '어워즈명', value: `${CURRENT_YEAR} ${currentAward.title}` },
         { label: '주최 / 후원', value: 'JYnetwork / 중앙일보' },
         {
             label: '일정', value: (
@@ -60,7 +60,7 @@ const AwardInfo: React.FC = () => {
                             Information
                         </h2>
                         <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
-                            행사 개요
+                            시상식 안내
                         </h3>
                         <p className="text-gray-400 leading-relaxed">
                             성공적인 브랜드의 가치를 증명하는<br />

@@ -19,14 +19,15 @@ const Overview: React.FC = () => {
             <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
                 <div className="grid md:grid-cols-12 gap-12 items-center">
                     <div className="md:col-span-8">
-                        <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
+                        {/* <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
                             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
                             <span className="text-sm font-medium tracking-widest uppercase text-gray-300">{CURRENT_YEAR} Brand Awards</span>
-                        </div>
+                        </div> */}
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8 tracking-tight">
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                                {currentAward.title.replace(`${CURRENT_YEAR} `, '')}
+                                <span className="block">{CURRENT_YEAR}</span>
+                                <span className="block">{currentAward.title.replace(`${CURRENT_YEAR} `, '')}</span>
                             </span>
                         </h1>
 

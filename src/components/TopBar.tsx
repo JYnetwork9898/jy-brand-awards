@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AWARDS } from '../constants/awards';
+import { CURRENT_YEAR } from '../constants/common';
 
 const TopBar: React.FC = () => {
     return (
@@ -18,7 +19,7 @@ const TopBar: React.FC = () => {
                         to={`/awards/${award.slug}`}
                         className="text-gray-400 hover:text-white text-xs md:text-sm transition-colors"
                     >
-                        {award.title}
+                        {CURRENT_YEAR} {award.title}
                     </Link>
                 ))}
             </nav>
