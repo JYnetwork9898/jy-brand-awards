@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AWARDS } from '../constants/awards';
 import TopBar from '../components/TopBar';
 
+// Award month mapping
+const AWARD_MONTHS: Record<string, string> = {
+    'hit': '3월',
+    'customer': '6월',
+    'consumer': '9월',
+    'year': '12월'
+};
+
 const Home: React.FC = () => {
+    const [hoveredAward, setHoveredAward] = useState<string>('hit');
+
+    const currentAward = AWARDS[hoveredAward];
+    const currentMonth = AWARD_MONTHS[hoveredAward];
+
     return (
         <div className="min-h-screen bg-brand-bg text-white font-sans relative overflow-hidden">
             <TopBar />
@@ -57,10 +70,11 @@ const Home: React.FC = () => {
                         </p>
 
                         <div className="mt-24">
-                            <span className="text-6xl md:text-8xl font-bold block mb-4">3월</span>
-                            <p className="text-xl text-gray-300">
-                                중앙일보가 후원하는<br />
-                                대한민국을 빛낸 히트브랜드의 탄생
+                            <span className="text-6xl md:text-8xl font-bold block mb-4 transition-all duration-300">
+                                {currentMonth}
+                            </span>
+                            <p className="text-xl text-gray-300 transition-all duration-300">
+                                {currentAward.description}
                             </p>
                         </div>
                     </div>
@@ -70,6 +84,7 @@ const Home: React.FC = () => {
                             <Link
                                 key={award.slug}
                                 to={`/awards/${award.slug}`}
+                                onMouseEnter={() => setHoveredAward(award.slug)}
                                 className="text-3xl md:text-5xl font-bold text-gray-700 hover:text-white transition-colors"
                             >
                                 {award.title.replace('2026 ', '')}

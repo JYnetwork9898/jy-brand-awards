@@ -16,10 +16,11 @@ import PastWinners from '../components/PastWinners';
 import FloatingButton from '../components/FloatingButton';
 import Press from '../components/Press';
 
-const AwardPageContent: React.FC = () => {
+const AwardPageContent: React.FC<{ slug?: string }> = ({ slug }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [slug]); // Add slug as dependency to scroll to top when award changes
+
 
     return (
         <div className="min-h-screen bg-brand-bg text-white font-sans selection:bg-brand-gold selection:text-black">
@@ -56,7 +57,7 @@ const AwardPage: React.FC = () => {
 
     return (
         <AwardProvider slug={slug}>
-            <AwardPageContent />
+            <AwardPageContent slug={slug} />
         </AwardProvider>
     );
 };
