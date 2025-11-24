@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #202123;
+  --color-brand-bg-secondary: #262729;
+  --color-brand-gold: #c29c5b;
+  --color-brand-gold-light: #ceb476;
+  --color-brand-gold-pale: #f4e7c2;
+
+  --color-award-hit: #041f3b;
+  --color-award-customer: #361608;
+  --color-award-consumer: #4c0312;
+  --color-award-best: #682800;
+
+  --font-sans: Inter, sans-serif;
+}
+
+body {
+  @apply bg-brand-bg text-white font-sans;
+}
