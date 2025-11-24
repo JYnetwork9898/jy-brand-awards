@@ -1,13 +1,16 @@
 import React from 'react';
+import { useAward } from '../context/AwardContext';
 
 const Footer: React.FC = () => {
+    const { currentAward } = useAward();
+
     return (
         <footer className="bg-brand-black border-t border-brand-gray pt-32 pb-8 snap-start">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
                         <a href="#" className="text-2xl font-bold text-brand-gold tracking-wider mb-4 block">
-                            KBMJ <span className="text-white">AWARDS</span>
+                            {currentAward.title}
                         </a>
                         <p className="text-gray-400 max-w-sm">
                             대한민국 최고의 브랜드를 선정하는 권위 있는 시상식입니다. 성공적인 비즈니스의 기준을 제시합니다.

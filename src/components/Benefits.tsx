@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useAward } from '../context/AwardContext';
 
 const Benefits: React.FC = () => {
+    const { currentAward } = useAward();
+
     const benefits = [
         {
             title: '브랜드 신뢰를 강화하는 공식 엠블럼 제공',
@@ -30,7 +33,7 @@ const Benefits: React.FC = () => {
         {
             title: '브랜드 스토리를 시각화하는 PR 인터뷰 콘텐츠 제작',
             subtitle: '브랜드 철학과 가치를 담은 인터뷰 영상',
-            description: '2026 히트브랜드 대상 1위 수상 기업을 대상으로 브랜드 철학과 가치를 담은 인터뷰 영상을 제작하여 신뢰 중심의 브랜드 콘텐츠로 활용합니다.',
+            description: `${currentAward.title} 1위 수상 기업을 대상으로 브랜드 철학과 가치를 담은 인터뷰 영상을 제작하여 신뢰 중심의 브랜드 콘텐츠로 활용합니다.`,
             image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2538&auto=format&fit=crop'
         },
         {

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useAward } from '../context/AwardContext';
 
 const Effects: React.FC = () => {
+    const { currentAward } = useAward();
+
     const effects = [
         {
             title: '신뢰도 상승',
@@ -50,7 +53,7 @@ const Effects: React.FC = () => {
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">수상 효과</h2>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                        KBMJ BRAND AWARDS 수상은 단순한 명예를 넘어<br className="hidden md:block" />
+                        {currentAward.title} 수상은 단순한 명예를 넘어<br className="hidden md:block" />
                         기업의 실질적인 성장과 가치를 증명합니다.
                     </p>
                 </motion.div>

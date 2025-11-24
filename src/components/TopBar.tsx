@@ -1,23 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { AWARDS } from '../constants/awards';
 
 const TopBar: React.FC = () => {
-    const awards = [
-        { title: '2026 히트브랜드 대상', color: 'bg-award-hit' },
-        { title: '2026 고객감동 우수브랜드 대상', color: 'bg-award-customer' },
-        { title: '2026 소비자만족 브랜드 대상', color: 'bg-award-consumer' },
-        { title: '2026 올해의 우수브랜드 대상', color: 'bg-award-best' },
-    ];
-
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 w-full">
-            {awards.map((award, index) => (
-                <div key={index} className={`${award.color} py-3 px-2 text-center flex items-center justify-center`}>
-                    <span className="text-white text-xs md:text-sm font-medium tracking-wider uppercase whitespace-nowrap overflow-hidden text-ellipsis">
+        <header className="w-full py-6 px-8 flex flex-col md:flex-row justify-between items-center bg-transparent absolute top-0 left-0 z-50">
+            <div className="mb-4 md:mb-0">
+                <Link to="/" className="text-white font-bold text-xl leading-tight">
+                    KBMJ<br />
+                    <span className="text-sm font-normal">Brand Awards</span>
+                </Link>
+            </div>
+            <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
+                {Object.values(AWARDS).map((award) => (
+                    <Link
+                        key={award.slug}
+                        to={`/awards/${award.slug}`}
+                        className="text-gray-400 hover:text-white text-xs md:text-sm transition-colors"
+                    >
                         {award.title}
-                    </span>
-                </div>
-            ))}
-        </div>
+                    </Link>
+                ))}
+            </nav>
+        </header>
     );
 };
 

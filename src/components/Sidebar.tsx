@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAward } from '../context/AwardContext';
 
 const Sidebar: React.FC = () => {
+    const { currentAward } = useAward();
+
     const menuItems = [
         { label: '시상식 개요', id: 'overview' },
         { label: '시상식 취지', id: 'mission' },
@@ -24,9 +27,8 @@ const Sidebar: React.FC = () => {
         <aside className="hidden lg:block w-64 fixed left-0 top-[48px] bottom-0 bg-brand-bg border-r border-brand-gold/20 overflow-y-auto z-40">
             <div className="p-8">
                 <div className="mb-12">
-                    <h1 className="text-2xl font-bold text-brand-gold tracking-widest">
-                        KBMJ <br />
-                        <span className="text-white text-lg">AWARDS</span>
+                    <h1 className="text-xl font-bold text-brand-gold tracking-widest leading-relaxed">
+                        {currentAward.title}
                     </h1>
                 </div>
                 <nav className="space-y-6">

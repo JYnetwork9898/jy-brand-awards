@@ -1,12 +1,15 @@
 import React from 'react';
+import { useAward } from '../context/AwardContext';
 
 const Video: React.FC = () => {
+    const { currentAward } = useAward();
+
     return (
         <section id="video" className="py-32 bg-brand-bg border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                        역대 KBMJ BRAND AWARDS
+                        역대 {currentAward.title}
                     </h2>
                     <p className="text-gray-400 text-lg">
                         대한민국을 빛낸 브랜드들의 영광스러운 순간을 확인하세요.
@@ -29,7 +32,7 @@ const Video: React.FC = () => {
                                 </div>
                             </div>
                             <h3 className="text-xl font-bold text-white group-hover:text-brand-gold transition-colors">
-                                {year} KBMJ BRAND AWARDS
+                                {year} {currentAward.title}
                             </h3>
                             <p className="text-sm text-gray-500 mt-1">
                                 {year}년도 시상식 현장 스케치

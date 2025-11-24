@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #202123;
-  --color-brand-bg-secondary: #262729;
+  --color-brand-bg: #161a1d;
+  --color-brand-bg-secondary: #202123;
   --color-brand-gold: #c29c5b;
   --color-brand-gold-light: #ceb476;
   --color-brand-gold-pale: #f4e7c2;
