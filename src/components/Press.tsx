@@ -33,7 +33,7 @@ const Press: React.FC = () => {
     ];
 
     return (
-        <section id="press" className="bg-brand-bg-secondary py-24 border-t border-brand-gold/10">
+        <section id="press" className="bg-brand-bg-secondary py-32 border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">

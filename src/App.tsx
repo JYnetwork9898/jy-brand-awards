@@ -30,8 +30,8 @@ function App() {
       <main className="lg:ml-64 pt-[48px]">
         <Overview />
         <Mission />
-        <Effects />
         <Benefits />
+        <Effects />
         <PastWinners />
         <Video />
         <Press />

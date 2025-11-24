@@ -2,7 +2,7 @@ import React from 'react';
 
 const Overview: React.FC = () => {
     return (
-        <section id="overview" className="relative bg-brand-bg overflow-hidden min-h-screen flex items-center pt-16">
+        <section id="overview" className="relative bg-brand-bg overflow-hidden min-h-screen flex items-center pt-16 snap-start">
             {/* Background Gradient/Effect */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-bg to-black opacity-90"></div>
@@ -12,7 +12,7 @@ const Overview: React.FC = () => {
                 </div>
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-8 py-24 text-center">
+            <div className="relative max-w-7xl mx-auto px-8 py-32 text-center">
                 <h2 className="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in-up">
                     전문 마케팅 에이전시와 메이저 언론사가 협엽하여 매년 개최되는 브랜드 어워즈를 만나보세요.
                 </h2>

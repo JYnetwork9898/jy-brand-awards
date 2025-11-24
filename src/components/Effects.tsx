@@ -36,7 +36,7 @@ const Effects: React.FC = () => {
     ];
 
     return (
-        <section id="effects" className="bg-brand-bg-secondary py-24 relative overflow-hidden">
+        <section id="effects" className="bg-brand-bg-secondary py-32 relative overflow-hidden snap-start">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center opacity-5"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-brand-bg-secondary via-transparent to-brand-bg-secondary"></div>
 

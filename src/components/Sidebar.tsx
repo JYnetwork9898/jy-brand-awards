@@ -4,10 +4,13 @@ const Sidebar: React.FC = () => {
     const menuItems = [
         { label: '시상식 개요', id: 'overview' },
         { label: '시상식 취지', id: 'mission' },
-        { label: '특전 소개', id: 'benefits' },
-        { label: '마케팅 특전', id: 'marketing' },
-        { label: '영상 마케팅', id: 'video' },
-        { label: '시상식 신청', id: 'process' },
+        { label: '수상 혜택', id: 'benefits' },
+        { label: '수상 효과', id: 'effects' },
+        { label: '역대 수상 브랜드', id: 'past-winners' },
+        { label: '역대 시상식', id: 'video' },
+        { label: '언론 보도', id: 'press' },
+        { label: '참가 프로세스', id: 'process' },
+        { label: '자주 묻는 질문', id: 'faq' },
     ];
 
     const scrollToSection = (id: string) => {

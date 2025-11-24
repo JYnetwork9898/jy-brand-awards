@@ -10,7 +10,7 @@ const PastWinners: React.FC = () => {
     ];
 
     return (
-        <section id="past-winners" className="bg-black py-24 border-t border-brand-gold/10">
+        <section id="past-winners" className="bg-black py-32 border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
                 <div className="mb-16 text-center">
                     <motion.div

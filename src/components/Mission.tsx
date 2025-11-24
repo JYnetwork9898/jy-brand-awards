@@ -2,7 +2,7 @@ import React from 'react';
 
 const Mission: React.FC = () => {
     return (
-        <section id="mission" className="py-24 bg-brand-bg relative overflow-hidden">
+        <section id="mission" className="py-32 bg-brand-bg relative overflow-hidden snap-start">
             <div className="max-w-7xl mx-auto px-8">
                 <div className="mb-16">
                     <h2 className="text-brand-gold font-bold tracking-widest uppercase text-sm mb-4">

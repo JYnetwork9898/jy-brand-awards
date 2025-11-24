@@ -15,6 +15,11 @@
   --font-sans: Inter, sans-serif;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
 body {
   @apply bg-brand-bg text-white font-sans;
 }

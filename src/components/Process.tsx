@@ -10,7 +10,7 @@ const Process: React.FC = () => {
     ];
 
     return (
-        <section id="process" className="bg-brand-bg py-24 relative overflow-hidden border-t border-brand-gold/10">
+        <section id="process" className="bg-brand-bg py-32 relative overflow-hidden border-t border-brand-gold/10 snap-start">
             <div className="max-w-7xl mx-auto px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">참가 프로세스</h2>
