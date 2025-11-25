@@ -18,7 +18,7 @@ const AwardInfo: React.FC = () => {
 
     const infoItems = [
         { label: '어워즈명', value: `${CURRENT_YEAR} ${currentAward.title}` },
-        { label: '주최 / 후원', value: 'JYnetwork / 중앙일보' },
+        { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor} · 기업경영저널` },
         {
             label: '일정', value: (
                 <div className="space-y-2">
@@ -52,14 +52,14 @@ const AwardInfo: React.FC = () => {
 
     return (
         <section className="py-32 bg-brand-bg-secondary snap-start">
-            <div className="max-w-7xl mx-auto px-8">
+            <div className="max-w-screen-2xl mx-auto px-8">
                 <div className="grid md:grid-cols-12 gap-16">
                     <div className="md:col-span-4">
                         <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-4">
                             <span className="w-12 h-px bg-brand-gold"></span>
                             Information
                         </h2>
-                        <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                        <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
                             시상식 안내
                         </h3>
                         <p className="text-gray-400 leading-relaxed">

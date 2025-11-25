@@ -26,14 +26,14 @@ const Benefits: React.FC = () => {
             bgImage: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=2940&auto=format&fit=crop"
         },
         {
-            title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>중앙일보 지면보도</span>로 <br />완성되는 브랜드 공신력</>,
-            desc: "대상 1위 수상 브랜드는 중앙일보 종합일간지에 기획기사로 게재되어 브랜드 평판을 상승시키고 미디어 PR 효과를 확보합니다.",
+            title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>{currentAward.sponsor} 지면보도</span>로 <br />완성되는 브랜드 공신력</>,
+            desc: `대상 1위 수상 브랜드는 ${currentAward.sponsor} 종합일간지에 기획기사로 게재되어 브랜드 평판을 상승시키고 미디어 PR 효과를 확보합니다.`,
             icon: "✦",
             bgImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2940&auto=format&fit=crop"
         },
         {
             title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>언론 보도</span>를 통한 <br />지속적 온라인 노출 효과</>,
-            desc: "중앙일보 후원과 함께, 주요 포털 노출을 포함한 온라인 뉴스기사 5회 게재를 통해 브랜드 인지도와 평판을 극대화합니다.",
+            desc: `${currentAward.sponsor} 후원과 함께, 주요 포털 노출을 포함한 온라인 뉴스기사 5회 게재를 통해 브랜드 인지도와 평판을 극대화합니다.`,
             icon: "✦",
             bgImage: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2948&auto=format&fit=crop"
         },
@@ -58,7 +58,7 @@ const Benefits: React.FC = () => {
                     <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
                         Benefits
                     </h2>
-                    <h3 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+                    <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
                         수상 기업 혜택
                     </h3>
                 </div>
@@ -80,7 +80,7 @@ const Benefits: React.FC = () => {
                                 <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
                             </div>
 
-                            <div className="relative z-10 max-w-7xl mx-auto px-8 w-full text-left">
+                            <div className="relative z-10 max-w-screen-2xl mx-auto px-8 w-full text-left">
                                 <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
                                     {item.icon}
                                 </div>
@@ -91,13 +91,67 @@ const Benefits: React.FC = () => {
                                 <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
                                     {item.desc}
                                 </p>
-                                <div className="mt-12 text-sm text-gray-500 uppercase tracking-widest">
-                                    Benefit {String(index + 1).padStart(2, '0')}
-                                </div>
                             </div>
                         </div>
                     ))}
                 </motion.div>
+
+                {/* Slide Indicator */}
+                <div className="absolute bottom-12 right-8 md:right-16 z-20 flex gap-2 pointer-events-auto">
+                    {benefits.map((_, index) => {
+                        const itemStart = index / benefits.length;
+                        const itemMid = (index + 0.5) / benefits.length;
+                        const itemEnd = (index + 1) / benefits.length;
+
+                        const handleClick = () => {
+                            if (targetRef.current) {
+                                const sectionTop = targetRef.current.offsetTop;
+                                const sectionHeight = targetRef.current.offsetHeight;
+                                // Target the start of the nth benefit
+                                const targetScroll = sectionTop + (sectionHeight / benefits.length) * index;
+
+                                window.scrollTo({
+                                    top: targetScroll,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        };
+
+                        const isActive = useTransform(
+                            scrollYProgress,
+                            [itemStart, itemMid, itemEnd],
+                            [0, 1, 0]
+                        );
+
+                        return (
+                            <motion.button
+                                key={index}
+                                onClick={handleClick}
+                                className="relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all hover:scale-110"
+                                style={{
+                                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                                    borderColor: useTransform(isActive, [0, 1], ['rgba(255,255,255,0.3)', 'rgba(255,255,255,0)'])
+                                }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <motion.div
+                                    className="absolute inset-0 bg-brand-gold rounded-full"
+                                    style={{
+                                        opacity: useTransform(isActive, [0, 1], [0, 1])
+                                    }}
+                                />
+                                <motion.span
+                                    className="relative z-10"
+                                    style={{
+                                        color: useTransform(isActive, [0, 1], ['rgba(255,255,255,0.6)', 'rgba(220,220,220,1)'])
+                                    }}
+                                >
+                                    {index + 1}
+                                </motion.span>
+                            </motion.button>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Internal snap points */}

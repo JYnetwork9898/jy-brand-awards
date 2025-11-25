@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const FloatingButton: React.FC = () => {
     return (
         <motion.div
-            className="fixed bottom-8 right-8 z-50"
+            className="fixed bottom-8 right-8 z-50 hidden"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}

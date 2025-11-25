@@ -49,9 +49,9 @@ const FAQ: React.FC = () => {
 
     return (
         <section id="faq" className="bg-brand-black py-32 snap-start">
-            <div className="max-w-7xl mx-auto px-8">
+            <div className="max-w-screen-2xl mx-auto px-8">
                 <div className="text-left mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">자주 묻는 질문</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">자주 묻는 질문</h2>
                     <p className="text-gray-400">어워드 관련 궁금한 점을 확인하세요.</p>
                 </div>
                 <div className="space-y-2">

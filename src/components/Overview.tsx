@@ -30,7 +30,7 @@ const Overview: React.FC = () => {
                 )}
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
+            <div className="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
                 <div className="grid md:grid-cols-12 gap-12 items-center">
                     <div className="md:col-span-8">
                         {/* <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
@@ -39,26 +39,20 @@ const Overview: React.FC = () => {
                         </div> */}
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8 tracking-tight">
-                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                                <span className="block">{CURRENT_YEAR}</span>
-                                <span className="block">{currentAward.title.replace(`${CURRENT_YEAR} `, '')}</span>
-                            </span>
+                            <div className="mb-8">
+                                <span className="block text-brand-gold text-8xl md:text-9xl font-black mb-6 leading-none">{currentAward.abbreviation}</span>
+                            </div>
+                            <div>
+                                <span className="block text-6xl md:text-7xl mb-2">
+                                    <span className="text-brand-gold-light">{currentAward.sponsor}</span>가 후원하는
+                                </span>
+                                <span className="block text-brand-gold-light text-6xl md:text-7xl">{CURRENT_YEAR} {currentAward.title.replace(`${CURRENT_YEAR} `, '')}</span>
+                            </div>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl leading-relaxed border-l-2 border-brand-gold pl-8 mb-12">
+                        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl leading-relaxed mb-12">
                             {currentAward.description}
                         </p>
-
-                        <div className="flex flex-wrap gap-6">
-                            <div className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md rounded-lg">
-                                <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Sponsored by</span>
-                                <span className="text-lg font-medium text-white">중앙일보 · 동아일보</span>
-                            </div>
-                            <div className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md rounded-lg">
-                                <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Organized by</span>
-                                <span className="text-lg font-medium text-white">JYnetwork</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

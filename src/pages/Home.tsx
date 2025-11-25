@@ -37,6 +37,9 @@ const Home: React.FC = () => {
                 <div className="grid md:grid-cols-12 gap-12 items-center h-full relative z-10">
                     <div className="md:col-span-7 relative">
                         <div className="absolute -top-20 -left-20 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl"></div>
+                        <div className="mb-6">
+                            <span className="text-brand-gold/80 text-lg font-light tracking-[0.3em] uppercase border-b border-brand-gold/30 pb-2">Since 2015</span>
+                        </div>
                         <h2 className="text-6xl md:text-8xl font-bold leading-[0.9] mb-12 tracking-tight">
                             <span className="block text-brand-gold">{CURRENT_YEAR}</span>
                             <span className="block">KBMJ</span>
@@ -49,13 +52,15 @@ const Home: React.FC = () => {
                         </p>
                         <div className="flex items-center gap-8">
                             <div className="text-sm font-medium text-gray-500">
-                                <span className="block text-brand-gold mb-1">Sponsored by</span>
-                                중앙일보 · 동아일보
+                                <span className="block text-brand-gold mb-2 text-xs uppercase tracking-wider">Sponsored by</span>
+                                <div className="flex items-baseline gap-3">
+                                    <span className="text-white text-3xl md:text-4xl font-bold tracking-tight">중앙일보 · 동아일보 · 기업경영저널</span>
+                                </div>
                             </div>
-                            <div className="h-10 w-px bg-gray-800"></div>
+                            <div className="h-12 w-px bg-gray-800 mx-4"></div>
                             <div className="text-sm font-medium text-gray-500">
-                                <span className="block text-brand-gold mb-1">Organized by</span>
-                                JYnetwork
+                                <span className="block text-brand-gold mb-2 text-xs uppercase tracking-wider">Organized by</span>
+                                <span className="text-white text-3xl md:text-4xl font-bold tracking-tight">JYnetwork</span>
                             </div>
                         </div>
                     </div>
@@ -92,6 +97,12 @@ const Home: React.FC = () => {
                         <div className="space-y-8">
                             <div className="relative min-h-[300px]">
                                 <div className="transition-all duration-500 ease-out transform">
+                                    <div className="mb-8">
+                                        <span className="block text-brand-gold-light/60 text-xs uppercase tracking-wider mb-2">Sponsored by</span>
+                                        <span className="text-brand-gold-light text-3xl font-bold tracking-tight border-b-2 border-brand-gold-light/30 pb-2">
+                                            {currentAward.sponsor}
+                                        </span>
+                                    </div>
                                     <div className="text-8xl md:text-9xl font-bold text-white/10 mb-4 leading-none select-none">
                                         {currentMonth}
                                     </div>
@@ -104,14 +115,6 @@ const Home: React.FC = () => {
                                     <p className="text-lg text-gray-400 leading-relaxed border-t border-gray-800 pt-8">
                                         {currentAward.description}
                                     </p>
-                                    <div className="mt-8">
-                                        <Link
-                                            to={`/awards/${currentAward.slug}`}
-                                            className="text-brand-gold hover:text-white transition-colors inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest"
-                                        >
-                                            View Details <span>→</span>
-                                        </Link>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -129,8 +132,8 @@ const Home: React.FC = () => {
                                 <span className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${hoveredAward === award.slug ? 'text-white' : 'text-gray-600 group-hover:text-gray-300'}`}>
                                     {award.title.replace('2026 ', '')}
                                 </span>
-                                <span className={`text-3xl md:text-4xl font-light tracking-widest uppercase transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
-                                    {AWARD_MONTHS[award.slug]}
+                                <span className={`text-3xl md:text-4xl transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
+                                    →
                                 </span>
                             </Link>
                         ))}

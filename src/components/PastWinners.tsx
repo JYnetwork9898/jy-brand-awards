@@ -12,7 +12,7 @@ const PastWinners: React.FC = () => {
 
     return (
         <section id="past-winners" className="bg-black py-32 border-t border-brand-gold/10 snap-start">
-            <div className="max-w-7xl mx-auto px-8">
+            <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
                 <div className="mb-16 text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -20,7 +20,7 @@ const PastWinners: React.FC = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">역대 수상 브랜드</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">역대 수상 브랜드</h2>
                         <p className="text-gray-400">대한민국을 빛낸 자랑스러운 브랜드들을 소개합니다.</p>
                     </motion.div>
                 </div>

@@ -23,3 +23,21 @@ html {
 body {
   @apply bg-brand-bg text-white font-sans;
 }
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  40% {
+    transform: translateX(150%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}

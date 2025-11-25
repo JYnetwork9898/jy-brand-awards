@@ -8,7 +8,7 @@ const Effects: React.FC = () => {
     const effects = [
         {
             title: '신뢰도 상승',
-            description: '중앙일보 후원 공식 인증으로 기업 신뢰가 높아지고, 고객과 거래처에 ‘믿을 수 있는 브랜드’로 각인됩니다.',
+            description: `${currentAward.sponsor} 후원 공식 인증으로 기업 신뢰가 높아지고, 고객과 거래처에 ‘믿을 수 있는 브랜드’로 각인됩니다.`,
             icon: '🤝'
         },
         {
@@ -28,7 +28,7 @@ const Effects: React.FC = () => {
         },
         {
             title: '고객 신뢰 확보',
-            description: '‘중앙일보 후원 브랜드 대상 수상’ 문구 자체가 구매를 이끄는 신뢰 포인트가 됩니다.',
+            description: `'${currentAward.sponsor} 후원 브랜드 대상 수상' 문구 자체가 구매를 이끄는 신뢰 포인트가 됩니다.`,
             icon: '🛡️'
         },
         {
@@ -43,7 +43,7 @@ const Effects: React.FC = () => {
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center opacity-5"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-brand-bg-secondary via-transparent to-brand-bg-secondary"></div>
 
-            <div className="max-w-7xl mx-auto px-8 relative z-10">
+            <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const Effects: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-left mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">수상 효과</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">수상 효과</h2>
                     <p className="text-xl text-gray-400 max-w-3xl">
                         {currentAward.title} 수상은 단순한 명예를 넘어<br className="hidden md:block" />
                         기업의 실질적인 성장과 가치를 증명합니다.
