@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
 import { CURRENT_YEAR } from '../constants/common';
+import hitBrandBg from '../assets/hitbrand_bg.png';
 
 const Overview: React.FC = () => {
     const { currentAward } = useAward();
@@ -9,11 +10,24 @@ const Overview: React.FC = () => {
         <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start">
             {/* Dynamic Background with Award Color */}
             <div className="absolute inset-0 bg-brand-bg">
-                <div
-                    className="absolute top-0 right-0 w-[800px] h-[800px] opacity-20 blur-[120px] rounded-full pointer-events-none mix-blend-screen"
-                    style={{ background: `radial-gradient(circle, ${currentAward.color}, transparent 70%)` }}
-                ></div>
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/5 blur-[100px] rounded-full pointer-events-none"></div>
+                {currentAward.slug === 'hit' ? (
+                    <>
+                        <img
+                            src={hitBrandBg}
+                            alt="Background"
+                            className="w-full h-full object-cover opacity-40"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/90 via-brand-bg/50 to-brand-bg"></div>
+                    </>
+                ) : (
+                    <>
+                        <div
+                            className="absolute top-0 right-0 w-[800px] h-[800px] opacity-20 blur-[120px] rounded-full pointer-events-none mix-blend-screen"
+                            style={{ background: `radial-gradient(circle, ${currentAward.color}, transparent 70%)` }}
+                        ></div>
+                        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/5 blur-[100px] rounded-full pointer-events-none"></div>
+                    </>
+                )}
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">

@@ -129,7 +129,7 @@ const Home: React.FC = () => {
                                 <span className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${hoveredAward === award.slug ? 'text-white' : 'text-gray-600 group-hover:text-gray-300'}`}>
                                     {award.title.replace('2026 ', '')}
                                 </span>
-                                <span className={`text-3xl md:text-4xl font-bold tracking-widest uppercase transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
+                                <span className={`text-3xl md:text-4xl font-light tracking-widest uppercase transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
                                     {AWARD_MONTHS[award.slug]}
                                 </span>
                             </Link>
