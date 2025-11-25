@@ -90,15 +90,14 @@ const Home: React.FC = () => {
                     {/* Left Side: Dynamic Content */}
                     <div className="md:col-span-5 flex flex-col justify-center">
                         <div className="space-y-8">
-                            <div className="inline-block px-4 py-1 border border-brand-gold/30 rounded-full text-brand-gold text-sm font-medium tracking-wider uppercase mb-4">
-                                Monthly Awards
-                            </div>
-
                             <div className="relative min-h-[300px]">
                                 <div className="transition-all duration-500 ease-out transform">
-                                    <span className="text-9xl font-bold block mb-6 text-white/10 absolute -top-20 -left-10 select-none">
+                                    <div className="text-8xl md:text-9xl font-bold text-white/10 mb-4 leading-none select-none">
                                         {currentMonth}
-                                    </span>
+                                    </div>
+                                    <div className="text-7xl md:text-8xl font-black text-brand-gold mb-2 tracking-tight leading-none">
+                                        {currentAward.abbreviation}
+                                    </div>
                                     <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 relative">
                                         {currentAward.title.replace(`${CURRENT_YEAR} `, '')}
                                     </h3>
@@ -130,7 +129,7 @@ const Home: React.FC = () => {
                                 <span className={`text-3xl md:text-4xl font-bold transition-colors duration-300 ${hoveredAward === award.slug ? 'text-white' : 'text-gray-600 group-hover:text-gray-300'}`}>
                                     {award.title.replace('2026 ', '')}
                                 </span>
-                                <span className={`text-sm tracking-widest uppercase transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
+                                <span className={`text-3xl md:text-4xl font-bold tracking-widest uppercase transition-colors duration-300 ${hoveredAward === award.slug ? 'text-brand-gold' : 'text-gray-700 group-hover:text-gray-500'}`}>
                                     {AWARD_MONTHS[award.slug]}
                                 </span>
                             </Link>
