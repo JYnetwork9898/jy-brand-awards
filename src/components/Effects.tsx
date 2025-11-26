@@ -43,7 +43,7 @@ const Effects: React.FC = () => {
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center opacity-5"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-brand-bg-secondary via-transparent to-brand-bg-secondary"></div>
 
-            <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
+            <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

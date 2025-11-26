@@ -38,7 +38,7 @@ const Press: React.FC = () => {
 
     return (
         <section id="press" className="bg-brand-bg-secondary py-32 border-t border-brand-gold/10 snap-start">
-            <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
+            <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
                 <div className="text-left mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         어워즈 IN THE NEWS

@@ -10,7 +10,7 @@ const Benefits: React.FC = () => {
         offset: ["start start", "end end"]
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-600vw"]);
 
     const benefits = [
         {
@@ -48,28 +48,36 @@ const Benefits: React.FC = () => {
             desc: "소비자와의 접점을 확장하는 블로그 마케팅 10회 서비스로, 검색 노출과 바이럴 효과를 높입니다.",
             icon: "✦",
             bgImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2940&auto=format&fit=crop"
+        },
+        {
+            title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>프리미엄 시상식 개최</span>로 <br />브랜드 가치의 공식적 자리매김</>,
+            desc: "대상 1위 수상 브랜드는 정식 시상식에 초청되어 기업 대표 및 관계자가 직접 무대에서 수상합니다. 오프라인 행사 참여를 통해 브랜드의 위상을 높이고, 현장 스피치·포토월·인터뷰 등 다양한 순간들이 브랜드 스토리의 신뢰도와 화제성을 한층 강화합니다.",
+            icon: "✦",
+            bgImage: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2940&auto=format&fit=crop"
         }
     ];
 
     return (
-        <section id="benefits" ref={targetRef} className="relative h-[600vh] bg-brand-bg snap-start">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-                <div className="absolute top-0 left-0 z-20 p-8 md:p-16 pointer-events-none">
-                    <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
-                        Benefits
-                    </h2>
-                    <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                        수상 기업 혜택
-                    </h3>
+        <section id="benefits" ref={targetRef} className="relative h-[700vh] bg-brand-bg snap-start">
+            <div className="sticky top-0 h-screen overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 z-30 py-8 pointer-events-none">
+                    <div className="max-w-screen-2xl mx-auto container-padding">
+                        <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
+                            Benefits
+                        </h2>
+                        <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                            수상 기업 혜택
+                        </h3>
+                    </div>
                 </div>
 
-                <motion.div style={{ x }} className="flex gap-0">
+                {/* Sliding Backgrounds */}
+                <motion.div style={{ x }} className="flex gap-0 h-full">
                     {benefits.map((item, index) => (
                         <div
-                            key={index}
-                            className="relative h-screen w-screen flex-shrink-0 flex items-center justify-center overflow-hidden"
+                            key={`bg-${index}`}
+                            className="relative h-screen w-screen flex-shrink-0 overflow-hidden"
                         >
-                            {/* Background Image with Overlay */}
                             <div className="absolute inset-0 z-0">
                                 <img
                                     src={item.bgImage}
@@ -79,36 +87,27 @@ const Benefits: React.FC = () => {
                                 <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
                                 <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
                             </div>
-
-                            <div className="relative z-10 max-w-screen-2xl mx-auto px-8 w-full text-left">
-                                <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
-                                    {item.icon}
-                                </div>
-                                <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
-                                    {item.title}
-                                </h4>
-                                <div className="w-24 h-1 bg-brand-gold mb-12"></div>
-                                <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
-                                    {item.desc}
-                                </p>
-                            </div>
                         </div>
                     ))}
                 </motion.div>
 
-                {/* Slide Indicator */}
-                <div className="absolute bottom-12 right-8 md:right-16 z-20 flex gap-2 pointer-events-auto">
-                    {benefits.map((_, index) => {
-                        const itemStart = index / benefits.length;
-                        const itemMid = (index + 0.5) / benefits.length;
-                        const itemEnd = (index + 1) / benefits.length;
+                {/* Fixed Content Overlay */}
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                    {benefits.map((item, index) => {
+                        const step = 1 / (benefits.length - 1);
+                        const peak = index * step;
 
-                        const handleClick = () => {
+                        const opacity = useTransform(
+                            scrollYProgress,
+                            [peak - step, peak, peak + step],
+                            [0, 1, 0]
+                        );
+
+                        const handleClick = (targetIndex: number) => {
                             if (targetRef.current) {
                                 const sectionTop = targetRef.current.offsetTop;
                                 const sectionHeight = targetRef.current.offsetHeight;
-                                // Target the start of the nth benefit
-                                const targetScroll = sectionTop + (sectionHeight / benefits.length) * index;
+                                const targetScroll = sectionTop + (sectionHeight / benefits.length) * targetIndex;
 
                                 window.scrollTo({
                                     top: targetScroll,
@@ -117,38 +116,53 @@ const Benefits: React.FC = () => {
                             }
                         };
 
-                        const isActive = useTransform(
-                            scrollYProgress,
-                            [itemStart, itemMid, itemEnd],
-                            [0, 1, 0]
-                        );
-
                         return (
-                            <motion.button
-                                key={index}
-                                onClick={handleClick}
-                                className="relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all hover:scale-110"
-                                style={{
-                                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                                    borderColor: useTransform(isActive, [0, 1], ['rgba(255,255,255,0.3)', 'rgba(255,255,255,0)'])
-                                }}
-                                whileTap={{ scale: 0.95 }}
+                            <motion.div
+                                key={`content-${index}`}
+                                style={{ opacity }}
+                                className="absolute inset-0 flex items-center justify-center"
                             >
-                                <motion.div
-                                    className="absolute inset-0 bg-brand-gold rounded-full"
-                                    style={{
-                                        opacity: useTransform(isActive, [0, 1], [0, 1])
-                                    }}
-                                />
-                                <motion.span
-                                    className="relative z-10"
-                                    style={{
-                                        color: useTransform(isActive, [0, 1], ['rgba(255,255,255,0.6)', 'rgba(220,220,220,1)'])
-                                    }}
-                                >
-                                    {index + 1}
-                                </motion.span>
-                            </motion.button>
+                                <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
+                                    <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
+                                        {item.icon}
+                                    </div>
+                                    <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
+                                        {item.title}
+                                    </h4>
+                                    <div className="w-24 h-1 bg-brand-gold mb-12"></div>
+                                    <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light max-w-3xl">
+                                        {item.desc}
+                                    </p>
+
+                                    <div className="flex gap-2 mt-12 pointer-events-auto">
+                                        {benefits.map((_, i) => {
+                                            const isDotActive = i === index;
+                                            return (
+                                                <button
+                                                    key={i}
+                                                    onClick={() => handleClick(i)}
+                                                    className="relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all hover:scale-110"
+                                                    style={{
+                                                        border: '2px solid rgba(255, 255, 255, 0.3)',
+                                                        borderColor: isDotActive ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.1)'
+                                                    }}
+                                                >
+                                                    <div
+                                                        className="absolute inset-0 bg-brand-gold rounded-full transition-opacity duration-300"
+                                                        style={{ opacity: isDotActive ? 1 : 0 }}
+                                                    />
+                                                    <span
+                                                        className="relative z-10 transition-colors duration-300"
+                                                        style={{ color: isDotActive ? 'rgba(220,220,220,1)' : 'rgba(255,255,255,0.6)' }}
+                                                    >
+                                                        {i + 1}
+                                                    </span>
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </motion.div>
                         );
                     })}
                 </div>

@@ -52,7 +52,7 @@ const AwardInfo: React.FC = () => {
 
     return (
         <section className="py-32 bg-brand-bg-secondary snap-start">
-            <div className="max-w-screen-2xl mx-auto px-8">
+            <div className="max-w-screen-2xl mx-auto container-padding">
                 <div className="grid md:grid-cols-12 gap-16">
                     <div className="md:col-span-4">
                         <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-4">
@@ -72,7 +72,7 @@ const AwardInfo: React.FC = () => {
                         <div className="grid gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden">
                             {infoItems.map((item, index) => (
                                 <div key={index} className="grid md:grid-cols-12 bg-brand-bg p-6 md:p-8 gap-4 hover:bg-white/5 transition-colors">
-                                    <div className="md:col-span-4 text-brand-gold font-bold text-sm uppercase tracking-wider">
+                                    <div className="md:col-span-4 text-brand-gold font-semibold text-base uppercase tracking-wider">
                                         {item.label}
                                     </div>
                                     <div className="md:col-span-8 text-gray-300">

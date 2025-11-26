@@ -30,7 +30,7 @@ const Overview: React.FC = () => {
                 )}
             </div>
 
-            <div className="relative z-10 max-w-screen-2xl mx-auto px-8 w-full">
+            <div className="relative z-10 max-w-screen-2xl mx-auto container-padding w-full">
                 <div className="grid md:grid-cols-12 gap-12 items-center">
                     <div className="md:col-span-8">
                         {/* <div className="inline-flex items-center gap-3 mb-8 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">

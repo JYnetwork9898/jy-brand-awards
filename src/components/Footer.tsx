@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="bg-brand-black border-t border-brand-gray pt-32 pb-8 snap-start">
-            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-screen-2xl mx-auto container-padding">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
                         <a href="#" className="text-2xl font-bold text-brand-gold tracking-wider mb-4 block">

@@ -9,7 +9,7 @@ const Mission: React.FC = () => {
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-            <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
+            <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
                 <div className="grid md:grid-cols-12 gap-16 items-start">
                     <div className="md:col-span-4">
                         <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-4">
@@ -31,13 +31,13 @@ const Mission: React.FC = () => {
                             </p>
                             <div className="grid gap-8 pt-8 border-t border-white/10">
                                 <div>
-                                    <h4 className="text-white font-bold mb-4 text-xl">Award Purpose</h4>
+                                    <h4 className="text-white font-bold mb-4 text-xl">시상 취지</h4>
                                     <p>
                                         {currentAward.description}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold mb-4 text-xl">Selection Criteria</h4>
+                                    <h4 className="text-white font-bold mb-4 text-xl">시상 기준</h4>
                                     <p>
                                         우수한 품질과 뛰어난 서비스를 통해 높은 브랜드 가치를 인정받은 기업을 대상으로 "{currentAward.title}"를 선정합니다.
                                         이번 시상은 소비자들에게 그 가치를 인정받은 기업인이 선정되는 영예를 얻게 됩니다.

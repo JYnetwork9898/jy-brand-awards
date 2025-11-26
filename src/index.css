@@ -41,3 +41,16 @@ body {
 .animate-shimmer {
   animation: shimmer 4s ease-in-out infinite;
 }
+
+/* Container Utilities - 한 곳에서 좌우 여백 관리 */
+.container-padding {
+  @apply px-8 md:px-12 lg:px-16;
+}
+
+.container-padding-tight {
+  @apply px-8 md:px-10 lg:px-12;
+}
+
+.container-padding-wide {
+  @apply px-8 md:px-16 lg:px-20;
+}
