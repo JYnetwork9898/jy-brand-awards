@@ -54,3 +54,12 @@ body {
 .container-padding-wide {
   @apply px-8 md:px-16 lg:px-20;
 }
+
+/* Custom Backdrop Blur - 미세한 블러 조정용 */
+.backdrop-blur-xxs {
+  backdrop-filter: blur(1px);
+}
+
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+}

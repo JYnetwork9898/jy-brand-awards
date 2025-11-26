@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useAward } from '../context/AwardContext';
+import thbaAmblem from '../assets/THBA_amblem.png';
+import thbaCertification from '../assets/THBA_certification.png';
+import thbaNewspaper from '../assets/THBA_newspaper.png';
 
 const Benefits: React.FC = () => {
     const { currentAward } = useAward();
@@ -17,19 +20,19 @@ const Benefits: React.FC = () => {
             title: <>브랜드 신뢰를 강화하는 <br /><span style={{ color: 'var(--color-brand-gold-light)' }}>공식 엠블럼 제공</span></>,
             desc: "대상 1위 수상 기업에게 브랜드의 가치를 증명할 수 있는 공식 엠블럼(로고 에셋)을 제공합니다. 온·오프라인 마케팅과 PR 활동 전반에 활용하여 브랜드의 신뢰도와 매출을 높일 수 있습니다.",
             icon: "✦",
-            bgImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2874&auto=format&fit=crop"
+            bgImage: thbaAmblem
         },
         {
             title: <>브랜드 가치와 명예를 증명하는 <br /><span style={{ color: 'var(--color-brand-gold-light)' }}>공식 인증 패키지</span></>,
             desc: "대상 1위 수상 브랜드에 공식 상패, 인증서, 수상 팝업 이미지를 제공하여 온·오프라인 브랜딩 채널에서 일관된 브랜드 아이덴티티를 구축합니다.",
             icon: "✦",
-            bgImage: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=2940&auto=format&fit=crop"
+            bgImage: thbaCertification
         },
         {
             title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>{currentAward.sponsor} 지면보도</span>로 <br />완성되는 브랜드 공신력</>,
             desc: `대상 1위 수상 브랜드는 ${currentAward.sponsor} 종합일간지에 기획기사로 게재되어 브랜드 평판을 상승시키고 미디어 PR 효과를 확보합니다.`,
             icon: "✦",
-            bgImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2940&auto=format&fit=crop"
+            bgImage: thbaNewspaper
         },
         {
             title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>언론 보도</span>를 통한 <br />지속적 온라인 노출 효과</>,
@@ -84,7 +87,7 @@ const Benefits: React.FC = () => {
                                     alt={typeof item.title === 'string' ? item.title : 'Benefit'}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+                                <div className="absolute inset-0 bg-black/70 backdrop-blur-xs"></div>
                                 <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
                             </div>
                         </div>
