@@ -5,6 +5,7 @@ import TopBar from '../components/TopBar';
 import Sidebar from '../components/Sidebar';
 import Overview from '../components/Overview';
 import Mission from '../components/Mission';
+import Statistics from '../components/Statistics';
 import AwardInfo from '../components/AwardInfo';
 import Effects from '../components/Effects';
 import Benefits from '../components/Benefits';
@@ -36,6 +37,7 @@ const AwardPageContent: React.FC<{ slug?: string }> = ({ slug }) => {
             <main className="lg:ml-64 pt-[80px]">
                 <Overview />
                 <Mission />
+                <Statistics />
                 <AwardInfo />
                 <Benefits />
                 <Effects />

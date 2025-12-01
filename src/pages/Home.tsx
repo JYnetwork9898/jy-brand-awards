@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AWARDS } from '../constants/awards';
-import { CURRENT_YEAR, PREV_YEAR } from '../constants/common';
+import { CURRENT_YEAR } from '../constants/common';
 import TopBar from '../components/TopBar';
 
 // Award month mapping

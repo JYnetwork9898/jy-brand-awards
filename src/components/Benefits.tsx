@@ -63,7 +63,7 @@ const Benefits: React.FC = () => {
     return (
         <section id="benefits" ref={targetRef} className="relative h-[700vh] bg-brand-bg snap-start">
             <div className="sticky top-0 h-screen overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 z-30 py-8 pointer-events-none">
+                <div className="absolute top-0 left-0 right-0 z-30 pt-24 pb-8 pointer-events-none">
                     <div className="max-w-screen-2xl mx-auto container-padding">
                         <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
                             Benefits
@@ -87,7 +87,7 @@ const Benefits: React.FC = () => {
                                     alt={typeof item.title === 'string' ? item.title : 'Benefit'}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/70 backdrop-blur-xs"></div>
+                                <div className="absolute inset-0 bg-black/70 backdrop-blur-none"></div>
                                 <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/80 to-transparent"></div>
                             </div>
                         </div>

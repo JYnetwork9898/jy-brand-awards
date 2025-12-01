@@ -1,5 +1,3 @@
-import { CURRENT_YEAR } from './common';
-
 export interface Award {
     slug: string;
     title: string;

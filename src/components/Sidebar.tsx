@@ -54,7 +54,7 @@ const Sidebar: React.FC = () => {
 
     return (
         <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40 pt-[80px]">
-            <div className="flex-1 overflow-y-auto py-8 px-6">
+            <div className="flex-1 overflow-y-auto scrollbar-hide py-8 px-6">
                 <nav className="space-y-1">
                     {menuItems.map((item) => {
                         const isActive = activeSection === item.id;

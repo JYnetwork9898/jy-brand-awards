@@ -2,7 +2,7 @@ import React from 'react';
 
 const Process: React.FC = () => {
     const steps = [
-        { number: '01', title: '신청서 제출', description: '온라인 신청서를 작성하여 제출합니다.' },
+        { number: '01', title: '신청서 제출', description: '신청서를 작성 후 FAX 또는 이메일로 제출합니다.' },
         { number: '02', title: '서류 심사', description: '전문 심사위원단이 엄격한 기준에 따라 심사합니다.' },
         { number: '03', title: '최종 선정', description: '최종 수상 기업을 선정하고 개별 통보합니다.' },
         { number: '04', title: '시상식', description: '영예로운 시상식에 참석하여 상패를 수여받습니다.' },
@@ -22,24 +22,18 @@ const Process: React.FC = () => {
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 z-0"></div>
 
                     <div className="grid md:grid-cols-5 gap-8 relative z-10">
-                        <div className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-left group">
-                            <div className="w-12 h-12 bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                01
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-3">신청서 제출</h3>
-                            <p className="text-xs text-gray-400">신청서를 작성 후 FAX 또는 이메일로 제출합니다.</p>
-                        </div>
-                        {steps.slice(1).map((step, index) => (
+                        {steps.map((step, index) => (
                             <div key={index} className="bg-brand-bg-secondary p-6 rounded-lg border border-brand-gold/20 hover:border-brand-gold transition-colors text-left group">
                                 <div className="w-12 h-12 bg-brand-gold text-black font-bold text-xl rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                     {step.number}
                                 </div>
                                 <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                                <p className="text-xs text-gray-400">{step.description}</p>
+                                <p className="text-s font-light text-gray-400">{step.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
+
 
                 <div className="mt-16 text-left">
                     <div className="flex flex-col md:flex-row justify-start gap-6 mb-12">
@@ -77,8 +71,8 @@ const Process: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 
