@@ -53,8 +53,17 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40 pt-[80px]">
-            <div className="flex-1 overflow-y-auto scrollbar-hide py-8 px-6">
+        <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40">
+            {/* Logo Area */}
+            <div className="pt-8 pb-6 px-8">
+                <div className="text-left">
+                    <div className="text-white text-2xl font-bold mb-0">{CURRENT_YEAR}</div>
+                    <div className="text-brand-gold text-4xl font-black tracking-tight">{currentAward.abbreviation}</div>
+                    <div className="text-gray-500 text-xs font-regular mt-2 pr-12 leading-normal">{currentAward.englishName}</div>
+                </div>
+            </div>
+
+            <div className="flex-1 overflow-y-auto scrollbar-hide py-0 px-6">
                 <nav className="space-y-1">
                     {menuItems.map((item) => {
                         const isActive = activeSection === item.id;
@@ -62,7 +71,7 @@ const Sidebar: React.FC = () => {
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`w-full text-left px-4 py-3 ${isActive
+                                className={`w-full text-left px-2 py-3 ${isActive
                                     ? 'text-white '
                                     : 'text-gray-400 hover:text-brand-gold'
                                     } rounded-lg transition-all text-sm font-medium`}
@@ -96,21 +105,25 @@ const Sidebar: React.FC = () => {
                     </div>
                 </div>
 
+                {/* 
                 <div className="mb-4">
                     <h3 className="text-brand-gold-light text-sm font-bold mb-1">{currentAward.abbreviation}</h3>
                     <p className="text-white/70 text-s font-medium">{currentAward.title}</p>
                 </div>
+                */}
 
                 <div className="space-y-2 mb-8">
                     <a
-                        href="#"
+                        href={`/files/application-form/${CURRENT_YEAR}_${currentAward.abbreviation}_참가신청서.docx`}
+                        download
                         className="relative block w-full px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-black text-s font-bold text-center rounded transition-colors overflow-hidden group"
                     >
                         <span className="relative z-10">참가신청서 다운로드</span>
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 animate-shimmer"></span>
                     </a>
                     <a
-                        href="#"
+                        href={`/files/awards-introduction/${CURRENT_YEAR}_${currentAward.abbreviation}_제안서.pdf`}
+                        download
                         className="block w-full px-4 py-2.5 bg-white/10 hover:bg-white/20 text-gray-400 text-s font-bold text-center rounded transition-colors border border-white/20"
                     >
                         소개서 다운로드

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
+import { CURRENT_YEAR } from '../constants/common';
 
 const Footer: React.FC = () => {
     const { currentAward } = useAward();
@@ -12,16 +13,16 @@ const Footer: React.FC = () => {
                         <a href="#" className="text-2xl font-bold text-brand-gold tracking-wider mb-4 block">
                             {currentAward.title}
                         </a>
-                        <p className="text-gray-400 max-w-sm">
-                            대한민국 최고의 브랜드를 선정하는 권위 있는 시상식입니다. 성공적인 비즈니스의 기준을 제시합니다.
+                        <p className="text-gray-400 max-w-lg leading-relaxed">
+                            (주)제이와이네트워크 | 대표 김재훈 | 사업자등록번호 172-87-00908
                         </p>
                     </div>
                     <div>
                         <h4 className="text-white font-bold mb-4">Contact</h4>
                         <ul className="space-y-2 text-gray-400 text-sm">
-                            <li>Email: awards@kbmj.com</li>
-                            <li>Phone: 02-1234-5678</li>
-                            <li>Address: 서울특별시 마포구</li>
+                            <li>TEL 02.6959.5552</li>
+                            <li>Fax 02.866.7761</li>
+                            <li>MOBLIE 010.5036.5683</li>
                         </ul>
                     </div>
                     <div>
@@ -33,7 +34,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="border-t border-brand-gray pt-8 text-center text-gray-500 text-sm">
-                    &copy; {new Date().getFullYear()} KBMJ Brand Awards. All rights reserved.
+                    copyright ⓒ {CURRENT_YEAR}.JYnetworks, All rights reserved | 사이트명 : {CURRENT_YEAR} {currentAward.title}
                 </div>
             </div>
         </footer>

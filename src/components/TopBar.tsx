@@ -15,35 +15,32 @@ const TopBar: React.FC = () => {
     };
 
     return (
-        <header className="w-full py-6 px-8 flex flex-col md:flex-row justify-between items-center bg-transparent absolute top-0 left-0 z-50">
-            <div className="mb-4 md:mb-0">
-                <Link to="/" className="text-white font-bold text-xl leading-tight">
-                    KBMJ<br />
-                    <span className="text-sm font-normal">Brand Awards</span>
-                </Link>
-            </div>
-            <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
-                {Object.values(AWARDS).map((award) => {
-                    const isCurrentAward = award.slug === currentSlug;
+        <header className="w-full py-8 px-12 flex justify-end items-center bg-transparent absolute top-0 left-0 z-50 lg:pl-64">
 
-                    return isCurrentAward ? (
-                        <button
-                            key={award.slug}
-                            onClick={handleScrollToTop}
-                            className="text-brand-gold hover:text-brand-gold/80 text-xs md:text-sm transition-colors font-medium cursor-pointer"
-                        >
-                            {CURRENT_YEAR} {award.title}
-                        </button>
-                    ) : (
-                        <Link
-                            key={award.slug}
-                            to={`/awards/${award.slug}`}
-                            className="text-gray-400 hover:text-brand-gold text-xs md:text-sm transition-colors"
-                        >
-                            {CURRENT_YEAR} {award.title}
-                        </Link>
-                    );
-                })}
+            <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
+                {Object.values(AWARDS)
+                    .filter((award) => award.slug !== 'hit' && award.slug !== 'customer') //히트브랜드랑 고객감동브랜드 숨겨두기
+                    .map((award) => {
+                        const isCurrentAward = award.slug === currentSlug;
+
+                        return isCurrentAward ? (
+                            <button
+                                key={award.slug}
+                                onClick={handleScrollToTop}
+                                className="text-brand-gold hover:text-brand-gold/80 text-m md:text-xl transition-colors font-medium cursor-pointer"
+                            >
+                                {CURRENT_YEAR} {award.title}
+                            </button>
+                        ) : (
+                            <Link
+                                key={award.slug}
+                                to={`/awards/${award.slug}`}
+                                className="text-gray-400 hover:text-brand-gold text-m md:text-xl transition-colors"
+                            >
+                                {CURRENT_YEAR} {award.title}
+                            </Link>
+                        );
+                    })}
             </nav>
         </header>
     );
