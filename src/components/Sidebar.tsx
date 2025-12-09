@@ -7,8 +7,7 @@ const Sidebar: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>('overview');
 
     const menuItems = [
-        { id: 'overview', label: '시상식 개요' },
-        { id: 'mission', label: '시상식 취지' },
+        { id: 'mission', label: '시상식 안내' },
         { id: 'benefits', label: '수상 혜택' },
         { id: 'effects', label: '수상 효과' },
         { id: 'past-winners', label: '역대 수상 브랜드' },
@@ -55,13 +54,16 @@ const Sidebar: React.FC = () => {
     return (
         <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40">
             {/* Logo Area */}
-            <div className="pt-8 pb-6 px-8">
+            <button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="pt-8 pb-6 px-8 w-full transition-colors cursor-pointer"
+            >
                 <div className="text-left">
                     <div className="text-white text-2xl font-bold mb-0">{CURRENT_YEAR}</div>
                     <div className="text-brand-gold text-4xl font-black tracking-tight">{currentAward.abbreviation}</div>
                     <div className="text-gray-500 text-xs font-regular mt-2 pr-12 leading-normal">{currentAward.englishName}</div>
                 </div>
-            </div>
+            </button>
 
             <div className="flex-1 overflow-y-auto scrollbar-hide py-0 px-6">
                 <nav className="space-y-1">
@@ -130,8 +132,8 @@ const Sidebar: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="text-xs text-gray-500 font-medium pt-4 border-t border-white/10">
-                    &copy; {CURRENT_YEAR} KBMJ.
+                <div className="text-xs text-gray-500 font-medium pt-4 border-t border-white/10 mb-0">
+                    ⓒ {CURRENT_YEAR}.JYnetworks
                 </div>
                 <div className="text-[10px] text-gray-600">
                     All rights reserved.

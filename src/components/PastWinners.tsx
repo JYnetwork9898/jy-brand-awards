@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SectionTitle from './SectionTitle';
 
 const PastWinners: React.FC = () => {
     // Placeholder data for past winners
@@ -13,17 +14,16 @@ const PastWinners: React.FC = () => {
     return (
         <section id="past-winners" className="bg-black py-32 border-t border-brand-gold/10 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
-                <div className="mb-16 text-left">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">역대 수상 브랜드</h2>
-                        <p className="text-gray-400">대한민국을 빛낸 자랑스러운 브랜드들을 소개합니다.</p>
-                    </motion.div>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
+                    <SectionTitle subtitle="대한민국을 빛낸 자랑스러운 브랜드들을 소개합니다." className="mb-16">
+                        역대 수상 브랜드
+                    </SectionTitle>
+                </motion.div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     {winners.map((winner, index) => (

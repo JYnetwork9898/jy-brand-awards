@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CURRENT_YEAR } from '../constants/common';
+import SectionTitle from './SectionTitle';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,10 +51,9 @@ const FAQ: React.FC = () => {
     return (
         <section id="faq" className="bg-brand-black py-32 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding">
-                <div className="text-left mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">자주 묻는 질문</h2>
-                    <p className="text-gray-400">어워드 관련 궁금한 점을 확인하세요.</p>
-                </div>
+                <SectionTitle subtitle="어워드 관련 궁금한 점을 확인하세요." className="mb-16">
+                    자주 묻는 질문
+                </SectionTitle>
                 <div className="space-y-2">
                     {faqs.map((faq, index) => (
                         <FAQItem key={index} question={faq.question} answer={faq.answer} />

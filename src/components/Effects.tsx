@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useAward } from '../context/AwardContext';
+import SectionTitle from './SectionTitle';
 
 const Effects: React.FC = () => {
     const { currentAward } = useAward();
@@ -8,7 +9,7 @@ const Effects: React.FC = () => {
     const effects = [
         {
             title: '신뢰도 상승',
-            description: `${currentAward.sponsor} 후원 공식 인증으로 기업 신뢰가 높아지고, 고객과 거래처에 ‘믿을 수 있는 브랜드’로 각인됩니다.`,
+            description: `${currentAward.sponsor} 후원 공식 인증으로 기업 신뢰가 높아지고, 고객과 거래처에 '믿을 수 있는 브랜드'로 각인됩니다.`,
             icon: '🤝'
         },
         {
@@ -49,13 +50,14 @@ const Effects: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-left mb-16"
+                    className="text-left"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">수상 효과</h2>
-                    <p className="text-xl text-gray-400 max-w-3xl">
-                        {currentAward.title} 수상은 단순한 명예를 넘어<br className="hidden md:block" />
-                        기업의 실질적인 성장과 가치를 증명합니다.
-                    </p>
+                    <SectionTitle
+                        className="mb-16"
+                        subtitle={`${currentAward.title} 수상은 단순한 명예를 넘어 기업의 실질적인 성장과 가치를 증명합니다.`}
+                    >
+                        수상 효과
+                    </SectionTitle>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
