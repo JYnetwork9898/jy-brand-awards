@@ -52,7 +52,7 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black border-r border-white/10 z-40">
+        <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black/90 border-r border-white/10 z-40">
             {/* Logo Area */}
             <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

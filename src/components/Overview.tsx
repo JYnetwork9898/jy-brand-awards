@@ -1,20 +1,31 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
 import { CURRENT_YEAR } from '../constants/common';
-import hitBrandBg from '../assets/hitbrand_bg.png';
+import thbaBg from '../assets/THBA_main.png';
+import csebBg from '../assets/CSEB_main.png';
+import csbaBg from '../assets/CSBA_main.png';
+import tebaBg from '../assets/TEBA_main.png';
+
+const bgImages: Record<string, string> = {
+    hit: thbaBg,
+    customer: csebBg,
+    consumer: csbaBg,
+    year: tebaBg
+};
 
 const Overview: React.FC = () => {
     const { currentAward } = useAward();
+    const bgImage = bgImages[currentAward.slug];
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden snap-start">
             {/* Dynamic Background with Award Color */}
             <div className="absolute inset-0 bg-brand-bg">
-                {currentAward.slug === 'hit' ? (
+                {bgImage ? (
                     <>
                         <img
-                            src={hitBrandBg}
-                            alt="Background"
+                            src={bgImage}
+                            alt={`${currentAward.title} Background`}
                             className="w-full h-full object-cover opacity-40"
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/90 via-brand-bg/50 to-brand-bg"></div>
