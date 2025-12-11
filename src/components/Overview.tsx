@@ -3,8 +3,8 @@ import { useAward } from '../context/AwardContext';
 import { CURRENT_YEAR } from '../constants/common';
 import thbaBg from '../assets/THBA/THBA_main.png';
 import csebBg from '../assets/CSEB/CSEB_main.png';
-import csbaBg from '../assets/CSBA/CSBA_main.png';
-import tebaBg from '../assets/TEBA/TEBA_main.png';
+import csbaBg from '../assets/CSBA/CSBA_main.jpg';
+import tebaBg from '../assets/TEBA/TEBA_main.jpg';
 
 // 각 어워드 타입에 맞는 배경 이미지를 매핑하는 객체
 const bgImages: Record<string, string> = {
