@@ -5,31 +5,31 @@ import { useAward } from '../context/AwardContext';
 // THBA Images (Prefix: thba)
 import thba01 from '../assets/THBA/THBA_benefits01.png';
 import thba02 from '../assets/THBA/THBA_benefits02.png';
-import thba03 from '../assets/THBA/THBA_benefits03.png';
-import thba04 from '../assets/THBA/THBA_benefits04.png';
-import thba05 from '../assets/THBA/THBA_benefits05.png';
-import thba06 from '../assets/THBA/THBA_benefits06.png';
-import thba07 from '../assets/THBA/THBA_benefits07.png';
+//import thba03 from '../assets/THBA/THBA_benefits03.png';
+//import thba04 from '../assets/THBA/THBA_benefits04.png';
+//import thba05 from '../assets/THBA/THBA_benefits05.png';
+//import thba06 from '../assets/THBA/THBA_benefits06.png';
+//import thba07 from '../assets/THBA/THBA_benefits07.png';
 import thbaExtra from '../assets/THBA/THBA_benefits01_1.png';
 
 // CSEB Images (Prefix: cseb)
 import cseb01 from '../assets/CSEB/CSEB_benefits01.png';
 import cseb02 from '../assets/CSEB/CSEB_benefits02.png';
-import cseb03 from '../assets/CSEB/CSEB_benefits03.png';
-import cseb04 from '../assets/CSEB/CSEB_benefits04.png';
-import cseb05 from '../assets/CSEB/CSEB_benefits05.png';
-import cseb06 from '../assets/CSEB/CSEB_benefits06.png';
-import cseb07 from '../assets/CSEB/CSEB_benefits07.png';
+//import cseb03 from '../assets/CSEB/CSEB_benefits03.png';
+//import cseb04 from '../assets/CSEB/CSEB_benefits04.png';
+//import cseb05 from '../assets/CSEB/CSEB_benefits05.png';
+//import cseb06 from '../assets/CSEB/CSEB_benefits06.png';
+//import cseb07 from '../assets/CSEB/CSEB_benefits07.png';
 import csebExtra from '../assets/CSEB/CSEB_benefits01_1.png';
 
 // CSBA Images (Prefix: csba)
 import csba01 from '../assets/CSBA/CSBA_benefits01.png';
 import csba02 from '../assets/CSBA/CSBA_benefits02.png';
-import csba03 from '../assets/CSBA/CSBA_benefits03.png';
-import csba04 from '../assets/CSBA/CSBA_benefits04.png';
-import csba05 from '../assets/CSBA/CSBA_benefits05.png';
-import csba06 from '../assets/CSBA/CSBA_benefits06.png';
-import csba07 from '../assets/CSBA/CSBA_benefits07.png';
+//import csba03 from '../assets/CSBA/CSBA_benefits03.png';
+//import csba04 from '../assets/CSBA/CSBA_benefits04.png';
+//import csba05 from '../assets/CSBA/CSBA_benefits05.png';
+//import csba06 from '../assets/CSBA/CSBA_benefits06.png';
+//import csba07 from '../assets/CSBA/CSBA_benefits07.png';
 import csbaExtra from '../assets/CSBA/CSBA_benefits01_1.png';
 
 // TEBA Images (Prefix: teba)
