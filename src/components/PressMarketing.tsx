@@ -1,9 +1,4 @@
-import React from 'react';
-import { useAward } from '../context/AwardContext';
-
 const PressMarketing: React.FC = () => {
-    const { currentAward } = useAward();
-
     return (
         <section id="press-marketing" className="bg-brand-bg py-32 border-t border-brand-gold/10 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
