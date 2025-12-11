@@ -9,6 +9,7 @@ const Footer: React.FC = () => {
         <footer className="bg-brand-black border-t border-brand-gray pt-32 pb-8 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
+                    {/* 회사 정보 및 사업자 등록 번호 */}
                     <div className="col-span-1 md:col-span-2">
                         <a href="#" className="text-2xl font-bold text-brand-gold tracking-wider mb-4 block">
                             {currentAward.title}
@@ -17,6 +18,7 @@ const Footer: React.FC = () => {
                             (주)제이와이네트워크 | 대표 김재훈 | 사업자등록번호 172-87-00908
                         </p>
                     </div>
+                    {/* 연락처 정보 */}
                     <div>
                         <h4 className="text-white font-bold mb-4">Contact</h4>
                         <ul className="space-y-2 text-gray-400 text-sm">
@@ -25,6 +27,7 @@ const Footer: React.FC = () => {
                             <li>MOBLIE 010.5036.5683</li>
                         </ul>
                     </div>
+                    {/* 법적 고지 및 약관 */}
                     <div>
                         <h4 className="text-white font-bold mb-4">Legal</h4>
                         <ul className="space-y-2 text-gray-400 text-sm">

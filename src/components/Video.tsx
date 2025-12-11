@@ -4,7 +4,8 @@ import { useAward } from '../context/AwardContext';
 const Video: React.FC = () => {
     const { currentAward } = useAward();
 
-    // Award-specific video configurations
+    // 어워드별 역대 시상식 영상 데이터 설정
+    // consumer: 소비자만족브랜드대상 / year: 올해의우수브랜드대상 (기본값: consumer)
     const videosByAward: Record<string, Array<{ videoId: string; url: string; title: string; year: number }>> = {
         'consumer': [
             { videoId: 'RscmBbyMOWw', url: 'https://youtu.be/RscmBbyMOWw', title: '2025 소비자 만족 브랜드 대상 1위 시상식', year: 2025 },
@@ -18,7 +19,7 @@ const Video: React.FC = () => {
         ]
     };
 
-    // Get videos for current award, fallback to consumer if not found
+    // 현재 어워드에 맞는 영상 리스트를 가져오거나, 없으면 기본값 사용
     const videos = videosByAward[currentAward.slug] || videosByAward['consumer'];
 
     return (
@@ -43,7 +44,7 @@ const Video: React.FC = () => {
                             className="group cursor-pointer block"
                         >
                             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-brand-gold/20 group-hover:border-brand-gold transition-all mb-4">
-                                {/* YouTube Thumbnail */}
+                                {/* YouTube 썸네일 이미지 (고화질) */}
                                 <img
                                     src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
                                     alt={video.title}

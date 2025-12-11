@@ -6,6 +6,7 @@ import SectionTitle from './SectionTitle';
 const Process: React.FC = () => {
     const { currentAward } = useAward();
 
+    // 참가 프로세스 단계별 안내 데이터
     const steps = [
         { number: '01', title: '신청서 제출', description: '신청서를 작성 후 FAX 또는 이메일로 제출합니다.' },
         { number: '02', title: '서류 심사', description: '전문 심사위원단이 엄격한 기준에 따라 심사합니다.' },
@@ -14,6 +15,7 @@ const Process: React.FC = () => {
         { number: '05', title: '사후 홍보 지원', description: '언론 보도 및 다양한 마케팅 지원을 받습니다.' },
     ];
 
+    // 접수 및 문의처 정보
     const contactInfo = [
         {
             label: '전화',
@@ -35,12 +37,12 @@ const Process: React.FC = () => {
     return (
         <section id="process" className="bg-brand-bg py-32 relative overflow-hidden border-t border-brand-gold/10 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
-                <SectionTitle subtitle="투명하고 공정한 심사 절차" className="mb-16">
+                <SectionTitle subtitle="투명하고 공정한 심사 절차로 진행됩니다." className="mb-16">
                     참가 프로세스
                 </SectionTitle>
 
                 <div className="relative">
-                    {/* Connecting Line (Desktop) */}
+                    {/* Connecting Line (Desktop) - 단계별 요소들을 이어주는 선 (데스크탑 전용) */}
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-brand-gold/20 -translate-y-1/2 z-0"></div>
 
                     <div className="grid md:grid-cols-5 gap-8 relative z-10">
@@ -59,6 +61,7 @@ const Process: React.FC = () => {
 
                 <div className="mt-16 text-left">
                     <div className="flex flex-col md:flex-row justify-start gap-6 mb-12">
+                        {/* 참가 신청서 다운로드 버튼 */}
                         <a
                             href={`/files/application-form/${CURRENT_YEAR}_${currentAward.abbreviation}_참가신청서.docx`}
                             download
@@ -67,6 +70,7 @@ const Process: React.FC = () => {
                             <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             참가 신청서 다운로드
                         </a>
+                        {/* 어워즈 소개서 다운로드 버튼 */}
                         <a
                             href={`/files/awards-introduction/${CURRENT_YEAR}_${currentAward.abbreviation}_제안서.pdf`}
                             download

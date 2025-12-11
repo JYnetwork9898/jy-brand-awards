@@ -7,7 +7,7 @@ import logoJYNetwork from '../assets/logo_jynetwork_white.png';
 const TopBar: React.FC = () => {
     const location = useLocation();
 
-    // Extract current award slug from URL path
+    // 현재 URL 경로에서 어워드 슬러그 추출 (/awards/slug)
     const currentSlug = location.pathname.split('/awards/')[1];
 
     const handleScrollToTop = (e: React.MouseEvent) => {
@@ -18,13 +18,15 @@ const TopBar: React.FC = () => {
     return (
         <header className="w-full py-8 px-12 flex justify-end items-center bg-transparent absolute top-0 left-0 z-50 lg:pl-64 pointer-events-none">
 
+            {/* 어워드 링크 목록 (Pointer Events 활성화) */}
             <nav className="flex flex-wrap justify-center gap-6 md:gap-8 pointer-events-auto">
                 {Object.values(AWARDS)
-                    .filter((award) => award.slug !== 'hit' && award.slug !== 'customer') //히트브랜드랑 고객감동브랜드 숨겨두기
+                    .filter((award) => award.slug !== 'hit' && award.slug !== 'customer') // 히트브랜드랑 고객감동브랜드 숨겨두기
                     .map((award) => {
                         const isCurrentAward = award.slug === currentSlug;
 
                         return isCurrentAward ? (
+                            // 현재 보고 있는 어워드는 버튼으로 표시 (클릭시 최상단 스크롤)
                             <button
                                 key={award.slug}
                                 onClick={handleScrollToTop}
@@ -33,6 +35,7 @@ const TopBar: React.FC = () => {
                                 {CURRENT_YEAR} {award.title}
                             </button>
                         ) : (
+                            // 다른 어워드는 링크로 이동
                             <Link
                                 key={award.slug}
                                 to={`/awards/${award.slug}`}

@@ -1,10 +1,10 @@
 import React from 'react';
 
 interface SectionTitleProps {
-    children: React.ReactNode;
-    subtitle?: string;
-    className?: string;
-    as?: 'h1' | 'h2' | 'h3' | 'h4';
+    children: React.ReactNode; // 제목 텍스트
+    subtitle?: string;        // 부제목 텍스트 (선택)
+    className?: string;       // 추가 스타일 클래스
+    as?: 'h1' | 'h2' | 'h3' | 'h4'; // 렌더링할 HTML 태그 (기본값: h2)
 }
 
 const SectionTitle: React.FC<SectionTitleProps> = ({

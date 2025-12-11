@@ -5,6 +5,7 @@ import { CURRENT_YEAR, PREV_YEAR } from '../constants/common';
 const Press: React.FC = () => {
     const { currentAward } = useAward();
 
+    // 언론 보도 기사 데이터 리스트 (임시 데이터)
     const articles = [
         {
             source: '중앙일보',

@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 
 const Navbar: React.FC = () => {
+    // 모바일 메뉴 열림/닫힘 상태 관리
     const [isOpen, setIsOpen] = useState(false);
+
+    // 내비게이션 링크 데이터 정의
+    const navLinks = [
+        { href: '#about', label: 'About' },
+        { href: '#winners', label: 'Winners' },
+        { href: '#process', label: 'Process' },
+        { href: '#faq', label: 'FAQ' },
+    ];
 
     return (
         <nav className="fixed w-full z-50 bg-brand-navy/90 backdrop-blur-md border-b border-brand-gold/20">
@@ -12,12 +21,18 @@ const Navbar: React.FC = () => {
                             KBMJ <span className="text-white">AWARDS</span>
                         </a>
                     </div>
+                    {/* 데스크탑 메뉴 영역 */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
-                            <a href="#about" className="text-gray-300 hover:text-brand-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                            <a href="#winners" className="text-gray-300 hover:text-brand-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Winners</a>
-                            <a href="#process" className="text-gray-300 hover:text-brand-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Process</a>
-                            <a href="#faq" className="text-gray-300 hover:text-brand-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    className="text-gray-300 hover:text-brand-gold px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
                         </div>
                     </div>
                     <div className="hidden md:block">
@@ -25,6 +40,7 @@ const Navbar: React.FC = () => {
                             Apply Now
                         </a>
                     </div>
+                    {/* 모바일 메뉴 토글 버튼 */}
                     <div className="-mr-2 flex md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -45,13 +61,19 @@ const Navbar: React.FC = () => {
                 </div>
             </div>
 
+            {/* 모바일 메뉴 드롭다운 */}
             {isOpen && (
                 <div className="md:hidden bg-brand-navy border-b border-brand-gold/20">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <a href="#about" className="text-gray-300 hover:text-brand-gold block px-3 py-2 rounded-md text-base font-medium">About</a>
-                        <a href="#winners" className="text-gray-300 hover:text-brand-gold block px-3 py-2 rounded-md text-base font-medium">Winners</a>
-                        <a href="#process" className="text-gray-300 hover:text-brand-gold block px-3 py-2 rounded-md text-base font-medium">Process</a>
-                        <a href="#faq" className="text-gray-300 hover:text-brand-gold block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.label}
+                                href={link.href}
+                                className="text-gray-300 hover:text-brand-gold block px-3 py-2 rounded-md text-base font-medium"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
                         <a href="#apply" className="block w-full text-center bg-brand-gold text-brand-black px-6 py-3 rounded-md font-bold mt-4">
                             Apply Now
                         </a>

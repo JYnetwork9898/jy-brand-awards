@@ -3,6 +3,7 @@ import { CURRENT_YEAR } from '../constants/common';
 import SectionTitle from './SectionTitle';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
+    // 아코디언 열림/닫힘 상태 관리
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -19,6 +20,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
                 </span>
             </button>
             <div
+                // CSS 클래스를 활용한 애니메이션 효과 (높이 및 투명도 전환)
                 className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-48 opacity-100 pb-6' : 'max-h-0 opacity-0'
                     }`}
             >
@@ -29,6 +31,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
 };
 
 const FAQ: React.FC = () => {
+    // 자주 묻는 질문 데이터 목록
     const faqs = [
         {
             question: '참가 자격 조건은 무엇인가요?',

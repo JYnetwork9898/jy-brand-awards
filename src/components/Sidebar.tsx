@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useAward } from '../context/AwardContext';
 import { CURRENT_YEAR } from '../constants/common';
 
+const menuItems = [
+    { id: 'mission', label: '시상식 안내' },
+    { id: 'benefits', label: '수상 혜택' },
+    { id: 'effects', label: '수상 효과' },
+    { id: 'past-winners', label: '역대 수상 브랜드' },
+    { id: 'video', label: '역대 시상식' },
+    { id: 'press-marketing', label: '언론 보도' },
+    { id: 'process', label: '참가 프로세스' },
+    { id: 'faq', label: '자주 묻는 질문' },
+];
+
 const Sidebar: React.FC = () => {
     const { currentAward } = useAward();
     const [activeSection, setActiveSection] = useState<string>('overview');
 
-    const menuItems = [
-        { id: 'mission', label: '시상식 안내' },
-        { id: 'benefits', label: '수상 혜택' },
-        { id: 'effects', label: '수상 효과' },
-        { id: 'past-winners', label: '역대 수상 브랜드' },
-        { id: 'video', label: '역대 시상식' },
-        { id: 'press', label: '언론 보도' },
-        { id: 'process', label: '참가 프로세스' },
-        { id: 'faq', label: '자주 묻는 질문' },
-    ];
-
+    // Intersection Observer를 사용하여 스크롤 시 현재 보고 있는 섹션을 감지
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -27,23 +28,37 @@ const Sidebar: React.FC = () => {
                 });
             },
             {
-                rootMargin: '-20% 0px -70% 0px',
+                rootMargin: '-20% 0px -70% 0px', // 중앙 지점 근처에서 활성화되도록 조정
                 threshold: 0
             }
         );
 
-        menuItems.forEach((item) => {
-            const element = document.getElementById(item.id);
-            if (element) {
-                observer.observe(element);
-            }
-        });
+        const observeSections = () => {
+            menuItems.forEach((item) => {
+                const element = document.getElementById(item.id);
+                if (element) {
+                    observer.observe(element);
+                } else {
+                    // console.warn(`Sidebar: Element with id '${item.id}' not found`);
+                }
+            });
+        };
+
+        // 초기 실행
+        observeSections();
+
+        // DOM 렌더링 타이밍 이슈를 방지하기 위해 잠시 후 재실행 (안전장치)
+        const timeoutId = setTimeout(observeSections, 500);
+        const timeoutId2 = setTimeout(observeSections, 1000);
 
         return () => {
             observer.disconnect();
+            clearTimeout(timeoutId);
+            clearTimeout(timeoutId2);
         };
     }, []);
 
+    // 메뉴 클릭 시 해당 섹션으로 부드럽게 스크롤
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {

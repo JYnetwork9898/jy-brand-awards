@@ -6,16 +6,18 @@ const AwardInfo: React.FC = () => {
     const { currentAward } = useAward();
 
     // Dynamic dates based on award slug
+    // 어워드 슬러그(slug)에 따라 일정 텍스트를 반환하는 헬퍼 함수
     const getSchedule = (slug: string) => {
         switch (slug) {
-            case 'hit': return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`;
-            case 'customer': return `${CURRENT_YEAR}. 01. 01 ~ ${CURRENT_YEAR}. 02. 28`;
-            case 'consumer': return `${CURRENT_YEAR}. 04. 01 ~ ${CURRENT_YEAR}. 05. 31`;
-            case 'year': return `${CURRENT_YEAR}. 07. 01 ~ ${CURRENT_YEAR}. 08. 31`;
+            case 'hit': return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`; // 히트브랜드대상
+            case 'customer': return `${CURRENT_YEAR}. 01. 01 ~ ${CURRENT_YEAR}. 02. 28`; // 고객만족브랜드대상
+            case 'consumer': return `${CURRENT_YEAR}. 04. 01 ~ ${CURRENT_YEAR}. 05. 31`; // 소비자만족브랜드대상
+            case 'year': return `${CURRENT_YEAR}. 07. 01 ~ ${CURRENT_YEAR}. 08. 31`; // 올해의우수브랜드대상
             default: return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`;
         }
     };
 
+    // 화면에 표시할 정보 항목 리스트 (라벨, 값)
     const infoItems = [
         { label: '어워즈명', value: `${CURRENT_YEAR} ${currentAward.title}` },
         { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor} · 기업경영저널` },
@@ -69,6 +71,7 @@ const AwardInfo: React.FC = () => {
                     </div>
 
                     <div className="md:col-span-8">
+                        {/* 정보 그리드 레이아웃 */}
                         <div className="grid gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden">
                             {infoItems.map((item, index) => (
                                 <div key={index} className="grid md:grid-cols-12 bg-brand-bg p-6 md:p-8 gap-4 hover:bg-white/5 transition-colors">

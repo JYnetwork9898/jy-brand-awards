@@ -11,18 +11,20 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = '' }) => {
     const elementRef = useRef<HTMLDivElement>(null);
     const hasAnimated = useRef(false);
 
+    // Intersection Observer를 사용하여 화면에 보일 때 카운팅 애니메이션 시작
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && !hasAnimated.current) {
                     hasAnimated.current = true;
+                    // 애니메이션 시작 시점과 지속 시간 설정
                     let startTimestamp: number | null = null;
-                    const duration = 2000;
+                    const duration = 2000; // 2초
 
                     const step = (timestamp: number) => {
                         if (!startTimestamp) startTimestamp = timestamp;
                         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                        // Ease out quart
+                        // Ease out quart 함수로 부드러운 감속 효과 적용
                         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
 
                         setCount(Math.floor(easeOutQuart * value));
@@ -30,13 +32,13 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = '' }) => {
                         if (progress < 1) {
                             window.requestAnimationFrame(step);
                         } else {
-                            setCount(value); // Ensure final value is exact
+                            setCount(value); // 애니메이션 종료 시 정확한 최종값 설정
                         }
                     };
                     window.requestAnimationFrame(step);
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.2 } // 20% 이상 보일 때 작동
         );
 
         if (elementRef.current) {
@@ -57,6 +59,7 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = '' }) => {
 };
 
 const Statistics: React.FC = () => {
+    // 표시할 통계 데이터 목록
     const stats = [
         { label: '역대 참가 기업 수', value: 10345, suffix: '+' },
         { label: '참여 인원', value: 25234, suffix: '+' },

@@ -15,7 +15,8 @@ import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import PastWinners from '../components/PastWinners';
 import FloatingButton from '../components/FloatingButton';
-import Press from '../components/Press';
+import PressMarketing from '../components/PressMarketing';
+// import Press from '../components/Press'; // Keep file but don't use it
 
 const AwardPageContent: React.FC<{ slug?: string }> = ({ slug }) => {
     useEffect(() => {
@@ -43,7 +44,7 @@ const AwardPageContent: React.FC<{ slug?: string }> = ({ slug }) => {
                 <Effects />
                 <PastWinners />
                 <Video />
-                <Press />
+                <PressMarketing />
                 <Process />
                 <FAQ />
                 <Footer />

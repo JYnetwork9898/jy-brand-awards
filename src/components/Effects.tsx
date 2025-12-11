@@ -6,6 +6,7 @@ import SectionTitle from './SectionTitle';
 const Effects: React.FC = () => {
     const { currentAward } = useAward();
 
+    // 수상 기대 효과 데이터 목록
     const effects = [
         {
             title: '신뢰도 상승',
@@ -45,6 +46,7 @@ const Effects: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-brand-bg-secondary via-transparent to-brand-bg-secondary"></div>
 
             <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
+                {/* 섹션 타이틀 (스크롤 애니메이션 적용) */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
