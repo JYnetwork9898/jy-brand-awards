@@ -85,7 +85,7 @@ const Benefits: React.FC = () => {
         },
         {
             title: <>브랜드 가치와 명예를 증명하는 <br /><span style={{ color: 'var(--color-brand-gold-light)' }}>공식 인증 패키지</span></>,
-            desc: "공식 상패, 인증서, 수상 팝업 이미지를 제공하여 온·오프라인 브랜딩 채널에서 일관된 브랜드 아이덴티티를 구축합니다.",
+            desc: "공식 상패와 상장, 수상 인증서 및 팝업 이미지를 제공합니다. 온·오프라인 마케팅과 PR 활동 전반에 활용할 수 있습니다.",
             icon: "✦",
             bgImage: currentImages[1],
             disclaimer: "※ 위 이미지는 연출된 이미지이며 실제와 다를 수 있습니다."
@@ -119,7 +119,7 @@ const Benefits: React.FC = () => {
         },
         {
             title: <><span style={{ color: 'var(--color-brand-gold-light)' }}>프리미엄 시상식 개최</span>로 <br />브랜드 가치의 공식적 자리매김</>,
-            desc: "대상 1위 수상 브랜드는 정식 시상식에 초청되어 기업 대표 및 관계자가 직접 무대에서 수상합니다. 오프라인 행사 참여를 통해 브랜드의 위상을 높이고, 현장 스피치·포토월·인터뷰 등 다양한 순간들이 브랜드 스토리의 신뢰도와 화제성을 한층 강화합니다.",
+            desc: "대상 1위 수상 브랜드는 정식 시상식에 초청되어 기업 대표 및 관계자가 직접 무대에서 수상합니다. 시상식을 통해 브랜드의 위상을 높이고, 현장 스피치·포토월·인터뷰 등으로 브랜드 스토리의 신뢰도와 화제성을 한층 강화합니다.",
             icon: "✦",
             bgImage: currentImages[6]
         }
@@ -131,9 +131,9 @@ const Benefits: React.FC = () => {
             <div className="sticky top-0 h-screen overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 z-30 pt-24 pb-8 pointer-events-none">
                     <div className="max-w-screen-2xl mx-auto container-padding">
-                        <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
+                        {/* <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
                             Benefits
-                        </h2>
+                        </h2>*/}
                         <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
                             수상 기업 혜택
                         </h3>
@@ -195,7 +195,7 @@ const Benefits: React.FC = () => {
                             >
                                 <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
                                     <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
-                                        {item.icon}
+                                        {/* {item.icon} */}
                                     </div>
                                     <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
                                         {item.title}
@@ -213,7 +213,7 @@ const Benefits: React.FC = () => {
                                                 // @ts-ignore
                                                 src={item.extraImage}
                                                 alt="Benefit Detail"
-                                                className="w-auto h-32 md:h-40 object-contain rounded-lg border border-white/10"
+                                                className="w-auto h-28 md:h-24 object-contain rounded-lg border border-white/10"
                                             />
                                         </div>
                                     )}

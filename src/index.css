@@ -42,6 +42,38 @@ body {
   animation: shimmer 4s ease-in-out infinite;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-in forwards;
+}
+
 /* Container Utilities - 한 곳에서 좌우 여백 관리 */
 .container-padding {
   @apply px-8 md:px-12 lg:px-16;

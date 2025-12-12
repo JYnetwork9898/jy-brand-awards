@@ -61,10 +61,10 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = '' }) => {
 const Statistics: React.FC = () => {
     // 표시할 통계 데이터 목록
     const stats = [
-        { label: '역대 참가 기업 수', value: 10345, suffix: '+' },
-        { label: '참여 인원', value: 25234, suffix: '+' },
-        { label: '올해 참여 기업', value: 123, suffix: '' },
-        { label: '언론 보도 횟수', value: 24553, suffix: '' },
+        { label: '역대 참가 기업 수', value: 1034, suffix: '+' },
+        { label: '참여 인원', value: 2524, suffix: '+' },
+        { label: '올해 참여 기업', value: 109, suffix: '+' },
+        { label: '언론 보도 횟수', value: 2455, suffix: '+' },
     ];
 
     return (

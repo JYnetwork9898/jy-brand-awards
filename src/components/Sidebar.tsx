@@ -91,7 +91,7 @@ const Sidebar: React.FC = () => {
                                 className={`w-full text-left px-2 py-3 ${isActive
                                     ? 'text-white '
                                     : 'text-gray-400 hover:text-brand-gold'
-                                    } rounded-lg transition-all text-sm font-medium`}
+                                    } rounded-lg transition-all text-m font-medium`}
                             >
                                 {item.label}
                             </button>
