@@ -147,14 +147,16 @@ const Benefits: React.FC = () => {
                             key={`bg-${index}`}
                             className="relative h-screen w-screen flex-shrink-0 overflow-hidden"
                         >
-                            <div className="absolute inset-0 z-0">
+                            <div className="absolute inset-0 z-0 bg-black">
                                 <img
                                     src={item.bgImage}
                                     alt={typeof item.title === 'string' ? item.title : 'Benefit'}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-[40%] md:h-full object-cover absolute bottom-0 left-0"
                                 />
-                                <div className="absolute inset-0 bg-black/20 backdrop-blur-none"></div>
-                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/60 to-transparent"></div>
+                                <div className="absolute inset-0 bg-black/20 backdrop-blur-none pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/70 to-transparent pointer-events-none"></div>
+                                {/* Mobile Top Edge Smoothing Gradient */}
+                                <div className="absolute top-[60%] left-0 w-full h-32 bg-gradient-to-b from-black to-transparent md:hidden pointer-events-none -mt-px"></div>
                             </div>
                         </div>
                     ))}
@@ -191,7 +193,7 @@ const Benefits: React.FC = () => {
                             <motion.div
                                 key={`content-${index}`}
                                 style={{ opacity }}
-                                className="absolute inset-0 flex items-center justify-center"
+                                className="absolute inset-0 flex flex-col justify-between pt-40 md:pt-56 pb-32 md:pb-40"
                             >
                                 <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
                                     <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
@@ -226,8 +228,10 @@ const Benefits: React.FC = () => {
                                             {item.disclaimer}
                                         </p>
                                     )}
+                                </div>
 
-                                    <div className="flex gap-2 mt-12 pointer-events-auto">
+                                <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
+                                    <div className="flex gap-2 pointer-events-auto">
                                         {benefits.map((_, i) => {
                                             const isDotActive = i === index;
                                             return (

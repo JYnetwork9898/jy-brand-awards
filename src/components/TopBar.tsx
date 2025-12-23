@@ -4,6 +4,12 @@ import { AWARDS } from '../constants/awards';
 import { CURRENT_YEAR } from '../constants/common';
 import logoJYNetwork from '../assets/logo_jynetwork_white.png';
 
+const AWARD_MONTHS: Record<string, string> = {
+    'THBA': '3월',
+    'CSEB': '6월',
+    'CSBA': '9월',
+    'TEBA': '12월'
+};
 const TopBar: React.FC = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,6 +95,9 @@ const TopBar: React.FC = () => {
                                     className="block w-full text-left py-3 text-gray-400 hover:text-brand-gold active:text-brand-gold transition-colors text-xl font-medium border-b border-white/5 last:border-0"
                                 >
                                     {CURRENT_YEAR} {award.title}
+                                    {/* <span className="ml-2 inline-block px-1.5 py-0.5 text-xs bg-current rounded-sm leading-none align-middle">
+                                        <span className="text-black">{AWARD_MONTHS[award.slug]}</span>
+                                    </span> */}
                                 </Link>
                             ))}
                     </div>
@@ -108,6 +117,9 @@ const TopBar: React.FC = () => {
                                 className="text-brand-gold hover:text-brand-gold/80 text-m md:text-xl transition-colors font-medium cursor-pointer"
                             >
                                 {CURRENT_YEAR} {award.title}
+                                {/* <span className="ml-2 inline-block px-1.5 py-0.5 text-[1rem] bg-current rounded-sm leading-none align-middle">
+                                    <span className="text-black">{AWARD_MONTHS[award.slug]}</span>
+                                </span> */}
                             </button>
                         ) : (
                             <Link
@@ -116,6 +128,9 @@ const TopBar: React.FC = () => {
                                 className="text-gray-400 hover:text-brand-gold text-m md:text-xl transition-colors"
                             >
                                 {CURRENT_YEAR} {award.title}
+                                {/* <span className="ml-2 inline-block px-1.5 py-0.5 text-[1rem] bg-current rounded-sm leading-none align-middle">
+                                    <span className="text-black">{AWARD_MONTHS[award.slug]}</span>
+                                </span> */}
                             </Link>
                         );
                     })}
