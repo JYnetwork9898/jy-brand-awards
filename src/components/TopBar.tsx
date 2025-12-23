@@ -4,12 +4,12 @@ import { AWARDS } from '../constants/awards';
 import { CURRENT_YEAR } from '../constants/common';
 import logoJYNetwork from '../assets/logo_jynetwork_white.png';
 
-const AWARD_MONTHS: Record<string, string> = {
-    'THBA': '3월',
-    'CSEB': '6월',
-    'CSBA': '9월',
-    'TEBA': '12월'
-};
+// const AWARD_MONTHS: Record<string, string> = {
+//     'THBA': '3월',
+//     'CSEB': '6월',
+//     'CSBA': '9월',
+//     'TEBA': '12월'
+// };
 const TopBar: React.FC = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
