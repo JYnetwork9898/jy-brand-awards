@@ -5,41 +5,41 @@ import { useAward } from '../context/AwardContext';
 // THBA Images (Prefix: thba)
 import thba01 from '../assets/THBA/THBA_benefits01.jpg';
 import thba02 from '../assets/THBA/THBA_benefits02.jpg';
-import thba03 from '../assets/TEBA/TEBA_benefits03.png';
-import thba04 from '../assets/TEBA/TEBA_benefits04.png';
+import thba03 from '../assets/TEBA/TEBA_benefits03.jpg';
+import thba04 from '../assets/TEBA/TEBA_benefits04.jpg';
 import thba05 from '../assets/TEBA/TEBA_benefits05.jpg';
-import thba06 from '../assets/TEBA/TEBA_benefits06.png';
-import thba07 from '../assets/TEBA/TEBA_benefits07.png';
+import thba06 from '../assets/TEBA/TEBA_benefits06.jpg';
+import thba07 from '../assets/TEBA/TEBA_benefits07.jpg';
 import thbaExtra from '../assets/THBA/THBA_benefits01_1.png';
 
 // CSEB Images (Prefix: cseb)
 import cseb01 from '../assets/CSEB/CSEB_benefits01.jpg';
 import cseb02 from '../assets/CSEB/CSEB_benefits02.jpg';
-import cseb03 from '../assets/TEBA/TEBA_benefits03.png';
-import cseb04 from '../assets/TEBA/TEBA_benefits04.png';
+import cseb03 from '../assets/TEBA/TEBA_benefits03.jpg';
+import cseb04 from '../assets/TEBA/TEBA_benefits04.jpg';
 import cseb05 from '../assets/TEBA/TEBA_benefits05.jpg';
-import cseb06 from '../assets/TEBA/TEBA_benefits06.png';
-import cseb07 from '../assets/TEBA/TEBA_benefits07.png';
+import cseb06 from '../assets/TEBA/TEBA_benefits06.jpg';
+import cseb07 from '../assets/TEBA/TEBA_benefits07.jpg';
 import csebExtra from '../assets/CSEB/CSEB_benefits01_1.png';
 
 // CSBA Images (Prefix: csba)
 import csba01 from '../assets/CSBA/CSBA_benefits01.jpg';
 import csba02 from '../assets/CSBA/CSBA_benefits02.jpg';
-import csba03 from '../assets/TEBA/TEBA_benefits03.png';
-import csba04 from '../assets/TEBA/TEBA_benefits04.png';
+import csba03 from '../assets/TEBA/TEBA_benefits03.jpg';
+import csba04 from '../assets/TEBA/TEBA_benefits04.jpg';
 import csba05 from '../assets/TEBA/TEBA_benefits05.jpg';
-import csba06 from '../assets/TEBA/TEBA_benefits06.png';
-import csba07 from '../assets/TEBA/TEBA_benefits07.png';
+import csba06 from '../assets/TEBA/TEBA_benefits06.jpg';
+import csba07 from '../assets/TEBA/TEBA_benefits07.jpg';
 import csbaExtra from '../assets/CSBA/CSBA_benefits01_1.png';
 
 // TEBA Images (Prefix: teba)
 import teba01 from '../assets/TEBA/TEBA_benefits01.jpg';
 import teba02 from '../assets/TEBA/TEBA_benefits02.jpg';
-import teba03 from '../assets/TEBA/TEBA_benefits03.png';
-import teba04 from '../assets/TEBA/TEBA_benefits04.png';
+import teba03 from '../assets/TEBA/TEBA_benefits03.jpg';
+import teba04 from '../assets/TEBA/TEBA_benefits04.jpg';
 import teba05 from '../assets/TEBA/TEBA_benefits05.jpg';
-import teba06 from '../assets/TEBA/TEBA_benefits06.png';
-import teba07 from '../assets/TEBA/TEBA_benefits07.png';
+import teba06 from '../assets/TEBA/TEBA_benefits06.jpg';
+import teba07 from '../assets/TEBA/TEBA_benefits07.jpg';
 import tebaExtra from '../assets/TEBA/TEBA_benefits01_1.png';
 
 // Main Background Images Mapping
