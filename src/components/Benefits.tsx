@@ -3,59 +3,59 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useAward } from '../context/AwardContext';
 
 // THBA Images (Prefix: thba)
-import thba01 from '../assets/THBA/THBA_benefits01.png';
-import thba02 from '../assets/THBA/THBA_benefits02.png';
-//import thba03 from '../assets/THBA/THBA_benefits03.png';
-//import thba04 from '../assets/THBA/THBA_benefits04.png';
-//import thba05 from '../assets/THBA/THBA_benefits05.png';
-//import thba06 from '../assets/THBA/THBA_benefits06.png';
-//import thba07 from '../assets/THBA/THBA_benefits07.png';
+import thba01 from '../assets/THBA/THBA_benefits01.jpg';
+import thba02 from '../assets/THBA/THBA_benefits02.jpg';
+import thba03 from '../assets/TEBA/TEBA_benefits03.png';
+import thba04 from '../assets/TEBA/TEBA_benefits04.png';
+import thba05 from '../assets/TEBA/TEBA_benefits05.jpg';
+import thba06 from '../assets/TEBA/TEBA_benefits06.png';
+import thba07 from '../assets/TEBA/TEBA_benefits07.png';
 import thbaExtra from '../assets/THBA/THBA_benefits01_1.png';
 
 // CSEB Images (Prefix: cseb)
-import cseb01 from '../assets/CSEB/CSEB_benefits01.png';
-import cseb02 from '../assets/CSEB/CSEB_benefits02.png';
-//import cseb03 from '../assets/CSEB/CSEB_benefits03.png';
-//import cseb04 from '../assets/CSEB/CSEB_benefits04.png';
-//import cseb05 from '../assets/CSEB/CSEB_benefits05.png';
-//import cseb06 from '../assets/CSEB/CSEB_benefits06.png';
-//import cseb07 from '../assets/CSEB/CSEB_benefits07.png';
+import cseb01 from '../assets/CSEB/CSEB_benefits01.jpg';
+import cseb02 from '../assets/CSEB/CSEB_benefits02.jpg';
+import cseb03 from '../assets/TEBA/TEBA_benefits03.png';
+import cseb04 from '../assets/TEBA/TEBA_benefits04.png';
+import cseb05 from '../assets/TEBA/TEBA_benefits05.jpg';
+import cseb06 from '../assets/TEBA/TEBA_benefits06.png';
+import cseb07 from '../assets/TEBA/TEBA_benefits07.png';
 import csebExtra from '../assets/CSEB/CSEB_benefits01_1.png';
 
 // CSBA Images (Prefix: csba)
-import csba01 from '../assets/CSBA/CSBA_benefits01.png';
-import csba02 from '../assets/CSBA/CSBA_benefits02.png';
-//import csba03 from '../assets/CSBA/CSBA_benefits03.png';
-//import csba04 from '../assets/CSBA/CSBA_benefits04.png';
-//import csba05 from '../assets/CSBA/CSBA_benefits05.png';
-//import csba06 from '../assets/CSBA/CSBA_benefits06.png';
-//import csba07 from '../assets/CSBA/CSBA_benefits07.png';
+import csba01 from '../assets/CSBA/CSBA_benefits01.jpg';
+import csba02 from '../assets/CSBA/CSBA_benefits02.jpg';
+import csba03 from '../assets/TEBA/TEBA_benefits03.png';
+import csba04 from '../assets/TEBA/TEBA_benefits04.png';
+import csba05 from '../assets/TEBA/TEBA_benefits05.jpg';
+import csba06 from '../assets/TEBA/TEBA_benefits06.png';
+import csba07 from '../assets/TEBA/TEBA_benefits07.png';
 import csbaExtra from '../assets/CSBA/CSBA_benefits01_1.png';
 
 // TEBA Images (Prefix: teba)
-import teba01 from '../assets/TEBA/TEBA_benefits01.png';
-import teba02 from '../assets/TEBA/TEBA_benefits02.png';
+import teba01 from '../assets/TEBA/TEBA_benefits01.jpg';
+import teba02 from '../assets/TEBA/TEBA_benefits02.jpg';
 import teba03 from '../assets/TEBA/TEBA_benefits03.png';
 import teba04 from '../assets/TEBA/TEBA_benefits04.png';
-import teba05 from '../assets/TEBA/TEBA_benefits05.png';
+import teba05 from '../assets/TEBA/TEBA_benefits05.jpg';
 import teba06 from '../assets/TEBA/TEBA_benefits06.png';
 import teba07 from '../assets/TEBA/TEBA_benefits07.png';
 import tebaExtra from '../assets/TEBA/TEBA_benefits01_1.png';
 
 // Main Background Images Mapping
 const benefitImages: Record<string, string[]> = {
-    hit: [thba01, thba02, teba03, teba04, teba05, teba06, teba07],
-    customer: [cseb01, cseb02, teba03, teba04, teba05, teba06, teba07],
-    consumer: [csba01, csba02, teba03, teba04, teba05, teba06, teba07],
-    year: [teba01, teba02, teba03, teba04, teba05, teba06, teba07]
+    THBA: [thba01, thba02, thba03, thba04, thba05, thba06, thba07],
+    CSEB: [cseb01, cseb02, cseb03, cseb04, cseb05, cseb06, cseb07],
+    CSBA: [csba01, csba02, csba03, csba04, csba05, csba06, csba07],
+    TEBA: [teba01, teba02, teba03, teba04, teba05, teba06, teba07]
 };
 
 // Extra Description Images Mapping (Benefit #1)
 const extraBenefitImages: Record<string, string> = {
-    hit: thbaExtra,
-    customer: csebExtra,
-    consumer: csbaExtra,
-    year: tebaExtra
+    THBA: thbaExtra,
+    CSEB: csebExtra,
+    CSBA: csbaExtra,
+    TEBA: tebaExtra
 };
 
 const Benefits: React.FC = () => {
@@ -71,8 +71,8 @@ const Benefits: React.FC = () => {
     // 스크롤 진행에 따라 배경 이미지를 가로로 이동 (Parallax 효과)
     const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-600vw"]);
 
-    const currentImages = benefitImages[currentAward.slug] || benefitImages['hit'];
-    const currentExtraImage = extraBenefitImages[currentAward.slug] || extraBenefitImages['hit'];
+    const currentImages = benefitImages[currentAward.slug] || benefitImages['TEBA'];
+    const currentExtraImage = extraBenefitImages[currentAward.slug] || extraBenefitImages['TEBA'];
 
     // 수상 기업 혜택 데이터 목록
     const benefits = [
@@ -154,7 +154,7 @@ const Benefits: React.FC = () => {
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/20 backdrop-blur-none"></div>
-                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/70 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/60 to-transparent"></div>
                             </div>
                         </div>
                     ))}

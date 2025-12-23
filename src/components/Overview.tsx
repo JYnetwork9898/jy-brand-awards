@@ -1,17 +1,17 @@
 import React from 'react';
 import { useAward } from '../context/AwardContext';
 import { CURRENT_YEAR } from '../constants/common';
-import thbaBg from '../assets/THBA/THBA_main.png';
-import csebBg from '../assets/CSEB/CSEB_main.png';
+import thbaBg from '../assets/THBA/THBA_main.jpg';
+import csebBg from '../assets/CSEB/CSEB_main.jpg';
 import csbaBg from '../assets/CSBA/CSBA_main.jpg';
 import tebaBg from '../assets/TEBA/TEBA_main.jpg';
 
 // 각 어워드 타입에 맞는 배경 이미지를 매핑하는 객체
 const bgImages: Record<string, string> = {
-    hit: thbaBg,      // 히트브랜드대상
-    customer: csebBg, // 고객만족브랜드대상
-    consumer: csbaBg, // 소비자만족브랜드대상
-    year: tebaBg      // 올해의우수브랜드대상
+    THBA: thbaBg,      // 히트브랜드대상
+    CSEB: csebBg, // 고객만족브랜드대상
+    CSBA: csbaBg, // 소비자만족브랜드대상
+    TEBA: tebaBg      // 올해의우수브랜드대상
 };
 
 const Overview: React.FC = () => {
@@ -30,7 +30,7 @@ const Overview: React.FC = () => {
                         <img
                             src={bgImage}
                             alt={`${currentAward.title} Background`}
-                            className="w-full h-full object-cover opacity-70"
+                            className="w-full h-full object-cover opacity-90"
                         />
                         {/* 이미지 위에 그라데이션 오버레이 적용 */}
                         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/90 via-brand-bg/50 to-brand-bg"></div>

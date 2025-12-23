@@ -81,7 +81,6 @@ const TopBar: React.FC = () => {
                             }`}
                     >
                         {Object.values(AWARDS)
-                            //.filter((award) => award.slug !== 'hit' && award.slug !== 'customer' && award.slug !== currentSlug)
                             .map((award) => (
                                 <Link
                                     key={award.slug}
@@ -99,7 +98,6 @@ const TopBar: React.FC = () => {
             {/* Desktop Navigation (Existing) */}
             <nav className="hidden md:flex flex-wrap justify-center gap-6 md:gap-8 pointer-events-auto">
                 {Object.values(AWARDS)
-                    .filter((award) => award.slug !== 'hit' && award.slug !== 'customer')
                     .map((award) => {
                         const isCurrentAward = award.slug === currentSlug;
 
@@ -107,7 +105,7 @@ const TopBar: React.FC = () => {
                             <button
                                 key={award.slug}
                                 onClick={handleScrollToTop}
-                                className="text-brand-gold hover:text-brand-gold/80 text-m md:text-2xl transition-colors font-medium cursor-pointer"
+                                className="text-brand-gold hover:text-brand-gold/80 text-m md:text-xl transition-colors font-medium cursor-pointer"
                             >
                                 {CURRENT_YEAR} {award.title}
                             </button>
@@ -115,7 +113,7 @@ const TopBar: React.FC = () => {
                             <Link
                                 key={award.slug}
                                 to={`/awards/${award.slug}`}
-                                className="text-gray-400 hover:text-brand-gold text-m md:text-2xl transition-colors"
+                                className="text-gray-400 hover:text-brand-gold text-m md:text-xl transition-colors"
                             >
                                 {CURRENT_YEAR} {award.title}
                             </Link>

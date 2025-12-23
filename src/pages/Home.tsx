@@ -6,14 +6,14 @@ import TopBar from '../components/TopBar';
 
 // Award month mapping
 const AWARD_MONTHS: Record<string, string> = {
-    'hit': '3월',
-    'customer': '6월',
-    'consumer': '9월',
-    'year': '12월'
+    'THBA': '3월',
+    'CSEB': '6월',
+    'CSBA': '9월',
+    'TEBA': '12월'
 };
 
 const Home: React.FC = () => {
-    const [hoveredAward, setHoveredAward] = useState<string>('hit');
+    const [hoveredAward, setHoveredAward] = useState<string>('THBA');
 
     const currentAward = AWARDS[hoveredAward];
     const currentMonth = AWARD_MONTHS[hoveredAward];
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
                     <div className="md:col-span-5 flex flex-col justify-end h-full pb-24 md:pb-32">
                         <div className="text-right space-y-8">
                             <Link
-                                to="/awards/hit"
+                                to="/awards/THBA"
                                 className="group inline-flex items-center gap-4 px-8 py-4 bg-transparent border border-brand-gold/30 hover:bg-brand-gold/10 transition-all duration-300"
                             >
                                 <span className="text-lg font-medium tracking-widest uppercase">현재 접수 중인 어워즈 바로가기</span>

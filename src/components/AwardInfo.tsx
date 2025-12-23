@@ -9,10 +9,10 @@ const AwardInfo: React.FC = () => {
     // 어워드 슬러그(slug)에 따라 일정 텍스트를 반환하는 헬퍼 함수
     const getSchedule = (slug: string) => {
         switch (slug) {
-            case 'hit': return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`; // 히트브랜드대상
-            case 'customer': return `${CURRENT_YEAR}. 01. 01 ~ ${CURRENT_YEAR}. 02. 28`; // 고객만족브랜드대상
-            case 'consumer': return `${CURRENT_YEAR}. 04. 01 ~ ${CURRENT_YEAR}. 05. 31`; // 소비자만족브랜드대상
-            case 'year': return `${CURRENT_YEAR}. 07. 01 ~ ${CURRENT_YEAR}. 08. 31`; // 올해의우수브랜드대상
+            case 'THBA': return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`; // 히트브랜드대상
+            case 'CSEB': return `${CURRENT_YEAR}. 01. 01 ~ ${CURRENT_YEAR}. 02. 28`; // 고객만족브랜드대상
+            case 'CSBA': return `${CURRENT_YEAR}. 04. 01 ~ ${CURRENT_YEAR}. 05. 31`; // 소비자만족브랜드대상
+            case 'TEBA': return `${CURRENT_YEAR}. 07. 01 ~ ${CURRENT_YEAR}. 08. 31`; // 올해의우수브랜드대상
             default: return `${PREV_YEAR}. 10. 01 ~ ${PREV_YEAR}. 11. 30`;
         }
     };

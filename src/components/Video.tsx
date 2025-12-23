@@ -5,14 +5,22 @@ const Video: React.FC = () => {
     const { currentAward } = useAward();
 
     // 어워드별 역대 시상식 영상 데이터 설정
-    // consumer: 소비자만족브랜드대상 / year: 올해의우수브랜드대상 (기본값: consumer)
+    // CSBA: 소비자만족브랜드대상 / TEBA: 올해의우수브랜드대상 (기본값: CSBA)
     const videosByAward: Record<string, Array<{ videoId: string; url: string; title: string; year: number }>> = {
-        'consumer': [
+        'THBA': [
+            { videoId: 'DE3NPoGEq6o', url: 'https://youtu.be/DE3NPoGEq6o', title: '2025 히트브랜드대상 시상식 스케치 영상', year: 2025 },
+            { videoId: '5PlScWKKeRg', url: 'https://youtu.be/5PlScWKKeRg', title: '2024 히트브랜드 스케치', year: 2024 },
+            { videoId: '_rs8Aja2uXE', url: 'https://youtu.be/_rs8Aja2uXE', title: '2023 히트브랜드대상 시상식 현장', year: 2023 }
+        ], 'CSEB': [
+            { videoId: 'Pa7nen0crnk', url: 'https://youtu.be/Pa7nen0crnk', title: '2025 고객감동우수브랜드 대상 시상식 스케치 영상', year: 2025 },
+            { videoId: 'pdqEoNp928E', url: 'https://youtu.be/pdqEoNp928E', title: '2024 고객감동우수브랜드 시상식 스케치영상', year: 2024 },
+            { videoId: 'Tz_MGKEqvGI', url: 'https://youtu.be/Tz_MGKEqvGI', title: '2023 고객감동우수브랜드 시상식 스케치', year: 2023 }
+        ], 'CSBA': [
             { videoId: 'RscmBbyMOWw', url: 'https://youtu.be/RscmBbyMOWw', title: '2025 소비자 만족 브랜드 대상 1위 시상식', year: 2025 },
             { videoId: 'ERuHF5xznrE', url: 'https://youtu.be/ERuHF5xznrE', title: '2024 소비자만족브랜드대상 시상식', year: 2024 },
             { videoId: 'Ot-9nNCmojI', url: 'https://youtu.be/Ot-9nNCmojI', title: '2023 소비자만족브랜드대상 시상식 스케치영상', year: 2023 }
         ],
-        'year': [
+        'TEBA': [
             { videoId: 'BTIGpfUC3qg', url: 'https://youtu.be/BTIGpfUC3qg', title: '2024 올해의 우수 브랜드 시상식 스케치', year: 2024 },
             { videoId: '3grgULaajTk', url: 'https://youtu.be/3grgULaajTk', title: '2023 올해의 우수 브랜드 시상식 스케치', year: 2023 },
             { videoId: 'FySvVfAs0sA', url: 'https://youtu.be/FySvVfAs0sA', title: '2022 올해의우수브랜드 시상식 스케치', year: 2022 }
@@ -20,7 +28,7 @@ const Video: React.FC = () => {
     };
 
     // 현재 어워드에 맞는 영상 리스트를 가져오거나, 없으면 기본값 사용
-    const videos = videosByAward[currentAward.slug] || videosByAward['consumer'];
+    const videos = videosByAward[currentAward.slug] || videosByAward['CSBA'];
 
     return (
         <section id="video" className="py-32 bg-brand-bg border-t border-brand-gold/10 snap-start">
