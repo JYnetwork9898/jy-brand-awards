@@ -66,6 +66,32 @@ const Sidebar: React.FC = () => {
         }
     };
 
+    // 파일 다운로드 핸들러 (파일 존재 여부 확인)
+    const applicationFileName = `${CURRENT_YEAR}_${currentAward.abbreviation}_참가신청서.docx`;
+    const applicationUrl = `/files/application-form/${applicationFileName}`;
+
+    const introductionFileName = `${CURRENT_YEAR}_${currentAward.abbreviation}_제안서.pdf`;
+    const introductionUrl = `/files/awards-introduction/${introductionFileName}`;
+
+    const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>, url: string, fileName: string) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            if (response.ok) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', fileName);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                alert(`'${fileName}'을(를) 찾을 수 없습니다.\n담당자에게 문의 바랍니다.`);
+            }
+        } catch (error) {
+            alert(`'${fileName}'을(를) 찾을 수 없습니다.\n담당자에게 문의 바랍니다.`);
+        }
+    };
+
     return (
         <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-brand-black/90 border-r border-white/10 z-40">
             {/* Logo Area */}
@@ -131,16 +157,16 @@ const Sidebar: React.FC = () => {
 
                 <div className="space-y-2 mb-8">
                     <a
-                        href={`/files/application-form/${CURRENT_YEAR}_${currentAward.abbreviation}_참가신청서.docx`}
-                        download
+                        href={applicationUrl}
+                        onClick={(e) => handleDownload(e, applicationUrl, applicationFileName)}
                         className="relative block w-full px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-black text-s font-bold text-center rounded transition-colors overflow-hidden group"
                     >
                         <span className="relative z-10">참가신청서 다운로드</span>
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 animate-shimmer"></span>
                     </a>
                     <a
-                        href={`/files/awards-introduction/${CURRENT_YEAR}_${currentAward.abbreviation}_제안서.pdf`}
-                        download
+                        href={introductionUrl}
+                        onClick={(e) => handleDownload(e, introductionUrl, introductionFileName)}
                         className="block w-full px-4 py-2.5 bg-white/10 hover:bg-white/20 text-gray-400 text-s font-bold text-center rounded transition-colors border border-white/20"
                     >
                         소개서 다운로드
