@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CURRENT_YEAR } from '../constants/common';
+
 import SectionTitle from './SectionTitle';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
