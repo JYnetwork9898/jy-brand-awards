@@ -1,3 +1,5 @@
-/marketing/* /marketing/:splat 200
-/pr/* /pr/:splat 200
+/marketing/success.html /marketing/success.html 200
+/pr/success.html /pr/success.html 200
+/marketing/* /marketing/index.html 200
+/pr/* /pr/index.html 200
 /* /index.html 200
