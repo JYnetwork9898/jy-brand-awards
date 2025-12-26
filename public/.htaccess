@@ -2,12 +2,16 @@
   RewriteEngine On
   RewriteBase /
   
-  # Exclude specific directories aggressively (Moved to top)
-  RewriteRule ^(marketing|pr) - [L]
+  # Exclude specific directories aggressively
+  # Use RewriteCond to ensure these paths are NEVER treated as SPA routes
+  RewriteCond %{REQUEST_URI} ^/(marketing|pr) [NC]
+  RewriteRule . - [L]
 
   RewriteRule ^index\.html$ - [L]
 
+  # SPA Routing for everything else
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/(marketing|pr) [NC]
   RewriteRule . /index.html [L]
 </IfModule>
