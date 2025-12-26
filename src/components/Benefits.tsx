@@ -126,150 +126,215 @@ const Benefits: React.FC = () => {
     ];
 
     return (
-        // 긴 스크롤 영역을 가진 섹션 (700vh)
-        <section id="benefits" ref={targetRef} className="relative h-[700vh] bg-brand-bg snap-start">
-            <div className="sticky top-0 h-screen overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 z-30 pt-24 pb-8 pointer-events-none">
-                    <div className="max-w-screen-2xl mx-auto container-padding">
-                        {/* <h2 className="text-brand-gold font-bold tracking-[0.2em] uppercase text-sm mb-6 inline-block border-b border-brand-gold pb-2">
-                            Benefits
-                        </h2>*/}
-                        <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                            수상 기업 혜택
-                        </h3>
-                    </div>
+        <section id="benefits" className="relative bg-brand-bg snap-start">
+            {/* Mobile Layout: Vertical Stack */}
+            <div className="block md:hidden pb-20">
+                <div className="pt-24 pb-8 container-padding">
+                    <h3 className="text-3xl font-bold text-white leading-tight mb-2">
+                        수상 기업 혜택
+                    </h3>
+                    <div className="w-12 h-1 bg-brand-gold mb-8"></div>
                 </div>
 
-                {/* 가로로 슬라이드되는 배경 이미지들 (motion.div) */}
-                <motion.div style={{ x }} className="flex gap-0 h-full">
+                <div className="container-padding flex flex-col gap-6">
                     {benefits.map((item, index) => (
                         <div
-                            key={`bg-${index}`}
-                            className="relative h-screen w-screen flex-shrink-0 overflow-hidden"
+                            key={`mobile-${index}`}
+                            className="relative w-full rounded-2xl overflow-hidden min-h-[480px] shadow-lg border border-white/5"
                         >
-                            <div className="absolute inset-0 z-0 bg-black">
+                            {/* Background Image */}
+                            <div className="absolute inset-0">
                                 <img
                                     src={item.bgImage}
-                                    alt={typeof item.title === 'string' ? item.title : 'Benefit'}
-                                    className="w-full h-[40%] md:h-full object-cover absolute bottom-0 left-0"
+                                    alt="benefit-bg"
+                                    className="w-full h-full object-cover object-bottom scale-[1.3]"
                                 />
-                                <div className="absolute inset-0 bg-black/20 backdrop-blur-none pointer-events-none"></div>
-                                <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/70 to-transparent pointer-events-none"></div>
-                                {/* Mobile Top Edge Smoothing Gradient */}
-                                <div className="absolute top-[60%] left-0 w-full h-32 bg-gradient-to-b from-black to-transparent md:hidden pointer-events-none -mt-px"></div>
+                                <div className="absolute inset-0 bg-black/30"></div>
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-transparent"></div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="relative z-10 h-full flex flex-col justify-end p-6">
+                                <div className="flw-full mb-auto pt-4">
+                                    <div className="inline-block px-3 py-1 rounded-full border border-white/20 bg-black/20 text-brand-gold text-sm font-semibold mb-4 backdrop-blur-sm">
+                                        Benefit 0{index + 1}
+                                    </div>
+                                </div>
+
+                                <h4 className="text-3xl font-bold text-white mb-4 leading-tight">
+                                    {item.title}
+                                </h4>
+                                <p className="text-gray-200 text-base leading-relaxed mb-6 font-light opacity-90">
+                                    {item.desc}
+                                </p>
+
+                                {/* Extra Image */}
+                                {/* @ts-ignore */}
+                                {item.extraImage && (
+                                    <div className="mb-4">
+                                        <img
+                                            // @ts-ignore
+                                            src={item.extraImage}
+                                            alt="Benefit Detail"
+                                            className="h-16 w-auto object-contain rounded border border-white/10"
+                                        />
+                                    </div>
+                                )}
+
+                                {/* Disclaimer */}
+                                {/* @ts-ignore */}
+                                {item.disclaimer && (
+                                    <p className="text-gray-500 text-xs font-light tracking-wide border-t border-white/10 pt-3 mt-2">
+                                        {/* @ts-ignore */}
+                                        {item.disclaimer}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     ))}
-                </motion.div>
-
-                {/* 고정된 콘텐츠 오버레이 */}
-                <div className="absolute inset-0 z-20 pointer-events-none">
-                    {benefits.map((item, index) => {
-                        const step = 1 / (benefits.length - 1);
-                        const peak = index * step;
-
-                        // 스크롤 위치에 따라 투명도 조절 (현재 보이는 혜택만 표시)
-                        const opacity = useTransform(
-                            scrollYProgress,
-                            [peak - step, peak, peak + step],
-                            [0, 1, 0]
-                        );
-
-                        // 인디케이터 클릭 시 해당 섹션 위치로 부드럽게 스크롤
-                        const handleClick = (targetIndex: number) => {
-                            if (targetRef.current) {
-                                const sectionTop = targetRef.current.offsetTop;
-                                const sectionHeight = targetRef.current.offsetHeight;
-                                const targetScroll = sectionTop + (sectionHeight / benefits.length) * targetIndex;
-
-                                window.scrollTo({
-                                    top: targetScroll,
-                                    behavior: 'smooth'
-                                });
-                            }
-                        };
-
-                        return (
-                            <motion.div
-                                key={`content-${index}`}
-                                style={{ opacity }}
-                                className="absolute inset-0 flex flex-col justify-between pt-40 md:pt-56 pb-32 md:pb-40"
-                            >
-                                <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
-                                    <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
-                                        {/* {item.icon} */}
-                                    </div>
-                                    <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
-                                        {item.title}
-                                    </h4>
-                                    <div className="w-24 h-1 bg-brand-gold mb-12"></div>
-                                    <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-normal max-w-3xl">
-                                        {item.desc}
-                                    </p>
-
-                                    {/* 추가 이미지가 있을 경우 렌더링 (1번 혜택 등) */}
-                                    {/* @ts-ignore */}
-                                    {item.extraImage && (
-                                        <div className="mt-8">
-                                            <img
-                                                // @ts-ignore
-                                                src={item.extraImage}
-                                                alt="Benefit Detail"
-                                                className="w-auto h-28 md:h-24 object-contain rounded-lg border border-white/10"
-                                            />
-                                        </div>
-                                    )}
-
-                                    {/* 면책 조항 문구 (1, 2번 혜택 등) */}
-                                    {/* @ts-ignore */}
-                                    {item.disclaimer && (
-                                        <p className="text-gray-500 text-s mt-4 font-light opacity-80">
-                                            {/* @ts-ignore */}
-                                            {item.disclaimer}
-                                        </p>
-                                    )}
-                                </div>
-
-                                <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
-                                    <div className="flex gap-2 pointer-events-auto">
-                                        {benefits.map((_, i) => {
-                                            const isDotActive = i === index;
-                                            return (
-                                                <button
-                                                    key={i}
-                                                    onClick={() => handleClick(i)}
-                                                    className="relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all hover:scale-110"
-                                                    style={{
-                                                        border: '2px solid rgba(255, 255, 255, 0.3)',
-                                                        borderColor: isDotActive ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.1)'
-                                                    }}
-                                                >
-                                                    <div
-                                                        className="absolute inset-0 bg-brand-gold rounded-full transition-opacity duration-300"
-                                                        style={{ opacity: isDotActive ? 1 : 0 }}
-                                                    />
-                                                    <span
-                                                        className="relative z-10 transition-colors duration-300"
-                                                        style={{ color: isDotActive ? 'rgba(220,220,220,1)' : 'rgba(255,255,255,0.6)' }}
-                                                    >
-                                                        {i + 1}
-                                                    </span>
-                                                </button>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
                 </div>
             </div>
 
-            {/* 스크롤 스냅 포인트 (보이지 않지만 스크롤 걸림 역할 수행) */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                {benefits.map((_, index) => (
-                    <div key={index} className="h-screen w-full snap-start"></div>
-                ))}
+            {/* Desktop Layout: Horizontal Scroll */}
+            <div ref={targetRef} className="hidden md:block relative h-[700vh]">
+                <div className="sticky top-0 h-screen overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 z-30 pt-24 pb-8 pointer-events-none">
+                        <div className="max-w-screen-2xl mx-auto container-padding">
+                            <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                                수상 기업 혜택
+                            </h3>
+                        </div>
+                    </div>
+
+                    {/* 가로로 슬라이드되는 배경 이미지들 (motion.div) */}
+                    <motion.div style={{ x }} className="flex gap-0 h-full">
+                        {benefits.map((item, index) => (
+                            <div
+                                key={`bg-${index}`}
+                                className="relative h-screen w-screen flex-shrink-0 overflow-hidden"
+                            >
+                                <div className="absolute inset-0 z-0 bg-black">
+                                    <img
+                                        src={item.bgImage}
+                                        alt={typeof item.title === 'string' ? item.title : 'Benefit'}
+                                        className="w-full h-[40%] md:h-full object-cover absolute bottom-0 left-0"
+                                    />
+                                    <div className="absolute inset-0 bg-black/20 backdrop-blur-none pointer-events-none"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/70 to-transparent pointer-events-none"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+
+                    {/* 고정된 콘텐츠 오버레이 */}
+                    <div className="absolute inset-0 z-20 pointer-events-none">
+                        {benefits.map((item, index) => {
+                            const step = 1 / (benefits.length - 1);
+                            const peak = index * step;
+
+                            // 스크롤 위치에 따라 투명도 조절 (현재 보이는 혜택만 표시)
+                            const opacity = useTransform(
+                                scrollYProgress,
+                                [peak - step, peak, peak + step],
+                                [0, 1, 0]
+                            );
+
+                            // 인디케이터 클릭 시 해당 섹션 위치로 부드럽게 스크롤
+                            const handleClick = (targetIndex: number) => {
+                                if (targetRef.current) {
+                                    const sectionTop = targetRef.current.offsetTop;
+                                    const sectionHeight = targetRef.current.offsetHeight;
+                                    const targetScroll = sectionTop + (sectionHeight / benefits.length) * targetIndex;
+
+                                    window.scrollTo({
+                                        top: targetScroll,
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            };
+
+                            return (
+                                <motion.div
+                                    key={`content-${index}`}
+                                    style={{ opacity }}
+                                    className="absolute inset-0 flex flex-col justify-between pt-40 md:pt-56 pb-32 md:pb-40"
+                                >
+                                    <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
+                                        <div className="text-brand-gold text-4xl md:text-6xl mb-8 inline-block">
+                                            {/* {item.icon} */}
+                                        </div>
+                                        <h4 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight tracking-tight max-w-4xl">
+                                            {item.title}
+                                        </h4>
+                                        <div className="w-24 h-1 bg-brand-gold mb-12"></div>
+                                        <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-normal max-w-3xl">
+                                            {item.desc}
+                                        </p>
+
+                                        {/* 추가 이미지가 있을 경우 렌더링 (1번 혜택 등) */}
+                                        {/* @ts-ignore */}
+                                        {item.extraImage && (
+                                            <div className="mt-8">
+                                                <img
+                                                    // @ts-ignore
+                                                    src={item.extraImage}
+                                                    alt="Benefit Detail"
+                                                    className="w-auto h-28 md:h-24 object-contain rounded-lg border border-white/10"
+                                                />
+                                            </div>
+                                        )}
+
+                                        {/* 면책 조항 문구 (1, 2번 혜택 등) */}
+                                        {/* @ts-ignore */}
+                                        {item.disclaimer && (
+                                            <p className="text-gray-500 text-s mt-4 font-light opacity-80">
+                                                {/* @ts-ignore */}
+                                                {item.disclaimer}
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    <div className="max-w-screen-2xl mx-auto container-padding w-full text-left">
+                                        <div className="flex gap-2 pointer-events-auto">
+                                            {benefits.map((_, i) => {
+                                                const isDotActive = i === index;
+                                                return (
+                                                    <button
+                                                        key={i}
+                                                        onClick={() => handleClick(i)}
+                                                        className="relative w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all hover:scale-110"
+                                                        style={{
+                                                            border: '2px solid rgba(255, 255, 255, 0.3)',
+                                                            borderColor: isDotActive ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.1)'
+                                                        }}
+                                                    >
+                                                        <div
+                                                            className="absolute inset-0 bg-brand-gold rounded-full transition-opacity duration-300"
+                                                            style={{ opacity: isDotActive ? 1 : 0 }}
+                                                        />
+                                                        <span
+                                                            className="relative z-10 transition-colors duration-300"
+                                                            style={{ color: isDotActive ? 'rgba(220,220,220,1)' : 'rgba(255,255,255,0.6)' }}
+                                                        >
+                                                            {i + 1}
+                                                        </span>
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* 스크롤 스냅 포인트 */}
+                <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                    {benefits.map((_, index) => (
+                        <div key={index} className="h-screen w-full snap-start"></div>
+                    ))}
+                </div>
             </div>
         </section>
     );
