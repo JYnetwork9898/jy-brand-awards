@@ -597,39 +597,42 @@
 </script>
 
 <script>
-    $(document).ready(function () {
-        $('.slick').slick({
-            dots: true,
-            infinite: true,
-            autoplay: true,
-            arrows: true,
-            speed: 300,
-            slidesToShow: 1,
-            adaptiveHeight: true
-        });
-
-        //파일 변경 스크립트
-        $("#file").change(function () {
-
-            try {
-
-                var fileInput = document.getElementById("file");
-
-                var files = fileInput.files;
-
-                var fileSize = files[0].size;
-                var fileName = files[0].name;
-
-                $("#txt1").text(fileName);
-
-            } catch (e) {
-
-                $("#txt1").text('선택된 파일 없음');
-
-            }
-
-        });
+    $(window).on('load', function () {
+        if ($('.slick').length > 0 && typeof $.fn.slick === 'function') {
+            $('.slick').slick({
+                dots: true,
+                infinite: true,
+                autoplay: true,
+                arrows: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+        }
     });
+
+    //파일 변경 스크립트
+    $("#file").change(function () {
+
+        try {
+
+            var fileInput = document.getElementById("file");
+
+            var files = fileInput.files;
+
+            var fileSize = files[0].size;
+            var fileName = files[0].name;
+
+            $("#txt1").text(fileName);
+
+        } catch (e) {
+
+            $("#txt1").text('선택된 파일 없음');
+
+        }
+
+    });
+
 </script>
 <script>
     AOS.init();
