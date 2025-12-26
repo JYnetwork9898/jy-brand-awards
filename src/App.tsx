@@ -2,12 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from './pages/Home';
 import AwardPage from './pages/AwardPage';
 
-// Helper for external redirects
-const ExternalRedirect = ({ url }: { url: string }) => {
-  window.location.href = url;
-  return null;
-};
-
 function App() {
   return (
     <Router>
@@ -21,8 +15,7 @@ function App() {
         {/* 각 어워드별 상세 페이지 (slug 파라미터로 구분) */}
         <Route path="/awards/:slug" element={<AwardPage />} />
 
-        {/* Legacy redirect for marketing if SPA catches it */}
-        <Route path="/marketing/*" element={<ExternalRedirect url="/marketing/index.jsp" />} />
+
       </Routes>
     </Router>
   );
