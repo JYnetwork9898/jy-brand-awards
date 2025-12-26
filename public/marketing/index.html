@@ -370,8 +370,9 @@
                             <p>* 표시는 필수 항목입니다.</p>
                         </li>
                         <li>
-                            <form method="post" id="insertFrm" enctype="multipart/form-data"
-                                action="/marketing/sendMail.php">
+                            <form method="post" id="insertFrm" enctype="multipart/form-data" name="marketing-form"
+                                data-netlify="true">
+                                <input type="hidden" name="form-name" value="marketing-form" />
                                 <input type="hidden" name="qnaKnd" class="termshidden" id="qnaKnd" value="">
                                 <div class="contect_content">
                                     <p class="t_p">문의종류 <span>*</span></p>
