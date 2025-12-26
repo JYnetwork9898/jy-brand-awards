@@ -3,9 +3,8 @@
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
   
-  # Exclude real directories from rewrite (Duplicate check for safety)
-  RewriteCond %{REQUEST_URI} ^/(marketing|pr) [NC]
-  RewriteRule .* - [L]
+  # Exclude specific directories aggressively
+  RewriteRule ^(marketing|pr) - [L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
