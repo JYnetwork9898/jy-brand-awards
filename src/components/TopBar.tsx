@@ -18,8 +18,8 @@ const TopBar: React.FC = () => {
     // 현재 URL 경로에서 어워드 슬러그 추출 (/awards/slug)
     const currentSlug = location.pathname.split('/awards/')[1];
 
-    // 현재 선택된 어워드 찾기
-    const currentAward = Object.values(AWARDS).find(a => a.slug === currentSlug);
+    // 현재 선택된 어워드 찾기 (Comparison with normalized Uppercase)
+    const currentAward = Object.values(AWARDS).find(a => a.slug === currentSlug?.toUpperCase());
 
     const handleScrollToTop = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -108,7 +108,7 @@ const TopBar: React.FC = () => {
             <nav className="hidden md:flex flex-wrap justify-center gap-6 md:gap-8 pointer-events-auto">
                 {Object.values(AWARDS)
                     .map((award) => {
-                        const isCurrentAward = award.slug === currentSlug;
+                        const isCurrentAward = award.slug === currentSlug?.toUpperCase();
 
                         return isCurrentAward ? (
                             <button

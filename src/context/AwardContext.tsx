@@ -8,8 +8,10 @@ interface AwardContextType {
 const AwardContext = createContext<AwardContextType | undefined>(undefined);
 
 export const AwardProvider: React.FC<{ slug?: string; children: ReactNode }> = ({ slug, children }) => {
-    // slug가 없거나 유효하지 않을 경우 기본값으로 'hit' 어워드 사용 (Fallback)
-    const currentAward = slug && AWARDS[slug] ? AWARDS[slug] : AWARDS['THBA'];
+    // Slug case insensitive normalization
+    const normalizedSlug = slug ? slug.toUpperCase() : '';
+    // Look up with normalized slug, ignore invalid keys
+    const currentAward = AWARDS[normalizedSlug] ? AWARDS[normalizedSlug] : AWARDS['THBA'];
 
     return (
         <AwardContext.Provider value={{ currentAward }}>
