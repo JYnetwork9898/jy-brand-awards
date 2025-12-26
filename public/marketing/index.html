@@ -513,7 +513,10 @@
 */
 </style>
 <script>
-    function validateForm() {
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // Validation Logic
         if ($("#radio_g").is(":checked")) {
             $("#qnaKnd").val($("#radio_g").val());
         } else if ($("#radio_e").is(":checked")) {
@@ -522,78 +525,76 @@
             $("#qnaKnd").val($("#radio_etc").val());
         }
 
-
         var qnaKnd = $("#qnaKnd").val();
         var subject = $("#subject").val();
-
         if (subject == '' || subject == null) {
             alert("제목을 입력해 주세요.");
             return false;
         }
-
         var first_name = $("#first_name").val();
-
         if (first_name == '' || first_name == null) {
             alert("이름을 입력해 주세요.");
             return false;
         }
-
         var companyPosition = $("#companyPosition").val();
-
         if (companyPosition == '' || companyPosition == null) {
             alert("기업명/직책을 입력해 주세요.");
             return false;
         }
-
         var p1 = $("#p1").val();
         var p2 = $("#p2").val();
         var p3 = $("#p3").val();
-
-        if (p2 == '') {
-
+        if (p2 == '' || p3 == '') {
             alert("연락처를 입력해 주세요.");
             return false;
-
         }
-
-        if (p3 == '') {
-
-            alert("연락처를 입력해 주세요.");
-            return false;
-
-        }
-
         var telephone = p1 + "-" + p2 + "-" + p3;
         $("#telephone").val(telephone);
 
-        if (telephone == '' || telephone == null) {
-            alert("연락처를 입력해 주세요.");
-            return false;
-        }
-
         var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
         var email = $("#email").val();
-
         if (email.match(regExp) == null) {
             alert("이메일을 올바르게 입력해 주세요.");
             return false;
         }
-
         var comments = $("#comments").val();
-
         if (comments == '' || comments == null) {
             alert("내용을 입력해 주세요.");
             return false;
         }
-
         if (!$("#chk_info").is(":checked")) {
-
             alert("개인정보 취급 방침에 동의해 주세요.");
             return false;
-
         }
 
-        return true;
+        // AJAX Submission to Netlify
+        var $form = $("#insertFrm");
+        var formData = new FormData($form[0]);
+
+        // Convert FormData to URLSearchParams for application/x-www-form-urlencoded
+        var params = new URLSearchParams();
+        for (const pair of formData) {
+            params.append(pair[0], pair[1]);
+        }
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params.toString()
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    alert("문의가 성공적으로 접수되었습니다.");
+                    window.location.href = "/marketing/success.html";
+                } else {
+                    alert("전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+                }
+            })
+            .catch(function (error) {
+                alert("오류가 발생했습니다: " + error);
+            });
+
+        return false;
     }
 </script>
 

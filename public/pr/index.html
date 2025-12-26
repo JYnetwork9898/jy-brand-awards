@@ -1090,7 +1090,7 @@
         <div class="netlify-form-container">
           <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="post" class="form-4"
             data-wf-page-id="64f80d0aa874d7cfc448d30f" data-wf-element-id="cc8860da-e89a-ba1c-d343-1eb91065c838"
-            name="pr-main-form" data-netlify="true" action="/pr/success.html">
+            name="pr-main-form" data-netlify="true" onsubmit="return handlePrSubmit(event, 'email-form-2')">
             <input type="hidden" name="form-name" value="pr-main-form" />
             <input type="hidden" name="subject" value="[제이와이네트워크] 보도기사 문의가 접수되었습니다" />
             <div class="w-layout-blockcontainer container-12 w-container">
@@ -1164,14 +1164,14 @@
       <div class="form-block-2 netlify-form-container">
         <form id="email-form" name="pr-quick-form" data-name="Email Form" method="post" class="form-3"
           data-wf-page-id="64f80d0aa874d7cfc448d30f" data-wf-element-id="2b1b40c0-da23-4136-2eed-f33f84cc27b3"
-          data-netlify="true" action="/pr/success.html"><input type="hidden" name="form-name"
-            value="pr-quick-form" /><input type="hidden" name="subject" value="[제이와이네트워크] 보도기사 빠른상담 신청이 접수되었습니다" /><img
-            src="images/JY_logo.png" loading="lazy" width="120" alt="" class="image-13"><input type="text"
-            class="text-field w-input" maxlength="256" data-name="Name" name="q_name" placeholder="담당자명" id="q_name"
-            style="width: 150px !important"><input type="tel" class="text-field w-input" maxlength="256" data-name="연락처"
-            name="q_tel" placeholder="연락처" id="field" required="" style="width: 180px !important"><input type="email"
-            class="text-field w-input" maxlength="256" data-name="이메일" name="q_email" placeholder="이메일" id="field"
-            required="" style="width: 180px !important">
+          data-netlify="true" onsubmit="return handlePrSubmit(event, 'email-form')"><input type="hidden"
+            name="form-name" value="pr-quick-form" /><input type="hidden" name="subject"
+            value="[제이와이네트워크] 보도기사 빠른상담 신청이 접수되었습니다" /><img src="images/JY_logo.png" loading="lazy" width="120" alt=""
+            class="image-13"><input type="text" class="text-field w-input" maxlength="256" data-name="Name"
+            name="q_name" placeholder="담당자명" id="q_name" style="width: 150px !important"><input type="tel"
+            class="text-field w-input" maxlength="256" data-name="연락처" name="q_tel" placeholder="연락처" id="field"
+            required="" style="width: 180px !important"><input type="email" class="text-field w-input" maxlength="256"
+            data-name="이메일" name="q_email" placeholder="이메일" id="field" required="" style="width: 180px !important">
           <div class="w-layout-blockcontainer container-4 w-container"><label class="w-checkbox">
               <div class="w-checkbox-input w-checkbox-input--inputType-custom w--redirected-checked"></div><input
                 type="checkbox" id="q_agree" name="q_agree" data-name="agree" required="" checked=""
@@ -1198,6 +1198,34 @@
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64f80d0aa874d7cfc448d315"
     type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"></script>
+  <script>
+    function handlePrSubmit(event, formId) {
+      event.preventDefault();
+      var form = document.getElementById(formId);
+      var formData = new FormData(form);
+      var params = new URLSearchParams();
+
+      for (const pair of formData) {
+        params.append(pair[0], pair[1]);
+      }
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString()
+      }).then(function (response) {
+        if (response.ok) {
+          alert("문의가 접수되었습니다.");
+          window.location.href = "/pr/success.html";
+        } else {
+          alert("전송에 실패했습니다." + response.statusText);
+        }
+      }).catch(function (error) {
+        alert("오류:" + error);
+      });
+      return false;
+    }
+  </script>
   <script src="/pr/js/webflow.js" type="text/javascript"></script>
 
 
