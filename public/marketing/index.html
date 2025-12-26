@@ -371,7 +371,7 @@
                         </li>
                         <li>
                             <form method="post" id="insertFrm" enctype="multipart/form-data" name="marketing-form"
-                                data-netlify="true">
+                                data-netlify="true" onsubmit="return validateForm()">
                                 <input type="hidden" name="form-name" value="marketing-form" />
                                 <input type="hidden" name="qnaKnd" class="termshidden" id="qnaKnd" value="">
                                 <div class="contect_content">
@@ -460,7 +460,7 @@
                     </div><!--agree_box 끝-->
 
                     <div class="inquiry_btn">
-                        <button id="sendBtn" type="button">문의하기</button>
+                        <button id="sendBtn" type="submit">문의하기</button>
                     </div>
                     </form>
                 </div><!--contact_us_box 끝-->
@@ -512,8 +512,7 @@
 */
 </style>
 <script>
-    $("#sendBtn").click(function () {
-
+    function validateForm() {
         if ($("#radio_g").is(":checked")) {
             $("#qnaKnd").val($("#radio_g").val());
         } else if ($("#radio_e").is(":checked")) {
@@ -593,9 +592,8 @@
 
         }
 
-        document.getElementById('insertFrm').submit();
-
-    });
+        return true;
+    }
 </script>
 
 <script>
