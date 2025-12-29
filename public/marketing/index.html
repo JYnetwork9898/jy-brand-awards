@@ -90,17 +90,8 @@
     <div class="wrap">
 
         <!-- Header Content Merged -->
-        <div class="hd_wrap">
-            <div class="topnav" id="myTopnav">
-                <a href="index.html" class="active"><img src="/marketing/images/logo.png"></a>
-                <a href="about.html" class="menu_min menu_TM">ABOUT US</a>
-                <a href="referance.html" class="menu_TM">REFERANCE</a>
-                <a href="index.html#contact" class="menu_TM">CONTACT</a>
-                <a href="file/jynetwork_company.pdf" target="_blank" class="menu_TM menu_cp">회사소개서</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img
-                        src="/marketing/images/menu.png"></a>
-            </div>
-        </div>
+        <div id="header-placeholder"></div>
+        <script src="/marketing/js/loadHeader.js"></script>
 
         <div id="quick_contact"
             class="w-layout-layout quick_contact w-node-a39eaea3-04d3-4195-f606-312ede815d74-af48ceb0 wf-layout-layout">
@@ -108,7 +99,8 @@
                 <h4 id="contact_tilte" class="contact_tilte">QUICK CONTACT</h4>
                 <div class="w-form">
                     <form id="wf-form-q_contact" name="marketing-quick-form" data-name="q_contact" method="post"
-                        class="form" action="/marketing/success.html" data-netlify="true" onsubmit="return handleMarketingQuickSubmit(event)">
+                        class="form" action="/marketing/success.html" data-netlify="true"
+                        onsubmit="return handleMarketingQuickSubmit(event)">
                         <input type="hidden" name="form-name" value="marketing-quick-form" />
                         <input type="text" class="text-field w-input" maxlength="256" name="company_name"
                             data-name="company_name" placeholder="기업명" id="company_name" required="">
@@ -226,7 +218,7 @@
                 <h5>제이와이네트워크 만의 광고성과 극대화를 위한 서비스와 도구들을 활용해보세요.</h5>
                 <div class="sec1_4box" data-aos="zoom-in">
                     <ul>
-                        <li><a href="https://jynetwork.net/marketing/referance.jsp" target="_blank">온라인마케팅<br>레퍼런스</a>
+                        <li><a href="referance.html" target="_blank">온라인마케팅<br>레퍼런스</a>
                         </li>
                         <li><a href="https://jy-media.co.kr/default/product/sub3.php?top=3&sub=3"
                                 target="_blank">영상제작<br>레퍼런스</a></li>
@@ -245,7 +237,7 @@
                 <div class="sec3">
                     <h1 class="sec_tit">고객사</h1>
                     <img src="/marketing/images/client.png" data-aos="zoom-in">
-                    <div class="sec3_btn"><a href="referance.jsp" target="_blank">레퍼런스 바로가기</a></div>
+                    <div class="sec3_btn"><a href="referance.html" target="_blank">레퍼런스 바로가기</a></div>
                 </div><!--sec3 끝-->
 
                 <div class="sec4">
@@ -576,7 +568,7 @@
 
         // Convert FormData to URLSearchParams for application/x-www-form-urlencoded
         var params = new URLSearchParams();
-        
+
         // form-name 필드는 hidden input의 값을 사용 (반드시 포함)
         var formNameInput = form.querySelector('input[name="form-name"]');
         var formName = formNameInput ? formNameInput.value : form.getAttribute('name');
@@ -588,12 +580,12 @@
         for (const pair of formData) {
             var key = pair[0];
             var value = pair[1];
-            
+
             // form-name은 이미 추가했으므로 건너뛰기
             if (key === 'form-name') {
                 continue;
             }
-            
+
             // 모든 값을 전송 (빈 값도 포함)
             params.append(key, value || '');
         }
@@ -635,12 +627,12 @@
         for (const pair of formData) {
             var key = pair[0];
             var value = pair[1];
-            
+
             // form-name은 이미 추가했으므로 건너뛰기
             if (key === 'form-name') {
                 continue;
             }
-            
+
             // 모든 값을 전송 (빈 값도 포함)
             params.append(key, value || '');
         }
@@ -706,4 +698,5 @@
 </script>
 
 </html>
+
 </html>

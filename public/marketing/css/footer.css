@@ -1,99 +1,112 @@
 @media all and (min-width: 1025px) {
 	.ft_div {
-		background:#2e3336;
+		background: #2e3336;
 		width: 100%;
-		padding:40px 0;
-		margin-top:100px;
+		padding: 40px 0;
+		margin-top: 100px;
 		clear: both;
-		display: inline-block;
+		display: block;
 	}
+
 	.ft_wrap {
 		width: 1200px;
-		margin:0 auto;
+		margin: 0 auto;
 		font-size: 15px;
 		line-height: 24px;
 		color: #ddd;
 		text-align: center;
 		font-weight: 200;
 	}
+
 	.ft_wrap span {
 		padding-top: 10px;
 		display: inline-block;
 		font-size: 13px;
 		color: #ccc;
 	}
+
 	.ft_ic {
-		padding-top:25px;
+		padding-top: 25px;
 		text-align: center;
 	}
+
 	.ft_ic ul li {
 		display: inline-block;
-		margin:0 2px;
+		margin: 0 2px;
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px) and (max-width: 1024px) {
 	.ft_div {
-		background:#2e3336;
+		background: #2e3336;
 		width: 100%;
-		padding:40px 0;
-		margin-top:100px;
+		padding: 40px 0;
+		margin-top: 100px;
 	}
+
 	.ft_wrap {
 		width: 80%;
-		margin:0 auto;
+		margin: 0 auto;
 		font-size: 15px;
 		line-height: 24px;
 		color: #ddd;
 		text-align: center;
 		font-weight: 200;
 	}
+
 	.ft_wrap span {
 		padding-top: 10px;
 		display: inline-block;
 		font-size: 13px;
 		color: #ccc;
 	}
+
 	.ft_ic {
-		padding-top:25px;
+		padding-top: 25px;
 		text-align: center;
 	}
+
 	.ft_ic ul li {
 		display: inline-block;
-		margin:0 2px;
+		margin: 0 2px;
 	}
 }
 
 @media screen and (max-width: 767px) {
 	.ft_div {
-		background:#2e3336;
+		background: #2e3336;
 		width: 100%;
-		padding:5vh 0;
-		margin-top:10vh;
+		padding: 5vh 0;
+		margin-top: 10vh;
 	}
+
 	.ft_wrap {
 		width: 80%;
-		margin:0 auto;
+		margin: 0 auto;
 		font-size: 0.8rem;
 		line-height: 1.2rem;
 		color: #ddd;
 		text-align: center;
 		font-weight: 200;
 	}
+
 	.ft_wrap span {
 		padding-top: 10px;
 		display: inline-block;
 		font-size: 0.5rem;
 		color: #ccc;
 	}
+
 	.ft_ic {
-		padding:3vh 5% 0;
+		padding: 3vh 5% 0;
 		text-align: center;
 	}
+
 	.ft_ic ul li {
 		display: inline-block;
 		width: 16%;
 	}
+
 	.ft_ic ul li img {
 		width: 60%;
 	}
