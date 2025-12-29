@@ -1088,9 +1088,9 @@
       </div>
       <div class="w-layout-blockcontainer container-10 w-container">
         <div class="netlify-form-container">
-          <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="post" class="form-4"
+          <form id="email-form-2" name="pr-main-form" data-name="Email Form 2" method="post" class="form-4"
             data-wf-page-id="64f80d0aa874d7cfc448d30f" data-wf-element-id="cc8860da-e89a-ba1c-d343-1eb91065c838"
-            name="pr-main-form" data-netlify="true" onsubmit="return handlePrSubmit(event, 'email-form-2')">
+            data-netlify="true" onsubmit="return handlePrSubmit(event, 'email-form-2')">
             <input type="hidden" name="form-name" value="pr-main-form" />
             <input type="hidden" name="subject" value="[제이와이네트워크] 보도기사 문의가 접수되었습니다" />
             <div class="w-layout-blockcontainer container-12 w-container">
@@ -1205,8 +1205,25 @@
       var formData = new FormData(form);
       var params = new URLSearchParams();
 
+      // form-name 필드는 hidden input의 값을 사용 (반드시 포함)
+      var formNameInput = form.querySelector('input[name="form-name"]');
+      var formName = formNameInput ? formNameInput.value : form.getAttribute('name');
+      if (formName) {
+        params.append('form-name', formName);
+      }
+
+      // 모든 폼 데이터 추가 (pr-quick-form과 동일하게 - 모든 값 전송)
       for (const pair of formData) {
-        params.append(pair[0], pair[1]);
+        var key = pair[0];
+        var value = pair[1];
+        
+        // form-name은 이미 추가했으므로 건너뛰기
+        if (key === 'form-name') {
+          continue;
+        }
+        
+        // 모든 값을 전송 (빈 값도 포함)
+        params.append(key, value || '');
       }
 
       fetch("/", {

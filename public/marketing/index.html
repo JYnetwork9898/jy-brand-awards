@@ -107,8 +107,9 @@
             <div id="w-node-_9507c949-60d9-fac2-2800-29e62a4e4187-af48ceb0" class="w-layout-cell quick_container">
                 <h4 id="contact_tilte" class="contact_tilte">QUICK CONTACT</h4>
                 <div class="w-form">
-                    <form id="wf-form-q_contact" name="wf-form-q_contact" data-name="q_contact" method="post"
-                        class="form" action="quick_send.php">
+                    <form id="wf-form-q_contact" name="marketing-quick-form" data-name="q_contact" method="post"
+                        class="form" action="/marketing/success.html" data-netlify="true" onsubmit="return handleMarketingQuickSubmit(event)">
+                        <input type="hidden" name="form-name" value="marketing-quick-form" />
                         <input type="text" class="text-field w-input" maxlength="256" name="company_name"
                             data-name="company_name" placeholder="기업명" id="company_name" required="">
                         <input type="text" class="text-field-2 w-input" maxlength="256" name="company_emp"
@@ -155,8 +156,7 @@
                                 <a href="#" class="button-2 w-button" onClick="javascript:popOpen();">약관보기</a>
                             </div>
                         </div>
-                        <input type="submit" value="빠른상담신청" data-wait="전송중입니다." class="submit_contact w-button"
-                            onclick='getCheckboxValue()'>
+                        <input type="submit" value="빠른상담신청" data-wait="전송중입니다." class="submit_contact w-button">
                     </form>
                     <div class="w-form-done">
                         <div>Thank you! Your submission has been received!</div>
@@ -372,7 +372,7 @@
                         </li>
                         <li>
                             <form method="post" id="insertFrm" name="marketing-form" data-netlify="true"
-                                action="/marketing/success.html" onsubmit="return validateForm()">
+                                action="/marketing/success.html" onsubmit="return handleSubmit(event)">
                                 <input type="hidden" name="form-name" value="marketing-form" />
                                 <input type="hidden" name="qnaKnd" class="termshidden" id="qnaKnd" value="">
                                 <div class="contect_content">
@@ -514,7 +514,9 @@
 </style>
 <script>
     function handleSubmit(event) {
-        event.preventDefault();
+        if (event) {
+            event.preventDefault();
+        }
 
         // Validation Logic
         if ($("#radio_g").is(":checked")) {
@@ -569,12 +571,31 @@
 
         // AJAX Submission to Netlify
         var $form = $("#insertFrm");
-        var formData = new FormData($form[0]);
+        var form = $form[0];
+        var formData = new FormData(form);
 
         // Convert FormData to URLSearchParams for application/x-www-form-urlencoded
         var params = new URLSearchParams();
+        
+        // form-name 필드는 hidden input의 값을 사용 (반드시 포함)
+        var formNameInput = form.querySelector('input[name="form-name"]');
+        var formName = formNameInput ? formNameInput.value : form.getAttribute('name');
+        if (formName) {
+            params.append('form-name', formName);
+        }
+
+        // 모든 폼 데이터 추가 
         for (const pair of formData) {
-            params.append(pair[0], pair[1]);
+            var key = pair[0];
+            var value = pair[1];
+            
+            // form-name은 이미 추가했으므로 건너뛰기
+            if (key === 'form-name') {
+                continue;
+            }
+            
+            // 모든 값을 전송 (빈 값도 포함)
+            params.append(key, value || '');
         }
 
         fetch("/", {
@@ -594,6 +615,50 @@
                 alert("오류가 발생했습니다: " + error);
             });
 
+        return false;
+    }
+
+    function handleMarketingQuickSubmit(event) {
+        event.preventDefault();
+        var form = document.getElementById('wf-form-q_contact');
+        var formData = new FormData(form);
+        var params = new URLSearchParams();
+
+        // form-name 필드는 hidden input의 값을 사용 (반드시 포함)
+        var formNameInput = form.querySelector('input[name="form-name"]');
+        var formName = formNameInput ? formNameInput.value : form.getAttribute('name');
+        if (formName) {
+            params.append('form-name', formName);
+        }
+
+        // 모든 폼 데이터 추가 
+        for (const pair of formData) {
+            var key = pair[0];
+            var value = pair[1];
+            
+            // form-name은 이미 추가했으므로 건너뛰기
+            if (key === 'form-name') {
+                continue;
+            }
+            
+            // 모든 값을 전송 (빈 값도 포함)
+            params.append(key, value || '');
+        }
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params.toString()
+        }).then(function (response) {
+            if (response.ok) {
+                alert("빠른 상담 신청이 접수되었습니다.");
+                window.location.href = "/marketing/success.html";
+            } else {
+                alert("전송에 실패했습니다." + response.statusText);
+            }
+        }).catch(function (error) {
+            alert("오류:" + error);
+        });
         return false;
     }
 </script>
@@ -640,4 +705,5 @@
     AOS.init();
 </script>
 
+</html>
 </html>
