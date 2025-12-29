@@ -22,6 +22,20 @@
   <meta charset="utf-8">
   <title>보도기사 - JYNETWORK</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="제이와이네트워크의 언론홍보 서비스는 브랜드 신뢰도 향상과 이슈 전달을 위한 전략적 보도자료 배포 및 온라인 뉴스 송출을 제공합니다. 포털 검색 점유와 위기 관리를 위한 최적의 PR 솔루션을 만나보세요.">
+  <meta name="keywords" content="언론홍보, 보도자료배포, 온라인뉴스, 기사송출, 브랜드마케팅, 홍보대행사, 기업PR, 뉴스검색, 위기관리, 제이와이네트워크">
+  <link rel="canonical" href="https://jynetwork.net/pr/">
+
+  <!-- Open Graph (Facebook, Kakao) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="제이와이네트워크 - 전략적 언론홍보 솔루션">
+  <meta property="og:description" content="브랜드 가치를 높이는 언론홍보와 보도자료 배포. 제이와이네트워크가 확실한 PR 효과를 약속드립니다.">
+  <meta property="og:url" content="https://jynetwork.net/pr/">
+
+
   <meta content="Webflow" name="generator">
   <meta name="robots" content="index, follow">
   <link href="/pr/css/normalize.css" rel="stylesheet" type="text/css">
@@ -1216,12 +1230,12 @@
       for (const pair of formData) {
         var key = pair[0];
         var value = pair[1];
-        
+
         // form-name은 이미 추가했으므로 건너뛰기
         if (key === 'form-name') {
           continue;
         }
-        
+
         // 모든 값을 전송 (빈 값도 포함)
         params.append(key, value || '');
       }
