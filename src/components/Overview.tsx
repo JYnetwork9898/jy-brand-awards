@@ -58,7 +58,7 @@ const Overview: React.FC = () => {
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8 tracking-tight">
                             <div className="mb-8">
                                 {/* 어워드 약칭 (예: KCBA) */}
-                                <span className="block text-brand-gold text-8xl md:text-9xl font-black mb-6 leading-none">{currentAward.abbreviation}</span>
+                                <span className="block text-brand-gold text-8xl md:text-9xl font-black mb-6 leading-none notranslate">{currentAward.abbreviation}</span>
                             </div>
                             <div>
                                 {/* 후원사 및 어워드 타이틀 */}

@@ -106,7 +106,7 @@ const Home: React.FC = () => {
                                     <div className="text-8xl md:text-9xl font-bold text-white/10 mb-4 leading-none select-none">
                                         {currentMonth}
                                     </div>
-                                    <div className="text-7xl md:text-8xl font-black text-brand-gold mb-2 tracking-tight leading-none">
+                                    <div className="text-7xl md:text-8xl font-black text-brand-gold mb-2 tracking-tight leading-none notranslate">
                                         {currentAward.abbreviation}
                                     </div>
                                     <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 relative">
