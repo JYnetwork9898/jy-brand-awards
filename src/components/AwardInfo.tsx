@@ -20,7 +20,7 @@ const AwardInfo: React.FC = () => {
     // 화면에 표시할 정보 항목 리스트 (라벨, 값)
     const infoItems = [
         { label: '어워즈명', value: `${CURRENT_YEAR} ${currentAward.title}` },
-        { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor} · 기업경영저널` },
+        { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor}${['THBA', 'CSEB'].includes(currentAward.slug) ? '' : ' · 기업경영저널'}` },
         {
             label: '일정', value: (
                 <div className="space-y-2">
