@@ -12,7 +12,6 @@ import Benefits from '../components/Benefits';
 import Video from '../components/Video';
 import Process from '../components/Process';
 import Consultation from '../components/Consultation';
-import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import PastWinners from '../components/PastWinners';
 import FastConsultationButton from '../components/FastConsultationButton';
