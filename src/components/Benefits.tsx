@@ -242,8 +242,11 @@ const Benefits: React.FC = () => {
                             // 인디케이터 클릭 시 해당 섹션 위치로 부드럽게 스크롤
                             const handleClick = (targetIndex: number) => {
                                 if (targetRef.current) {
-                                    const sectionTop = targetRef.current.offsetTop;
-                                    const sectionHeight = targetRef.current.offsetHeight;
+                                    const element = targetRef.current;
+                                    const rect = element.getBoundingClientRect();
+                                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                                    const sectionTop = rect.top + scrollTop;
+                                    const sectionHeight = element.offsetHeight;
                                     const targetScroll = sectionTop + (sectionHeight / benefits.length) * targetIndex;
 
                                     window.scrollTo({
