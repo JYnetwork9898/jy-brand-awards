@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     const { currentAward } = useAward();
 
     return (
-        <footer className="bg-brand-black border-t border-brand-gray pt-32 pb-8 snap-start">
+        <footer className="bg-brand-black border-t border-gray-800 pt-32 pb-8 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
                     {/* 회사 정보 및 사업자 등록 번호 */}
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="border-t border-brand-gray pt-8 text-center text-gray-500 text-sm">
+                <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
                     copyright ⓒ {CURRENT_YEAR}.JYnetworks, All rights reserved | 사이트명 : {CURRENT_YEAR} {currentAward.title}
                 </div>
             </div>

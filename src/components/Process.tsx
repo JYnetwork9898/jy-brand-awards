@@ -59,8 +59,28 @@ const Process: React.FC = () => {
                 </div>
 
 
-                <div className="mt-16 text-left">
-                    <div className="flex flex-col md:flex-row justify-start gap-6 mb-12">
+                <div className="mt-16 text-center">
+
+
+                    <div className="bg-brand-bg-secondary p-8 rounded-xl border border-brand-gold/10 w-full max-w-4xl mx-auto mb-12">
+                        <h4 className="text-brand-gold font-bold mb-6 text-xl text-center">접수 및 문의처</h4>
+                        <div className="grid md:grid-cols-3 gap-8 text-center">
+                            {contactInfo.map((contact, index) => (
+                                <div key={index} className="flex items-center justify-start md:justify-center gap-4">
+                                    <div className="w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-brand-gold shrink-0">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={contact.icon} />
+                                        </svg>
+                                    </div>
+                                    <div className="text-left">
+                                        <div className="text-sm text-gray-400 mb-1">{contact.label}</div>
+                                        <div className="text-white font-medium">{contact.value}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
                         {/* 참가 신청서 다운로드 버튼 */}
                         <a
                             href={`/files/application-form/${CURRENT_YEAR}_${currentAward.abbreviation}_참가신청서.docx`}
@@ -79,25 +99,6 @@ const Process: React.FC = () => {
                             <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                             어워즈 소개서 다운로드
                         </a>
-                    </div>
-
-                    <div className="bg-brand-bg-secondary p-8 rounded-xl border border-brand-gold/10 inline-block max-w-3xl w-full">
-                        <h4 className="text-brand-gold font-bold mb-6 text-xl">접수 및 문의처</h4>
-                        <div className="grid md:grid-cols-3 gap-8 text-left">
-                            {contactInfo.map((contact, index) => (
-                                <div key={index} className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-black/50 rounded-full flex items-center justify-center text-brand-gold">
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={contact.icon} />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div className="text-sm text-gray-400 mb-1">{contact.label}</div>
-                                        <div className="text-white font-medium">{contact.value}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </div >

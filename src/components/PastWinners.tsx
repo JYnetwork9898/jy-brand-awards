@@ -60,16 +60,16 @@ const PastWinners: React.FC = () => {
                             transition={{ duration: 0.4, delay: index * 0.05 }}
                             viewport={{ once: true }}
                         >
-                            <span className="text-gray-500 font-semibold group-hover:text-white transition-colors text-center text-sm">
+                            <span className="text-gray-500 font-semibold group-hover:text-white transition-colors text-center text-lg">
                                 {winner}
                             </span>
                         </motion.div>
                     ))}
                 </div>
 
-                <div className="mt-12 text-left">
-                    <p className="text-gray-500 text-sm">
-                        * 위 브랜드 외에도 더 많은 기업들이 함께하고 있습니다.
+                <div className="mt-16 text-center">
+                    <p className="text-gray-500 font-medium text-2xl border-t border-b border-brand-gold/10 pt-0 pb-6 inline-block w-full md:w-auto px-12 tracking-wide">
+                        위 브랜드 외에도 매년 다양한 기업들이 함께하고 있습니다.
                     </p>
                 </div>
             </div>

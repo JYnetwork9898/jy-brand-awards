@@ -11,10 +11,11 @@ import Effects from '../components/Effects';
 import Benefits from '../components/Benefits';
 import Video from '../components/Video';
 import Process from '../components/Process';
+import Consultation from '../components/Consultation';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import PastWinners from '../components/PastWinners';
-import FloatingButton from '../components/FloatingButton';
+import FastConsultationButton from '../components/FastConsultationButton';
 import ScrollTopButton from '../components/ScrollTopButton';
 import PressMarketing from '../components/PressMarketing';
 // import Press from '../components/Press'; // Keep file but don't use it
@@ -43,15 +44,15 @@ const AwardPageContent: React.FC<{ slug?: string }> = ({ slug }) => {
                 <AwardInfo />
                 <Benefits />
                 <Effects />
+                <PressMarketing />
                 <PastWinners />
                 <Video />
-                <PressMarketing />
                 <Process />
-                <FAQ />
+                <Consultation />
                 <Footer />
             </main>
 
-            <FloatingButton />
+            <FastConsultationButton />
             <ScrollTopButton />
         </div>
     );

@@ -7,7 +7,7 @@ const PressMarketing: React.FC = () => {
                         Marketing
                     </h2>
                     <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                        언론 보도
+                        언론 마케팅
                     </h3>
                     <p className="text-gray-400 text-lg">
                         수상 기업에게 제공되는 전문가들의 언론 보도 마케팅의 과정을 확인해 보세요.

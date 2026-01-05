@@ -19,6 +19,26 @@
 </head>
 
 <body>
+  <!-- Hidden Netlify Form for Fast Consultation -->
+  <form name="awards-quick-form" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="company_name" />
+    <input type="text" name="company_emp" />
+    <input type="tel" name="company_phone" />
+    <input type="email" name="company_mail" />
+    <input type="checkbox" name="privacy_agree" />
+    <input type="checkbox" name="marketing_agree" />
+  </form>
+
+  <form name="awards-main-form" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="company_name" />
+    <input type="text" name="company_emp" />
+    <input type="tel" name="company_phone" />
+    <input type="email" name="company_mail" />
+    <textarea name="content"></textarea>
+    <input type="checkbox" name="privacy_agree" />
+    <input type="checkbox" name="marketing_agree" />
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

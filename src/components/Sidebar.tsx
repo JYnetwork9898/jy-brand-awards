@@ -6,11 +6,11 @@ const menuItems = [
     { id: 'mission', label: '시상식 안내' },
     { id: 'benefits', label: '수상 혜택' },
     { id: 'effects', label: '수상 효과' },
+    { id: 'press-marketing', label: '언론 마케팅' },
     { id: 'past-winners', label: '역대 수상 브랜드' },
     { id: 'video', label: '역대 시상식' },
-    { id: 'press-marketing', label: '언론 보도' },
     { id: 'process', label: '참가 프로세스' },
-    { id: 'faq', label: '자주 묻는 질문' },
+    { id: 'consultation', label: '상담 문의' },
 ];
 
 const Sidebar: React.FC = () => {
