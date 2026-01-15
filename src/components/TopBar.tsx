@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AWARDS } from '../constants/awards';
 import { CURRENT_YEAR } from '../constants/common';
 import logoJYNetwork from '../assets/logo_jynetwork_white.png';
+
+const FAMILY_SITES = [
+    { name: 'JY Marketing', url: 'http://jynetwork.net/marketing/' },
+    { name: 'JY News', url: 'https://jynetwork.net/pr/' },
+    { name: 'JY Media', url: 'https://jy-media.co.kr/default/' },
+    { name: 'JY Design', url: 'https://jy-design.co.kr/' },
+    { name: 'JY Awards', url: 'https://jynetwork.net/' },
+    { name: 'Contact', url: 'https://www.jynetwork.co.kr/inquiry/' },
+];
 
 // const AWARD_MONTHS: Record<string, string> = {
 //     'THBA': '3월',
@@ -14,6 +23,22 @@ const TopBar: React.FC = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isFamilyMenuOpen, setIsFamilyMenuOpen] = useState(false);
+    const familyMenuRef = useRef<HTMLDivElement>(null);
+
+    // Close family menu when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (familyMenuRef.current && !familyMenuRef.current.contains(event.target as Node)) {
+                setIsFamilyMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     // 현재 URL 경로에서 어워드 슬러그 추출 (/awards/slug)
     const currentSlug = location.pathname.split('/awards/')[1];
@@ -136,19 +161,41 @@ const TopBar: React.FC = () => {
                     })}
             </nav>
 
-            {/* JY네트워크 로고 */}
-            <a
-                href="https://www.jynetwork.co.kr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0 md:ml-8 hover:opacity-80 transition-opacity pointer-events-auto"
-            >
-                <img
-                    src={logoJYNetwork}
-                    alt="JY네트워크"
-                    className="h-8 md:h-10 w-auto"
-                />
-            </a>
+            {/* JY네트워크 로고 (Family Site Dropdown) */}
+            <div className="md:ml-8 pointer-events-auto relative" ref={familyMenuRef}>
+                <button
+                    onClick={() => setIsFamilyMenuOpen(!isFamilyMenuOpen)}
+                    className="flex-shrink-0 hover:opacity-80 transition-opacity flex items-center focus:outline-none"
+                    aria-label="Family Sites Menu"
+                >
+                    <img
+                        src={logoJYNetwork}
+                        alt="JY네트워크"
+                        className="h-8 md:h-10 w-auto"
+                    />
+                </button>
+
+                {/* Dropdown Menu - SEO optimized (Always in DOM, hidden visually) */}
+                <div
+                    className={`absolute right-0 mt-3 w-48 bg-black/90 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden py-2 z-50 transition-all duration-200 origin-top-right ${isFamilyMenuOpen
+                            ? 'opacity-100 visible scale-100 translate-y-0'
+                            : 'opacity-0 invisible scale-95 -translate-y-2'
+                        }`}
+                >
+                    {FAMILY_SITES.map((site) => (
+                        <a
+                            key={site.name}
+                            href={site.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-5 py-3 text-md text-gray-300 hover:text-brand-gold hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 font-medium"
+                            onClick={() => setIsFamilyMenuOpen(false)}
+                        >
+                            {site.name}
+                        </a>
+                    ))}
+                </div>
+            </div>
         </header>
     );
 };

@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
 import AwardPage from './pages/AwardPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* 기본 경로 접속 시 히트브랜드 페이지로 리다이렉트(임시 설정) */}
-        <Route path="/" element={<Navigate to="/awards/THBA" replace />} />
+        {/* 메인 랜딩 페이지 (히트브랜드 내용을 메인에 표시, URL 유지) */}
+        <Route path="/" element={<AwardPage />} />
 
         {/* Short URL redirects */}
         <Route path="/thba" element={<Navigate to="/awards/THBA" replace />} />
@@ -15,8 +14,8 @@ function App() {
         <Route path="/csba" element={<Navigate to="/awards/CSBA" replace />} />
         <Route path="/teba" element={<Navigate to="/awards/TEBA" replace />} />
 
-        {/* 메인 랜딩 페이지 */}
-        <Route path="/home" element={<Home />} />
+        {/* Home 경로 접속 시 메인으로 리다이렉트 (Canonical) */}
+        <Route path="/home" element={<Navigate to="/" replace />} />
 
         {/* 각 어워드별 상세 페이지 (slug 파라미터로 구분) */}
         <Route path="/awards/:slug" element={<AwardPage />} />
