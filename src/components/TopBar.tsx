@@ -6,7 +6,7 @@ import logoJYNetwork from '../assets/logo_jynetwork_white.png';
 
 const FAMILY_SITES = [
     { name: 'JY Network', url: 'https://www.jynetwork.co.kr/' },
-    { name: 'JY Marketing', url: 'http://jynetwork.net/marketing/' },
+    { name: 'JY Marketing', url: 'https://jynetwork.net/marketing/' },
     { name: 'JY News', url: 'https://jynetwork.net/pr/' },
     { name: 'JY Media', url: 'https://jy-media.co.kr/default/' },
     { name: 'JY Design', url: 'https://jy-design.co.kr/' },
