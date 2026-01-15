@@ -5,12 +5,11 @@ import { CURRENT_YEAR } from '../constants/common';
 import logoJYNetwork from '../assets/logo_jynetwork_white.png';
 
 const FAMILY_SITES = [
+    { name: 'JY Network', url: 'https://www.jynetwork.co.kr/' },
     { name: 'JY Marketing', url: 'http://jynetwork.net/marketing/' },
     { name: 'JY News', url: 'https://jynetwork.net/pr/' },
     { name: 'JY Media', url: 'https://jy-media.co.kr/default/' },
     { name: 'JY Design', url: 'https://jy-design.co.kr/' },
-    { name: 'JY Awards', url: 'https://jynetwork.net/' },
-    { name: 'Contact', url: 'https://www.jynetwork.co.kr/inquiry/' },
 ];
 
 // const AWARD_MONTHS: Record<string, string> = {
@@ -178,8 +177,8 @@ const TopBar: React.FC = () => {
                 {/* Dropdown Menu - SEO optimized (Always in DOM, hidden visually) */}
                 <div
                     className={`absolute right-0 mt-3 w-48 bg-black/90 backdrop-blur-md border border-white/10 rounded-lg shadow-xl overflow-hidden py-2 z-50 transition-all duration-200 origin-top-right ${isFamilyMenuOpen
-                            ? 'opacity-100 visible scale-100 translate-y-0'
-                            : 'opacity-0 invisible scale-95 -translate-y-2'
+                        ? 'opacity-100 visible scale-100 translate-y-0'
+                        : 'opacity-0 invisible scale-95 -translate-y-2'
                         }`}
                 >
                     {FAMILY_SITES.map((site) => (
