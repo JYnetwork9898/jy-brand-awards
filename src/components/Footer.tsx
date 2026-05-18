@@ -15,7 +15,8 @@ const Footer: React.FC = () => {
                             {currentAward.title}
                         </a>
                         <p className="text-gray-400 max-w-lg leading-relaxed">
-                            (주)제이와이네트워크 | 대표 김재훈 | 사업자등록번호 172-87-00908
+                            (주)제이와이네트워크 | 대표 김재훈 | 사업자등록번호 172-87-00908<br />
+                            주소: 서울특별시 강서구 공항대로 212, 문영퀸즈파크11차 1111~1113호
                         </p>
                     </div>
                     {/* 연락처 정보 */}
