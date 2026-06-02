@@ -20,7 +20,7 @@ const AwardInfo: React.FC = () => {
     // 화면에 표시할 정보 항목 리스트 (라벨, 값)
     const infoItems = [
         { label: '어워즈명', value: `${CURRENT_YEAR} ${currentAward.title}` },
-        { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor}${['THBA', 'CSEB'].includes(currentAward.slug) ? '' : ' · 기업경영저널'}` },
+        { label: '주최 / 후원', value: `JYnetwork / ${currentAward.sponsor} · 기업경영저널` },
         {
             label: '일정', value: (
                 <div className="space-y-2">
@@ -29,12 +29,12 @@ const AwardInfo: React.FC = () => {
                         <span className="text-white">{getSchedule(currentAward.slug)}</span>
                     </div>
                     <div className="flex justify-between border-b border-white/10 pb-2">
-                        <span className="text-gray-500">심사기간</span>
-                        <span className="text-white">접수 마감 후 개별 심사</span>
+                        <span className="text-gray-500">결과발표</span>
+                        <span className="text-white">심사 후 개별 통보</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-gray-500">결과발표</span>
-                        <span className="text-white">심사 종료 후 개별 통보</span>
+                        <span className="text-gray-500">시상일시</span>
+                        <span className="text-white">{['THBA', 'CSEB'].includes(currentAward.slug) ? '2026. 06. 26(금)' : '추후 공지'}</span>
                     </div>
                 </div>
             )
@@ -42,8 +42,8 @@ const AwardInfo: React.FC = () => {
         {
             label: '장소', value: (
                 <div>
-                    <p className="text-white font-medium">스탠포드호텔 서울 2F 그랜드볼룸</p>
-                    <p className="text-sm text-gray-500 mt-1">서울특별시 마포구 월드컵북로 58길 15</p>
+                    <p className="text-white font-medium">마곡 NSP홀</p>
+                    <p className="text-sm text-gray-500 mt-1">서울특별시 강서구 마곡중앙1로 20 (마곡동) 지하1층</p>
                 </div>
             )
         },
