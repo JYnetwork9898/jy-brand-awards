@@ -29,12 +29,12 @@ const AwardInfo: React.FC = () => {
                         <span className="text-white">{getSchedule(currentAward.slug)}</span>
                     </div>
                     <div className="flex justify-between border-b border-white/10 pb-2">
-                        <span className="text-gray-500">결과발표</span>
-                        <span className="text-white">심사 후 개별 통보</span>
+                        <span className="text-gray-500">심사기간</span>
+                        <span className="text-white">접수 마감 후 개별 심사</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-gray-500">시상일시</span>
-                        <span className="text-white">{['THBA', 'CSEB'].includes(currentAward.slug) ? '2026. 06. 26(금)' : '추후 공지'}</span>
+                        <span className="text-gray-500">결과발표</span>
+                        <span className="text-white">심사 종료 후 개별 통보</span>
                     </div>
                 </div>
             )
@@ -47,7 +47,7 @@ const AwardInfo: React.FC = () => {
                 </div>
             )
         },
-        { label: '발표 및 게재', value: '별도 공지' },
+        { label: '발표 및 게재', value: ['THBA', 'CSEB'].includes(currentAward.slug) ? '2026. 06. 26(금)' : '별도 공지' },
         { label: '인증서 전달', value: '지면 게재 후 5일 이내' },
         { label: '참여 대상', value: '일반기업체, 공기업, 지방자치단체' },
     ];
