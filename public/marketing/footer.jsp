@@ -18,7 +18,7 @@
                   src="/marketing/images/ic_inst.png"></a></li>
             <li><a href="https://pf.kakao.com/_xlqakC" target="_blank"><img src="/marketing/images/ic_talk.png"></a>
             </li>
-            <li><a href="https://blog.naver.com/jynetwork_" target="_blank"><img
+            <li><a href="https://blog.naver.com/mitao685" target="_blank"><img
                   src="/marketing/images/ic_blog.png"></a></li>
             <li><a href="https://www.youtube.com/channel/UCwub2CMPjXjF6ZtI49YbIEQ" target="_blank"><img
                   src="/marketing/images/ic_you.png"></a></li>

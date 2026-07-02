@@ -483,7 +483,7 @@
                                     src="/marketing/images/ic_inst.png"></a></li>
                         <li><a href="https://pf.kakao.com/_xlqakC" target="_blank"><img
                                     src="/marketing/images/ic_talk.png"></a></li>
-                        <li><a href="https://blog.naver.com/jynetwork_" target="_blank"><img
+                        <li><a href="https://blog.naver.com/mitao685" target="_blank"><img
                                     src="/marketing/images/ic_blog.png"></a></li>
                         <li><a href="https://www.youtube.com/channel/UCwub2CMPjXjF6ZtI49YbIEQ" target="_blank"><img
                                     src="/marketing/images/ic_you.png"></a></li>
@@ -699,6 +699,77 @@
 
     });
 
+</script>
+<script>
+    (function () {
+        var CONTACT_HASH = '#contact';
+        var CONTACT_OFFSET = 120;
+        var SCROLL_DURATION = 650;
+
+        function easeInOutCubic(t) {
+            return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function getContactTarget() {
+            return document.getElementById('contact');
+        }
+
+        function smoothScrollToContact() {
+            var target = getContactTarget();
+
+            if (!target) {
+                return;
+            }
+
+            var startY = window.pageYOffset || window.scrollY || 0;
+            var targetY = Math.max(
+                0,
+                target.getBoundingClientRect().top + startY - CONTACT_OFFSET
+            );
+            var distance = targetY - startY;
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || Math.abs(distance) < 4) {
+                window.scrollTo(0, targetY);
+            } else {
+                var startTime = null;
+
+                function step(timestamp) {
+                    if (startTime === null) {
+                        startTime = timestamp;
+                    }
+
+                    var progress = Math.min((timestamp - startTime) / SCROLL_DURATION, 1);
+                    var nextY = startY + (distance * easeInOutCubic(progress));
+
+                    window.scrollTo(0, nextY);
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+
+                window.requestAnimationFrame(step);
+            }
+
+            if (window.location.hash !== CONTACT_HASH) {
+                window.history.pushState(null, '', CONTACT_HASH);
+            }
+        }
+
+        document.addEventListener('click', function (event) {
+            var link = event.target.closest('a[href="#contact"]');
+
+            if (!link) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            smoothScrollToContact();
+        }, true);
+    })();
 </script>
 <script>
     AOS.init();
