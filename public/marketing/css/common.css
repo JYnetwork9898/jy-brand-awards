@@ -12,6 +12,13 @@
 
 	button[type="button"], input[type="submit"]{cursor:pointer;}
   body {width:100%; margin:0 auto;}
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 120px;
+	}
+	body {
+		scroll-behavior: smooth;
+	}
 
 	.ClearBoth::after {content: ""; display: block; clear: both;}
 

@@ -16,6 +16,10 @@
   overflow: hidden;
 }
 
+#contact {
+  scroll-margin-top: 120px;
+}
+
  /*PC 시작*/
 @media all and (min-width: 1065px) {
 
