@@ -100,7 +100,7 @@
         <div id="header-placeholder"></div>
         <script src="/marketing/js/loadHeader.js"></script>
 
-        <div id="quick_contact"
+        <div id="quick_contact" style="display: none;"
             class="w-layout-layout quick_contact w-node-a39eaea3-04d3-4195-f606-312ede815d74-af48ceb0 wf-layout-layout">
             <div id="w-node-_9507c949-60d9-fac2-2800-29e62a4e4187-af48ceb0" class="w-layout-cell quick_container">
                 <h4 id="contact_tilte" class="contact_tilte">QUICK CONTACT</h4>
@@ -175,7 +175,7 @@
             </div>
         </div>
 
-        <div id="w-node-fc421c20-676f-9a3d-8bd1-a649f0b16564-af48ceb0"
+        <div id="w-node-fc421c20-676f-9a3d-8bd1-a649f0b16564-af48ceb0" style="display: none;"
             class="w-layout-layout mobile_quick wf-layout-layout">
             <div id="w-node-fc421c20-676f-9a3d-8bd1-a649f0b16565-af48ceb0" class="w-layout-cell">
                 <a href="#" class="button-4 w-button"></a>
@@ -505,6 +505,9 @@
         <!-- End Footer -->
 
     </div>
+    <!-- React CTA Integration -->
+    <div id="react-cta-root"></div>
+    <script type="module" src="/src/main-cta.tsx"></script>
 </body>
 <style>
     /* Adjustments for absolute path images in CSS might be needed if they are referenced in main.css relative to css/ folder. 
@@ -774,7 +777,5 @@
 <script>
     AOS.init();
 </script>
-
-</html>
 
 </html>
