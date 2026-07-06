@@ -47,7 +47,11 @@ const FastConsultationButton: React.FC = () => {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: params.toString()
         })
-            .then(() => {
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`폼 전송 실패 (${response.status})`);
+                }
+
                 alert('상담 신청이 정상적으로 접수되었습니다. 담당자가 확인 후 빠른 시일 내에 연락드리겠습니다.');
                 setIsOpen(false);
                 setFormData({
