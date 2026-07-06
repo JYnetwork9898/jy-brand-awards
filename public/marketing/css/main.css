@@ -1287,7 +1287,8 @@ html {
      .sec9 {
        background: #3592d0;
        padding:9vh 5% 5vh;
-       width: 90%;
+       width: 100%;
+       overflow: hidden;
      }
      .sec9 h1 {
        font-size: 1.6rem;
@@ -1426,19 +1427,26 @@ html {
 
     .contect_content .radio_box{
         width: 74%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: nowrap;
         text-align: left;
         float: right;
         line-height: 30px;
     }
 
     .radio_box label{
+        display: flex;
         align-items: center;
+        flex: 0 0 auto;
+        white-space: nowrap;
     }
 
     .radio_box label p{
         font-size: 10px;
-        margin: 0 15px 0 5px;
-        display: inherit;
+        margin: 0 0 0 5px;
+        display: block;
     }
 
     .file_box{

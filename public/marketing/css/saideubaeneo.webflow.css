@@ -299,7 +299,7 @@
 	right: 2%;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 767px) {
   #quick_contact.w-node-a39eaea3-04d3-4195-f606-312ede815d74-af48ceb0 {
     display: none;
   }

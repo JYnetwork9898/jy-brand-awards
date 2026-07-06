@@ -24,6 +24,19 @@
 
 	[data-aos] {transition-duration: 1s !important;}
 
+	.privacy-terms {
+		color: #111;
+		text-align: left;
+	}
+
+	.privacy-terms p {
+		margin: 0;
+	}
+
+	.privacy-terms p + p {
+		margin-top: 16px;
+	}
+
 @media all and (min-width: 1065px) {
     .Pcnone{
     display:none;
