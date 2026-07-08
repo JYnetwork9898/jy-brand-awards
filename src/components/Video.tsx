@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useAward } from '../context/AwardContext';
 
 const Video: React.FC = () => {
     const { currentAward } = useAward();
+    const sliderRef = useRef<HTMLDivElement>(null);
 
     // 어워드별 역대 시상식 영상 데이터 설정
     // CSBA: 소비자만족브랜드대상 / TEBA: 올해의우수브랜드대상 (기본값: CSBA)
     const videosByAward: Record<string, Array<{ videoId: string; url: string; title: string; year: number }>> = {
         'THBA': [
+            { videoId: 'RXdcyXo1EMY', url: 'https://www.youtube.com/watch?v=RXdcyXo1EMY', title: '2026 히트브랜드대상 시상식 스케치 영상', year: 2026 },
             { videoId: 'DE3NPoGEq6o', url: 'https://youtu.be/DE3NPoGEq6o', title: '2025 히트브랜드대상 시상식 스케치 영상', year: 2025 },
             { videoId: '5PlScWKKeRg', url: 'https://youtu.be/5PlScWKKeRg', title: '2024 히트브랜드 스케치', year: 2024 },
             { videoId: '_rs8Aja2uXE', url: 'https://youtu.be/_rs8Aja2uXE', title: '2023 히트브랜드대상 시상식 현장', year: 2023 }
         ], 'CSEB': [
+            { videoId: '8AaRmWH5cAI', url: 'https://www.youtube.com/watch?v=8AaRmWH5cAI', title: '2026 고객감동우수브랜드 시상식 스케치', year: 2026 },
             { videoId: 'Pa7nen0crnk', url: 'https://youtu.be/Pa7nen0crnk', title: '2025 고객감동우수브랜드 대상 시상식 스케치 영상', year: 2025 },
             { videoId: 'pdqEoNp928E', url: 'https://youtu.be/pdqEoNp928E', title: '2024 고객감동우수브랜드 시상식 스케치영상', year: 2024 },
             { videoId: 'Tz_MGKEqvGI', url: 'https://youtu.be/Tz_MGKEqvGI', title: '2023 고객감동우수브랜드 시상식 스케치', year: 2023 }
@@ -29,27 +32,64 @@ const Video: React.FC = () => {
 
     // 현재 어워드에 맞는 영상 리스트를 가져오거나, 없으면 기본값 사용
     const videos = videosByAward[currentAward.slug] || videosByAward['CSBA'];
+    const scrollSlider = (direction: 'left' | 'right') => {
+        if (!sliderRef.current) return;
+
+        const scrollAmount = sliderRef.current.clientWidth * 0.85;
+        sliderRef.current.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth',
+        });
+    };
 
     return (
         <section id="video" className="py-32 bg-brand-bg border-t border-brand-gold/10 snap-start">
             <div className="max-w-screen-2xl mx-auto container-padding relative z-10">
-                <div className="text-left mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                        역대 {currentAward.title}
-                    </h2>
-                    <p className="text-gray-400 text-lg">
-                        대한민국을 빛낸 브랜드들의 영광스러운 순간을 확인하세요.
-                    </p>
+                <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="text-left">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                            역대 {currentAward.title}
+                        </h2>
+                        <p className="text-gray-400 text-lg">
+                            대한민국을 빛낸 브랜드들의 영광스러운 순간을 확인하세요.
+                        </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-start lg:self-auto">
+                        <button
+                            type="button"
+                            onClick={() => scrollSlider('left')}
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/30 bg-black text-brand-gold transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black"
+                            aria-label="이전 영상 보기"
+                        >
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M14.5 6.5L9 12l5.5 5.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => scrollSlider('right')}
+                            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/30 bg-black text-brand-gold transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black"
+                            aria-label="다음 영상 보기"
+                        >
+                            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M9.5 6.5L15 12l-5.5 5.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div
+                    ref={sliderRef}
+                    className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pr-4"
+                >
                     {videos.map((video) => (
                         <a
                             key={video.videoId}
                             href={video.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group cursor-pointer block"
+                            className="group block min-w-[18rem] shrink-0 snap-start sm:min-w-[22rem] lg:min-w-[26rem]"
                         >
                             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-brand-gold/20 group-hover:border-brand-gold transition-all mb-4">
                                 {/* YouTube 썸네일 이미지 (고화질) */}
