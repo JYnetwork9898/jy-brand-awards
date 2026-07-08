@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useAward } from '../context/AwardContext';
 
 const Video: React.FC = () => {
@@ -12,26 +12,51 @@ const Video: React.FC = () => {
             { videoId: 'RXdcyXo1EMY', url: 'https://www.youtube.com/watch?v=RXdcyXo1EMY', title: '2026 히트브랜드대상 시상식 스케치 영상', year: 2026 },
             { videoId: 'DE3NPoGEq6o', url: 'https://youtu.be/DE3NPoGEq6o', title: '2025 히트브랜드대상 시상식 스케치 영상', year: 2025 },
             { videoId: '5PlScWKKeRg', url: 'https://youtu.be/5PlScWKKeRg', title: '2024 히트브랜드 스케치', year: 2024 },
-            { videoId: '_rs8Aja2uXE', url: 'https://youtu.be/_rs8Aja2uXE', title: '2023 히트브랜드대상 시상식 현장', year: 2023 }
+            { videoId: '_rs8Aja2uXE', url: 'https://youtu.be/_rs8Aja2uXE', title: '2023 히트브랜드대상 시상식 현장', year: 2023 },
+            { videoId: 'OjdIrgnMxwo', url: 'https://youtu.be/OjdIrgnMxwo', title: '2022 히트브랜드 및 코로나를 이겨낸 대한민국 강소기업 시상식', year: 2022 },
+            { videoId: 'SMc2i7hsgmk', url: 'https://youtu.be/SMc2i7hsgmk', title: '2021 히트브랜드 시상식', year: 2021 },
+            { videoId: '-eeQ5e3gfeY', url: 'https://youtu.be/-eeQ5e3gfeY', title: '2020 히트브랜드 대상 시상식', year: 2020 },
+            { videoId: '-DzVcm70JVQ', url: 'https://youtu.be/-DzVcm70JVQ', title: '2019 히트브랜드대상 시상식 현장', year: 2019 },
+            { videoId: '3a3V1qkm90k', url: 'https://youtu.be/3a3V1qkm90k', title: '2018 히트브랜드대상 시상식 개최', year: 2018 }
         ], 'CSEB': [
             { videoId: '8AaRmWH5cAI', url: 'https://www.youtube.com/watch?v=8AaRmWH5cAI', title: '2026 고객감동우수브랜드 시상식 스케치', year: 2026 },
             { videoId: 'Pa7nen0crnk', url: 'https://youtu.be/Pa7nen0crnk', title: '2025 고객감동우수브랜드 대상 시상식 스케치 영상', year: 2025 },
             { videoId: 'pdqEoNp928E', url: 'https://youtu.be/pdqEoNp928E', title: '2024 고객감동우수브랜드 시상식 스케치영상', year: 2024 },
-            { videoId: 'Tz_MGKEqvGI', url: 'https://youtu.be/Tz_MGKEqvGI', title: '2023 고객감동우수브랜드 시상식 스케치', year: 2023 }
+            { videoId: 'Tz_MGKEqvGI', url: 'https://youtu.be/Tz_MGKEqvGI', title: '2023 고객감동우수브랜드 시상식 스케치', year: 2023 },
+            { videoId: '47xZEklBgRY', url: 'https://youtu.be/47xZEklBgRY', title: '2022 고객감동우수브랜드 시상식', year: 2022 },
+            { videoId: 'voR0FNkO_lg', url: 'https://youtu.be/voR0FNkO_lg', title: '2021 고객감동우수브랜드 시상식', year: 2021 },
+            { videoId: 'dUF49q5OQW4', url: 'https://youtu.be/dUF49q5OQW4', title: '2020 중앙일보 우수브랜드 시상식', year: 2020 },
+            { videoId: 'SEcBn-d1yTo', url: 'https://youtu.be/SEcBn-d1yTo', title: '2019 고객감동 우수브랜드 대상 시상식 개최', year: 2019 },
+            { videoId: 'w22zTrsFVjI', url: 'https://youtu.be/w22zTrsFVjI', title: '2018 고객감동 우수브랜드 대상 시상식 개최', year: 2018 }
         ], 'CSBA': [
             { videoId: 'RscmBbyMOWw', url: 'https://youtu.be/RscmBbyMOWw', title: '2025 소비자 만족 브랜드 대상 1위 시상식', year: 2025 },
             { videoId: 'ERuHF5xznrE', url: 'https://youtu.be/ERuHF5xznrE', title: '2024 소비자만족브랜드대상 시상식', year: 2024 },
-            { videoId: 'Ot-9nNCmojI', url: 'https://youtu.be/Ot-9nNCmojI', title: '2023 소비자만족브랜드대상 시상식 스케치영상', year: 2023 }
+            { videoId: 'Ot-9nNCmojI', url: 'https://youtu.be/Ot-9nNCmojI', title: '2023 소비자만족브랜드대상 시상식 스케치영상', year: 2023 },
+            { videoId: '_hx3Xn_tF-I', url: 'https://youtu.be/_hx3Xn_tF-I', title: '2022 소비자만족브랜드대상 시상식 스케치영상', year: 2022 },
+            { videoId: 'amkDkrifyi4', url: 'https://youtu.be/amkDkrifyi4', title: '2021 소비자만족브랜드대상 시상식 스케치영상', year: 2021 },
+            { videoId: 'yohniHDzSl0', url: 'https://youtu.be/yohniHDzSl0', title: '2020 중앙일보 우수브랜드 시상식', year: 2020 },
+            { videoId: 'PmQ8-__wYfU', url: 'https://youtu.be/PmQ8-__wYfU', title: '2019 소비자만족브랜드대상 시상식 현장', year: 2019 },
+            { videoId: '6DNRRYzqIBE', url: 'https://youtu.be/6DNRRYzqIBE', title: '2018 소비자만족브랜드대상 시상식 현장', year: 2018 }
         ],
         'TEBA': [
+            { videoId: 'gFTyxCWErUo', url: 'https://youtu.be/gFTyxCWErUo', title: '2025 올해의 우수 브랜드 시상식 스케치', year: 2025 },
             { videoId: 'BTIGpfUC3qg', url: 'https://youtu.be/BTIGpfUC3qg', title: '2024 올해의 우수 브랜드 시상식 스케치', year: 2024 },
             { videoId: '3grgULaajTk', url: 'https://youtu.be/3grgULaajTk', title: '2023 올해의 우수 브랜드 시상식 스케치', year: 2023 },
-            { videoId: 'FySvVfAs0sA', url: 'https://youtu.be/FySvVfAs0sA', title: '2022 올해의우수브랜드 시상식 스케치', year: 2022 }
+            { videoId: 'FySvVfAs0sA', url: 'https://youtu.be/FySvVfAs0sA', title: '2022 올해의우수브랜드 시상식 스케치', year: 2022 },
+            { videoId: 'fYAuiWe2u8Y', url: 'https://youtu.be/fYAuiWe2u8Y', title: '2021 올해의우수브랜드 시상식', year: 2021 },
+            { videoId: '3v4z1l2KEvk', url: 'https://youtu.be/3v4z1l2KEvk', title: '2020 중앙일보 우수브랜드 시상식', year: 2020 },
+            { videoId: 'A76jVAt_aTY', url: 'https://youtu.be/A76jVAt_aTY', title: '2019 올해의 우수브랜드 대상 1위 시상식 개최', year: 2019 },
+            { videoId: 'sL-wSu0c_TE', url: 'https://youtu.be/sL-wSu0c_TE', title: '2018 올해의 우수브랜드 대상 시상식 현장', year: 2018 }
         ]
     };
 
     // 현재 어워드에 맞는 영상 리스트를 가져오거나, 없으면 기본값 사용
     const videos = videosByAward[currentAward.slug] || videosByAward['CSBA'];
+
+    useEffect(() => {
+        sliderRef.current?.scrollTo({ left: 0, behavior: 'auto' });
+    }, [currentAward.slug]);
+
     const scrollSlider = (direction: 'left' | 'right') => {
         if (!sliderRef.current) return;
 
@@ -81,7 +106,7 @@ const Video: React.FC = () => {
 
                 <div
                     ref={sliderRef}
-                    className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pr-4"
+                    className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pr-4"
                 >
                     {videos.map((video) => (
                         <a
