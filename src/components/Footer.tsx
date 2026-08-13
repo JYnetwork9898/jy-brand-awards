@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                         <ul className="space-y-2 text-gray-400 text-sm">
                             <li>TEL 02.6959.5552</li>
                             <li>Fax 02.866.7761</li>
-                            <li>MOBLIE 010.5036.5683</li>
+                            <li>MOBLIE 010-8667-5661</li>
                         </ul>
                     </div>
                     {/* 법적 고지 및 약관 */}
